@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Text;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DevExpress.XtraBars;
 
 namespace green
 {
-    public partial class Form1 : Form
+    public partial class Frm_main : DevExpress.XtraBars.Ribbon.RibbonForm
     {
-        public Form1()
+        public Frm_main()
         {
             InitializeComponent();
         }
