@@ -12,6 +12,7 @@ namespace green.Misc
         private static string _AppVersion = "20.0114001";           //应用版本号
         private static string _UnitName = "牡丹江市龙凤公墓";       //使用单位    
         private static string _ROOTID = "0000000000";               //root用户Id
+        private static string _ADMINGID = "0000000000";             //管理员组ID
         private static int _GRID_HEIGHT = 50;
         private static int _GRID_WIDTH = 60;
 
@@ -54,6 +55,8 @@ namespace green.Misc
         {
             get { return _GRID_WIDTH; }
         }
+
+        public static string ADMINGID { get { return _ADMINGID; } }
           
     }
 }

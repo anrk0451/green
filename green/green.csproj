@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Objects.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.BonusSkins.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -39,6 +42,9 @@
     <Reference Include="DevExpress.Utils.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraBars.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGrid.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="log4net">
       <HintPath>..\..\dll\log4net.dll</HintPath>
     </Reference>
@@ -66,8 +72,41 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Action\MiscAction.cs" />
+    <Compile Include="BaseObject\BaseBusiness.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BaseObject\BaseBusiness.Designer.cs">
+      <DependentUpon>BaseBusiness.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaseObject\MyDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseObject\MyDialog.Designer.cs">
+      <DependentUpon>MyDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObject\Operators.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BusinessObject\Operators.Designer.cs">
+      <DependentUpon>Operators.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObject\Roles.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BusinessObject\Roles.Designer.cs">
+      <DependentUpon>Roles.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dao\Uc01_dao.cs" />
+    <Compile Include="Dao\Ur_Mapper_dao.cs" />
     <Compile Include="Domain\Uc01.cs" />
+    <Compile Include="Domain\Ur_Mapper.cs" />
+    <Compile Include="Form\Frm_operator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Frm_operator.Designer.cs">
+      <DependentUpon>Frm_operator.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +128,21 @@
     <Compile Include="SplashScreen1.Designer.cs">
       <DependentUpon>SplashScreen1.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="BaseObject\BaseBusiness.resx">
+      <DependentUpon>BaseBusiness.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseObject\MyDialog.resx">
+      <DependentUpon>MyDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BusinessObject\Operators.resx">
+      <DependentUpon>Operators.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BusinessObject\Roles.resx">
+      <DependentUpon>Roles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Frm_operator.resx">
+      <DependentUpon>Frm_operator.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frm_main.resx">
       <DependentUpon>Frm_main.cs</DependentUpon>
     </EmbeddedResource>
@@ -118,6 +172,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Objects.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

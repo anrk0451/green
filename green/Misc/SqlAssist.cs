@@ -184,17 +184,16 @@ namespace green.Misc
                 if (int.Parse(appcode.Value.ToString()) < 0)
                 {
                     trans.Rollback();
-                    XtraMessageBox.Show(apperror.Value.ToString(), "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Tools.msg(MessageBoxIcon.Error, "错误", apperror.Value.ToString());                  
                     return -1;
                 }
-
                 trans.Commit();
                 return 1;
             }
-            catch (Exception e)
+            catch (Exception ee)
             {
                 trans.Rollback();
-                XtraMessageBox.Show("执行过程错误!\n" + e.ToString(), "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Tools.msg(MessageBoxIcon.Error, "错误", "执行过程错误!" + ee.ToString());            
                 return -1;
             }
             finally
@@ -219,13 +218,12 @@ namespace green.Misc
             }
             catch (Exception e)
             {
-                XtraMessageBox.Show("执行过程出错!\n" + e.ToString(), "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Tools.msg(MessageBoxIcon.Error, "错误", "执行过程出错!\n" + e.ToString());       
             }
             finally
             {
                 cmd.Dispose();
             }
-
             return returnValue.Value;
         }
 

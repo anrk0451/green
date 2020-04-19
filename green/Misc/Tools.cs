@@ -1,11 +1,14 @@
-﻿using System;
+﻿using DevExpress.XtraEditors;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace green.Misc
 {
@@ -145,6 +148,42 @@ namespace green.Misc
             }
 
             ipaddress = ipaddr;
+        }
+
+        /// <summary>
+        /// 显示消息提示框
+        /// </summary>
+        /// <param name="micon"></param>
+        /// <param name="title"></param>
+        /// <param name="content"></param>
+        public static void msg(MessageBoxIcon micon,string title,string content)
+        {            
+            if(micon == MessageBoxIcon.Error)
+            {
+                XtraMessageBox.Show(content, title, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LogUtils.Error(content);
+            }
+            else  
+                XtraMessageBox.Show(content, title, MessageBoxButtons.OK,micon);          
+        }
+
+        /// <summary>
+        /// Md5加密
+        /// </summary>
+        /// <param name="source"></param>
+        /// <returns></returns>
+        public static string EncryptWithMD5(string source)
+        {
+            byte[] sor = Encoding.UTF8.GetBytes(source);
+            MD5 md5 = MD5.Create();
+            byte[] result = md5.ComputeHash(sor);
+            StringBuilder strbul = new StringBuilder(40);
+            for (int i = 0; i < result.Length; i++)
+            {
+                strbul.Append(result[i].ToString("x2"));//加密结果"x2"结果为32位,"x3"结果为48位,"x4"结果为64位
+
+            }
+            return strbul.ToString();
         }
     }
 }
