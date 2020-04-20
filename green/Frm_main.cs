@@ -187,6 +187,15 @@ namespace green
         {
             openBusinessObject("Roles");
         }
+        /// <summary>
+        /// 数据项目维护
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void barButtonItem11_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            openBusinessObject("DataDict");
+        }
     }
 
     /// <summary>

@@ -20,11 +20,13 @@ namespace green.BusinessObject
     public partial class Roles : BaseBusiness
     {
         private DataTable dt_ro01 = new DataTable("Ro01");
-        private OracleDataAdapter ro01Adapter = new OracleDataAdapter("select * from ro01",SqlAssist.conn);
+        private OracleDataAdapter ro01Adapter = new OracleDataAdapter("select * from ro01 order by ro001",SqlAssist.conn);
+        private OracleCommandBuilder builder = null;            //命令生成器(更新时候用)
 
         public Roles()
         {
             InitializeComponent();
+            builder = new OracleCommandBuilder(ro01Adapter);
         }
 
         private void Roles_Load(object sender, EventArgs e)
@@ -153,10 +155,49 @@ namespace green.BusinessObject
                 {
                     return;
                 }
-
+                int rowHandle = gridView1.FocusedRowHandle;
+                if(gridView1.GetRowCellValue(rowHandle,"RO001").ToString() == AppInfo.ADMINGID)
+                {
+                    Tools.msg(MessageBoxIcon.Exclamation, "提示", "内置角色,不能删除!");
+                    return;
+                }
             }
             gridView1.DeleteRow(gridView1.FocusedRowHandle);
             gridView1.UpdateCurrentRow();
+        }
+        /// <summary>
+        /// 保存
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void barButtonItem3_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (!gridView1.PostEditor()) return;
+            if (!gridView1.UpdateCurrentRow()) return;
+
+            try
+            {
+                ro01Adapter.Update(dt_ro01);
+                Tools.msg(MessageBoxIcon.Information, "提示", "保存成功!");                
+            }
+            catch (Exception ee)
+            {
+                Tools.msg(MessageBoxIcon.Error, "错误", ee.ToString()); 
+            }
+        }
+
+        /// <summary>
+        /// 如果是管理员组,拒绝编辑
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void gridView1_ShowingEditor(object sender, CancelEventArgs e)
+        {
+            if(gridView1.FocusedRowHandle >= 0)
+            {
+                string s_ro001 = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "RO001").ToString();
+                if (s_ro001 == AppInfo.ADMINGID) e.Cancel = true;
+            }            
         }
     }
 }

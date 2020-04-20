@@ -14,23 +14,27 @@ using green.Dao;
 using Oracle.ManagedDataAccess.Client;
 using green.Misc;
 using green.Form;
+using DevExpress.XtraGrid.Views.Grid.ViewInfo;
+using green.DataSet;
 
 namespace green.BusinessObject
 {
     public partial class Operators : BaseBusiness
     {
-        private DataTable dt_uc01 = new DataTable("Uc01");
-        private OracleDataAdapter uc01Adapter = new OracleDataAdapter("select * from v_uc01", SqlAssist.conn);
+        private Uc01_ds uc01_ds = new Uc01_ds();
+        
         public Operators()
         {
             InitializeComponent();
-            gridControl1.DataSource = dt_uc01;
+            gridControl1.DataSource = uc01_ds.Uc01;
         }
 
         //对象装入事件
         private void Operators_Load(object sender, EventArgs e)
         {
-            uc01Adapter.Fill(dt_uc01);
+            gridView1.ActiveFilter.Clear();
+            gridView1.ActiveFilterString = "STATUS <> '0'";
+            uc01_ds.uc01Adapter.Fill(uc01_ds.Uc01);
         }
 
         /// <summary>
@@ -61,8 +65,8 @@ namespace green.BusinessObject
         private void RefreshData()
         {
             gridView1.BeginUpdate();
-            dt_uc01.Rows.Clear();
-            uc01Adapter.Fill(dt_uc01);
+            uc01_ds.Uc01.Rows.Clear();
+            uc01_ds.uc01Adapter.Fill(uc01_ds.Uc01);
             gridView1.EndUpdate();
         }
         /// <summary>
@@ -118,13 +122,18 @@ namespace green.BusinessObject
             if (gridView1.FocusedRowHandle >= 0)
             {
                 if (XtraMessageBox.Show("确认要删除当前的记录吗", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.No) return;
+                if(gridView1.GetRowCellValue(gridView1.FocusedRowHandle,"UC001").ToString() == AppInfo.ROOTID)
+                {
+                    Tools.msg(MessageBoxIcon.Exclamation, "提示", "内置操作员,不能删除!");
+                    return;
+                }
             }
 
             gridView1.SetFocusedRowCellValue("STATUS", "0");
             try
             {
                 if (!gridView1.UpdateCurrentRow()) return;
-                uc01Adapter.Update(dt_uc01);
+                uc01_ds.uc01Adapter.Update(uc01_ds.Uc01);
                 Tools.msg(MessageBoxIcon.Information, "提示", "删除成功!"); 
             }
             catch (Exception ee)
@@ -154,6 +163,27 @@ namespace green.BusinessObject
                 if(gridView1.GetRowCellValue(gridView1.FocusedRowHandle,"RO001").ToString() == AppInfo.ADMINGID)
                 {
                     e.Cancel = true;
+                }
+            }
+        }
+
+        private void barButtonItem3_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            int row = gridView1.FocusedRowHandle;
+            if (row < 0) return;
+
+            this.EditData(row);
+        }
+
+        private void gridView1_MouseDown(object sender, MouseEventArgs e)
+        {
+            GridHitInfo hInfo = gridView1.CalcHitInfo(new Point(e.X, e.Y));
+            if (e.Button == MouseButtons.Left && e.Clicks == 2)
+            {
+                //判断光标是否在行范围内  
+                if (hInfo.InRow)
+                {
+                    EditData(gridView1.FocusedRowHandle);
                 }
             }
         }

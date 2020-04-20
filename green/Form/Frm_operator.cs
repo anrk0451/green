@@ -20,7 +20,7 @@ namespace green.Form
     public partial class Frm_operator : MyDialog
     {
         private DataTable dt_roles = new DataTable("Ro01");
-        private OracleDataAdapter ro01Adapter = new OracleDataAdapter("select * from ro01 where status = '1' ", SqlAssist.conn);
+        private OracleDataAdapter ro01Adapter = new OracleDataAdapter("select * from ro01 order by ro001", SqlAssist.conn);
         private string action = string.Empty;
         private Uc01 uc01 = null;
         private Uc01_dao uc01_dao = new Uc01_dao();
