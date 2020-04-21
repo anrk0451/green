@@ -196,6 +196,15 @@ namespace green
         {
             openBusinessObject("DataDict");
         }
+        /// <summary>
+        /// 墓区结构维护
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void barButtonItem13_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            openBusinessObject("TombStructure");
+        }
     }
 
     /// <summary>
