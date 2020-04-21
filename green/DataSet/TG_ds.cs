@@ -17,9 +17,11 @@ namespace green.DataSet
         public DataTable dt_grid { get; set; }   //图形化网格数据源
         public DataTable dt_bi01 { get; set; }   //墓位信息表
         public DataTable dt_rg01 { get; set; }   //墓区结构信息
+        public DataTable dt_mx { get; set; }     //墓型信息
 
         private OracleDataAdapter bi01Adapter;
         private OracleDataAdapter rg01Adapter;
+        private OracleDataAdapter mxAdapter;
 
         OracleCommandBuilder builder = null;
         /// <summary>
@@ -71,7 +73,10 @@ namespace green.DataSet
             builder = new OracleCommandBuilder(rg01Adapter);
 
             ///3.dt_grid
-            
+            ///4.填充 墓型信息
+            mxAdapter = new OracleDataAdapter("select * from st01 where st002 = 'MTYPE' and status = '1' order by sortId", SqlAssist.conn);
+            dt_mx = new DataTable();
+            mxAdapter.Fill(dt_mx);
         }
 
         /// <summary>

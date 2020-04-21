@@ -126,6 +126,12 @@
     <Compile Include="Form\Frm_operator.Designer.cs">
       <DependentUpon>Frm_operator.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form\Frm_region.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Frm_region.Designer.cs">
+      <DependentUpon>Frm_region.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -167,6 +173,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form\Frm_operator.resx">
       <DependentUpon>Frm_operator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Frm_region.resx">
+      <DependentUpon>Frm_region.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_main.resx">
       <DependentUpon>Frm_main.cs</DependentUpon>

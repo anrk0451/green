@@ -11,6 +11,8 @@ using DevExpress.XtraEditors;
 using green.BaseObject;
 using DevExpress.XtraSplashScreen;
 using green.DataSet;
+using green.Form;
+using green.Misc;
 
 namespace green.BusinessObject
 {
@@ -61,6 +63,23 @@ namespace green.BusinessObject
             SplashScreenManager.ShowDefaultWaitForm("请等待", "处理中....");
             //DrawGrid(e.Node);
             SplashScreenManager.CloseDefaultWaitForm();
+        }
+
+        /// <summary>
+        /// 新建墓区
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Frm_region frm_1 = new Frm_region();
+            ///传递数据
+            frm_1.swapdata["dataset"] = tg_ds;   
+            if(frm_1.ShowDialog() == DialogResult.OK)
+            {
+                Tools.msg(MessageBoxIcon.Information,"提示","操作成功!");
+            }
+            frm_1.Dispose();
         }
     }
 }
