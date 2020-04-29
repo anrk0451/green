@@ -44,17 +44,15 @@ namespace green.Form
             ///如果是编辑记录 
             if (!string.IsNullOrEmpty(rg001))
             {
-                using (OracleDataReader reader = SqlAssist.ExecuteReader("select * from rg01 where rg001 = '" + rg001 + "'"))
+                string s_sql = "rg001='" + rg001 + "'";
+                DataRow[] rows = tg_ds.dt_rg01.Select("rg001='" + rg001 + "'");
+                if (rows.Length > 0)
                 {
-                    if (reader.Read())
-                    {
-                        te_rg003.EditValue = reader["RG003"];
-                        gl_mx.EditValue = reader["RG004"];
-                        te_price.EditValue = reader["PRICE"];
-                    }
-                }
-            }
- 
+                    te_rg003.EditValue = rows[0]["RG003"];
+                    gl_mx.EditValue = rows[0]["RG004"];
+                    te_price.EditValue = rows[0]["PRICE"];                     
+                } 
+            } 
         }
 
         private void sb_cancel_Click(object sender, EventArgs e)
@@ -70,6 +68,22 @@ namespace green.Form
                 te_rg003.ErrorImageOptions.Alignment = ErrorIconAlignment.MiddleRight;
                 return false;
             }
+            else
+            {
+                //检查唯一性
+                string s_sql = string.Empty;
+                if (string.IsNullOrEmpty(rg001))
+                    s_sql = " rg002 = '1' and rg003 ='" + te_rg003.Text + "'";
+                else
+                    s_sql = " rg002 = '1' and rg003='" + te_rg003.Text + "' and rg001 <> '" + rg001 + "'";
+
+                if(tg_ds.dt_rg01.Select(s_sql).Length > 0)
+                {
+                    te_rg003.ErrorText = "墓区名称已经存在!";
+                    te_rg003.ErrorImageOptions.Alignment = ErrorIconAlignment.MiddleRight;
+                    return false;
+                }
+            }
             return true;
         }
 
@@ -81,12 +95,31 @@ namespace green.Form
                 //1.新增
                 DataRow newrow = tg_ds.dt_rg01.NewRow();
                 newrow["RG001"] = MiscAction.GetEntityPK("RG01");
-
+                newrow["RG002"] = "1";                              //0-顶级节点 1-墓区 2-排
+                newrow["RG003"] = te_rg003.Text;
+                newrow["RG004"] = gl_mx.EditValue;
+                newrow["PRICE"] = te_price.EditValue;
+                newrow["RG009"] = "0000000000";
+                tg_ds.dt_rg01.Rows.Add(newrow);
             }
             else
             {
                 //2.修改
+                DataRow[] rows = tg_ds.dt_rg01.Select("rg001='" + rg001 + "'");
+                if(rows.Length > 0)
+                {
+                    rows[0]["RG003"] = te_rg003.Text;
+                    rows[0]["RG004"] = gl_mx.EditValue;
+                    rows[0]["PRICE"] = te_price.EditValue;
+                }
+                else
+                {
+                    Tools.msg(MessageBoxIcon.Warning, "提示", "未找到记录!");
+                    return;
+                }
             }
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
     }
 }

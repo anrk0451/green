@@ -13,8 +13,8 @@ namespace green.Misc
         private static string _UnitName = "牡丹江市龙凤公墓";       //使用单位    
         private static string _ROOTID = "0000000000";               //root用户Id
         private static string _ADMINGID = "0000000000";             //管理员组ID
-        private static int _GRID_HEIGHT = 50;
-        private static int _GRID_WIDTH = 60;
+        private static int _GRID_HEIGHT = 30;
+        private static int _GRID_WIDTH = 40;
 
  
         private static int _TAXITEMCOUNT = 8;                       //打印发票清单阈值

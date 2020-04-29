@@ -17,6 +17,7 @@ using DevExpress.XtraTab;
 using Oracle.ManagedDataAccess.Client;
 using green.BaseObject;
 using DevExpress.XtraTab.ViewInfo;
+using green.Form;
 
 namespace green
 {     
@@ -86,7 +87,8 @@ namespace green
             List<Bo01> bo01_rows = ModelHelper.TableToEntity<Bo01>(dt_bo01);
             businessTab = bo01_rows.ToDictionary(key => key.bo001, value => value);
 
-             
+            //读取发票基础信息
+            this.ReadInvoiceBaseInfo();
         }
 
         /// <summary>
@@ -205,6 +207,93 @@ namespace green
         {
             openBusinessObject("TombStructure");
         }
+        /// <summary>
+        /// 税票基础信息
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void barButtonItem14_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Frm_taxBaseInfo frm_1 = new Frm_taxBaseInfo();
+            frm_1.ShowDialog();
+            frm_1.Dispose();
+        }
+
+        /// <summary>
+		/// 读取发票信息
+		/// </summary>
+		private void ReadInvoiceBaseInfo()
+        {
+            OracleDataReader reader = SqlAssist.ExecuteReader("select * from sp01 where sp001  < '0000000100' ");
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    if (reader["SP002"].ToString() == "tax_no")                        //纳税人识别号
+                        Envior.TAX_ID = reader["SP005"].ToString();
+                    else if (reader["SP002"].ToString() == "tax_addrtele")             //税票-销方地址电话
+                        Envior.TAX_ADDR_TELE = reader["SP005"].ToString();
+                    else if (reader["SP002"].ToString() == "tax_bankaccount")          //税票-销方银行账号
+                        Envior.TAX_BANK_ACCOUNT = reader["SP005"].ToString();
+                    else if (reader["SP002"].ToString() == "tax_appid")                //税票-应用账号
+                        Envior.TAX_APPID = reader["SP005"].ToString();
+                    else if (reader["SP002"].ToString() == "tax_invoicetype")          //税票-发票类型
+                        Envior.TAX_INVOICE_TYPE = reader["SP005"].ToString();
+                    else if (reader["SP002"].ToString() == "tax_server_url")           //税票-服务请求URL	
+                        Envior.TAX_SERVER_URL = reader["SP005"].ToString();
+                    else if (reader["SP002"].ToString() == "tax_publickey")            //税票-公钥
+                        Envior.TAX_PUBLIC_KEY = reader["SP005"].ToString();
+                    else if (reader["SP002"].ToString() == "tax_privatekey")           //税票-私钥
+                        Envior.TAX_PRIVATE_KEY = reader["SP005"].ToString();
+                    else if (reader["SP002"].ToString() == "tax_cashier")              //税票-收款人
+                        Envior.TAX_CASHIER = reader["SP005"].ToString();
+                    else if (reader["SP002"].ToString() == "tax_checker")              //税票-复核人
+                        Envior.TAX_CHECKER = reader["SP005"].ToString();
+                    else if(reader["SP002"].ToString() == "tax_max_fee")
+                    {
+                        decimal dec_max;
+                        if (decimal.TryParse(reader["SP006"].ToString(), out dec_max))
+                            Envior.TAX_MAX_FEE = dec_max;
+                        else
+                            Envior.TAX_MAX_FEE = 0;
+                    }
+                         
+                }
+            }
+            reader.Dispose();
+        }
+        /// <summary>
+        /// 税票项目维护
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void barButtonItem15_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            openBusinessObject("TaxItem");
+        }
+        /// <summary>
+        /// 收费项目维护
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void barButtonItem12_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            openBusinessObject("SalesItemInfo");
+        }
+        /// <summary>
+        /// 购墓登记
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Frm_checkin frm_checkin = new Frm_checkin();
+            if(frm_checkin.ShowDialog() == DialogResult.OK)
+            {
+
+            }
+            frm_checkin.Dispose();
+        }
     }
 
     /// <summary>
@@ -217,5 +306,6 @@ namespace green
         public string bo003 { get; set; }   //业务名称
         public string bo004 { get; set; }   //业务对象类型 w-窗口 x-xtratabpage对象
     }
+
 
 }

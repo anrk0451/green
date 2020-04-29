@@ -88,6 +88,17 @@ namespace green.DataSet
             rg01Adapter.Fill(dt_rg01);
         }
 
+        public void Update_Rg01()
+        {
+            rg01Adapter.Update(dt_rg01);
+        }
+
+        public void Update_Bi01()
+        {
+            bi01Adapter.Update(dt_bi01);
+        }
+
+
         public void Fill_Bi01()
         {
             dt_bi01.Rows.Clear();

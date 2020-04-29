@@ -73,6 +73,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Action\MapperID.cs" />
     <Compile Include="Action\MiscAction.cs" />
     <Compile Include="BaseObject\BaseBusiness.cs">
       <SubType>UserControl</SubType>
@@ -104,6 +105,18 @@
     <Compile Include="BusinessObject\Roles.Designer.cs">
       <DependentUpon>Roles.cs</DependentUpon>
     </Compile>
+    <Compile Include="BusinessObject\SalesItemInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BusinessObject\SalesItemInfo.Designer.cs">
+      <DependentUpon>SalesItemInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObject\TaxItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BusinessObject\TaxItem.Designer.cs">
+      <DependentUpon>TaxItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="BusinessObject\TombStructure.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -112,6 +125,9 @@
     </Compile>
     <Compile Include="Dao\Uc01_dao.cs" />
     <Compile Include="Dao\Ur_Mapper_dao.cs" />
+    <Compile Include="DataSet\SalesItem_ds.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="DataSet\TG_ds.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -120,6 +136,24 @@
     </Compile>
     <Compile Include="Domain\Uc01.cs" />
     <Compile Include="Domain\Ur_Mapper.cs" />
+    <Compile Include="Form\Frm_bi01.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Frm_bi01.Designer.cs">
+      <DependentUpon>Frm_bi01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Frm_checkin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Frm_checkin.Designer.cs">
+      <DependentUpon>Frm_checkin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Frm_freeBit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Frm_freeBit.Designer.cs">
+      <DependentUpon>Frm_freeBit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form\Frm_operator.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,6 +165,18 @@
     </Compile>
     <Compile Include="Form\Frm_region.Designer.cs">
       <DependentUpon>Frm_region.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Frm_rower.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Frm_rower.Designer.cs">
+      <DependentUpon>Frm_rower.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Frm_taxBaseInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Frm_taxBaseInfo.Designer.cs">
+      <DependentUpon>Frm_taxBaseInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Frm_main.cs">
       <SubType>Form</SubType>
@@ -168,14 +214,35 @@
     <EmbeddedResource Include="BusinessObject\Roles.resx">
       <DependentUpon>Roles.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BusinessObject\SalesItemInfo.resx">
+      <DependentUpon>SalesItemInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BusinessObject\TaxItem.resx">
+      <DependentUpon>TaxItem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BusinessObject\TombStructure.resx">
       <DependentUpon>TombStructure.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Frm_bi01.resx">
+      <DependentUpon>Frm_bi01.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Frm_checkin.resx">
+      <DependentUpon>Frm_checkin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Frm_freeBit.resx">
+      <DependentUpon>Frm_freeBit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\Frm_operator.resx">
       <DependentUpon>Frm_operator.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\Frm_region.resx">
       <DependentUpon>Frm_region.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Frm_rower.resx">
+      <DependentUpon>Frm_rower.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Frm_taxBaseInfo.resx">
+      <DependentUpon>Frm_taxBaseInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_main.resx">
       <DependentUpon>Frm_main.cs</DependentUpon>

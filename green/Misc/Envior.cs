@@ -25,6 +25,7 @@ namespace green.Misc
         public static string TAX_SERVER_URL { get; set; }     //税务发票服务URL  
         public static string TAX_CASHIER { get; set; }        //税务发票-收款人
         public static string TAX_CHECKER { get; set; }        //税务发票-复核人
+        public static decimal TAX_MAX_FEE { get; set; }       //税务发票-单张最大面额  
 
         public static string WORKSTATIONID { get; set; }      //工作站ID
 
