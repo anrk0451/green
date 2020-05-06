@@ -40,6 +40,7 @@
     <Reference Include="DevExpress.Data.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Printing.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Xpo.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraBars.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraGrid.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -125,6 +126,12 @@
     </Compile>
     <Compile Include="Dao\Uc01_dao.cs" />
     <Compile Include="Dao\Ur_Mapper_dao.cs" />
+    <Compile Include="DataSet\Ac01_ds.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DataSet\DataDict_ds.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="DataSet\SalesItem_ds.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -185,6 +192,7 @@
       <DependentUpon>Frm_main.cs</DependentUpon>
     </Compile>
     <Compile Include="Misc\AppInfo.cs" />
+    <Compile Include="Misc\ChineseDateTime.cs" />
     <Compile Include="Misc\DbContext.cs" />
     <Compile Include="Misc\Envior.cs" />
     <Compile Include="Misc\LogUtils.cs" />
@@ -198,6 +206,51 @@
     </Compile>
     <Compile Include="SplashScreen1.Designer.cs">
       <DependentUpon>SplashScreen1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="xpo\ORMDataModel1Code\AC01.cs" />
+    <Compile Include="xpo\ORMDataModel1Code\AC01.Designer.cs">
+      <DependentUpon>AC01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="xpo\ORMDataModel1Code\AC03.cs" />
+    <Compile Include="xpo\ORMDataModel1Code\AC03.Designer.cs">
+      <DependentUpon>AC03.cs</DependentUpon>
+    </Compile>
+    <Compile Include="xpo\ORMDataModel1Code\BI01.cs" />
+    <Compile Include="xpo\ORMDataModel1Code\BI01.Designer.cs">
+      <DependentUpon>BI01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="xpo\ORMDataModel1Code\ConnectionHelper.cs" />
+    <Compile Include="xpo\ORMDataModel1Code\FA01.cs" />
+    <Compile Include="xpo\ORMDataModel1Code\FA01.Designer.cs">
+      <DependentUpon>FA01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="xpo\ORMDataModel1Code\GI01.cs" />
+    <Compile Include="xpo\ORMDataModel1Code\GI01.Designer.cs">
+      <DependentUpon>GI01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="xpo\ORMDataModel1Code\SA01.cs" />
+    <Compile Include="xpo\ORMDataModel1Code\SA01.Designer.cs">
+      <DependentUpon>SA01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="xpo\ORMDataModel1Code\SI01.cs" />
+    <Compile Include="xpo\ORMDataModel1Code\SI01.Designer.cs">
+      <DependentUpon>SI01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="xpo\ORMDataModel1Code\SP01.cs" />
+    <Compile Include="xpo\ORMDataModel1Code\SP01.Designer.cs">
+      <DependentUpon>SP01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="xpo\ORMDataModel1Code\ST01.cs" />
+    <Compile Include="xpo\ORMDataModel1Code\ST01.Designer.cs">
+      <DependentUpon>ST01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="xpo\ORMDataModel1Code\V_ALL_ITEM.cs" />
+    <Compile Include="xpo\ORMDataModel1Code\V_ALL_ITEM.Designer.cs">
+      <DependentUpon>V_ALL_ITEM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="xpo\ORMDataModel1Code\V_ALL_VALIDITEM.cs" />
+    <Compile Include="xpo\ORMDataModel1Code\V_ALL_VALIDITEM.Designer.cs">
+      <DependentUpon>V_ALL_VALIDITEM.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="BaseObject\BaseBusiness.resx">
       <DependentUpon>BaseBusiness.cs</DependentUpon>
@@ -271,6 +324,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="xpo\ORMDataModel1.xpo" />
+    <None Include="xpo\ORMDataModel1.xpo.diagram">
+      <DependentUpon>ORMDataModel1.xpo</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

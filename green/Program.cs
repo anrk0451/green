@@ -1,7 +1,9 @@
 ﻿using DevExpress.LookAndFeel;
 using DevExpress.Skins;
 using DevExpress.UserSkins;
+using DevExpress.Xpo.DB;
 using green.Misc;
+using green.xpo.orcl;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -31,6 +33,9 @@ namespace green
 					Application.Exit();
 					return;
 				}
+
+				//Xpo连接数据库
+				ConnectionHelper.Connect(AutoCreateOption.DatabaseAndSchema);
 
 				//设置应用程序处理异常方式：ThreadException处理
 				Application.SetUnhandledExceptionMode(UnhandledExceptionMode.CatchException);

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -213,7 +214,8 @@ namespace green.Misc
             try
             {
                 cmd.Parameters.Add(returnValue);
-                cmd.Parameters.AddRange(paras);
+                if(paras != null) cmd.Parameters.AddRange(paras);
+
                 cmd.ExecuteNonQuery();
             }
             catch (Exception e)
@@ -225,6 +227,22 @@ namespace green.Misc
                 cmd.Dispose();
             }
             return returnValue.Value;
+        }
+
+        public static DataRow GetSingelRow(string sql)
+        {
+            DataTable dt_dump = new DataTable();
+            OracleDataAdapter adapter = new OracleDataAdapter(sql, conn);
+            adapter.Fill(dt_dump);
+            adapter.Dispose();
+            if (dt_dump.Rows.Count > 0)
+            {                
+                return dt_dump.Rows[0];
+            }
+            else
+            {
+                return null;
+            }                 
         }
 
     }

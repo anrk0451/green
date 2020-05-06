@@ -137,6 +137,78 @@ namespace green.Action
 			Object re = SqlAssist.ExecuteFunction("pkg_business.fun_GetTombStatus", new OracleParameter[] { op_rowerId, op_bitDesc });
 			return re.ToString();
 		}
+		/// <summary>
+		/// 获取系统参数1
+		/// </summary>
+		/// <param name="propId"></param>
+		/// <returns></returns>
+		public static decimal GetSysParaValue1(string propId)
+		{
+			OracleParameter op_propId = new OracleParameter("ic_propId", OracleDbType.Varchar2, 50);
+			op_propId.Direction = ParameterDirection.Input;
+			op_propId.Value = propId;
+
+			Object re = SqlAssist.ExecuteFunction("pkg_business.fun_GetSysParaValue1", new OracleParameter[] { op_propId});
+			return Convert.ToDecimal(re.ToString());
+		}
+		/// <summary>
+		/// 获取墓位位置
+		/// </summary>
+		/// <param name="bi001"></param>
+		/// <returns></returns>
+		public static string GetTombPosition(string bi001)
+		{
+			OracleParameter op_bi001 = new OracleParameter("ic_bi001", OracleDbType.Varchar2, 10);
+			op_bi001.Direction = ParameterDirection.Input;
+			op_bi001.Value = bi001;
+
+			Object re = SqlAssist.ExecuteFunction("pkg_business.fun_GetTombPosition", new OracleParameter[] { op_bi001 });
+			return re.ToString();
+		}
+
+		/// <summary>
+		/// 获取墓区排数
+		/// </summary>
+		/// <param name="regionId"></param>
+		/// <returns></returns>
+		public static int GetRowerCount(string regionId)
+		{
+			OracleParameter op_regionId = new OracleParameter("ic_regionId", OracleDbType.Varchar2, 10);
+			op_regionId.Direction = ParameterDirection.Input;
+			op_regionId.Value = regionId;
+
+			Object re = SqlAssist.ExecuteFunction("pkg_report.fun_getRowerCount", new OracleParameter[] { op_regionId });
+			return Convert.ToInt32(re.ToString());
+		}
+
+		public static int GetMaxCols(string regionId)
+		{
+			OracleParameter op_regionId = new OracleParameter("ic_regionId", OracleDbType.Varchar2, 10);
+			op_regionId.Direction = ParameterDirection.Input;
+			op_regionId.Value = regionId;
+
+			Object re = SqlAssist.ExecuteFunction("pkg_report.fun_getMaxCols", new OracleParameter[] { op_regionId });
+			return Convert.ToInt32(re.ToString());
+		}
+		/// <summary>
+		/// 根据排号和号位描述返回墓位号
+		/// </summary>
+		/// <param name="rowerId"></param>
+		/// <param name="bitdesc"></param>
+		/// <returns></returns>
+		public static string GetTombId(string rowerId,string bitdesc)
+		{
+			OracleParameter op_rowerId = new OracleParameter("ic_rowerId", OracleDbType.Varchar2, 10);
+			op_rowerId.Direction = ParameterDirection.Input;
+			op_rowerId.Value = rowerId;
+
+			OracleParameter op_bitdesc = new OracleParameter("ic_bitDesc", OracleDbType.Varchar2, 50);
+			op_bitdesc.Direction = ParameterDirection.Input;
+			op_bitdesc.Value = bitdesc;
+
+			Object re = SqlAssist.ExecuteFunction("pkg_business.fun_GetTombID", new OracleParameter[] { op_rowerId,op_bitdesc });
+			return re.ToString();
+		}
 
 		/// <summary>
 		/// 保存税务发票基本信息

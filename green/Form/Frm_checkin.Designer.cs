@@ -28,86 +28,129 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions buttonImageOptions1 = new DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_checkin));
             DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions buttonImageOptions2 = new DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions();
+            DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions buttonImageOptions3 = new DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions();
+            DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions buttonImageOptions4 = new DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.te_fixprice = new DevExpress.XtraEditors.TextEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
+            this.le_mx = new DevExpress.XtraEditors.LookUpEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.be_position = new DevExpress.XtraEditors.ButtonEdit();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
+            this.te_ac250 = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
             this.te_free_nums = new DevExpress.XtraEditors.TextEdit();
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
             this.te_price = new DevExpress.XtraEditors.TextEdit();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
-            this.textEdit5 = new DevExpress.XtraEditors.TextEdit();
+            this.te_ac002 = new DevExpress.XtraEditors.TextEdit();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
-            this.textEdit4 = new DevExpress.XtraEditors.TextEdit();
+            this.te_ac005 = new DevExpress.XtraEditors.TextEdit();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
-            this.textEdit3 = new DevExpress.XtraEditors.TextEdit();
+            this.te_ac004 = new DevExpress.XtraEditors.TextEdit();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
-            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
+            this.te_ac003 = new DevExpress.XtraEditors.TextEdit();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSA001 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.rep_item_price = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.colAC001 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSA002 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSA003 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSA004 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.rep_item_sa004 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.xpView_allItem = new DevExpress.Xpo.XPView(this.components);
+            this.unitOfWork1 = new DevExpress.Xpo.UnitOfWork(this.components);
+            this.colSA005 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colPRICE = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNUMS = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.rep_item_nums = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.colSA007 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSA006 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSA008 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSA010 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSA020 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSA025 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSA100 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSA200 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSTATUS = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.xpCollection_sa01 = new DevExpress.Xpo.XPCollection(this.components);
             this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
             this.gridControl2 = new DevExpress.XtraGrid.GridControl();
+            this.xpCollection_ac03 = new DevExpress.Xpo.XPCollection(this.components);
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemRadioGroup1 = new DevExpress.XtraEditors.Repository.RepositoryItemRadioGroup();
             this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemDateEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn16 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn17 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn18 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.rep_item_gx = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.gridColumn19 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.rep_item_zs = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.gridColumn20 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.lc_total = new DevExpress.XtraEditors.LabelControl();
             this.sb_cancel = new DevExpress.XtraEditors.SimpleButton();
             this.sb_ok = new DevExpress.XtraEditors.SimpleButton();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.te_fixprice.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.le_mx.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.be_position.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.te_ac250.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.te_free_nums.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.te_price.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit5.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.te_ac002.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.te_ac005.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.te_ac004.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.te_ac003.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
             this.groupControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rep_item_price)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rep_item_sa004)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xpView_allItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.unitOfWork1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rep_item_nums)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xpCollection_sa01)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).BeginInit();
             this.groupControl4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xpCollection_ac03)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRadioGroup1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rep_item_gx)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rep_item_zs)).BeginInit();
             this.SuspendLayout();
             // 
             // groupControl1
             // 
             this.groupControl1.Controls.Add(this.te_fixprice);
             this.groupControl1.Controls.Add(this.labelControl3);
-            this.groupControl1.Controls.Add(this.lookUpEdit1);
+            this.groupControl1.Controls.Add(this.le_mx);
             this.groupControl1.Controls.Add(this.labelControl2);
             this.groupControl1.Controls.Add(this.labelControl1);
             this.groupControl1.Controls.Add(this.be_position);
@@ -121,9 +164,12 @@
             // 
             this.te_fixprice.Location = new System.Drawing.Point(421, 89);
             this.te_fixprice.Name = "te_fixprice";
+            this.te_fixprice.Properties.Appearance.Options.UseTextOptions = true;
+            this.te_fixprice.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.te_fixprice.Properties.Mask.EditMask = "N2";
             this.te_fixprice.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.te_fixprice.Properties.Mask.UseMaskAsDisplayFormat = true;
+            this.te_fixprice.Properties.ReadOnly = true;
             this.te_fixprice.Size = new System.Drawing.Size(125, 28);
             this.te_fixprice.TabIndex = 4;
             // 
@@ -139,14 +185,21 @@
             this.labelControl3.TabIndex = 3;
             this.labelControl3.Text = "定价";
             // 
-            // lookUpEdit1
+            // le_mx
             // 
-            this.lookUpEdit1.Location = new System.Drawing.Point(107, 89);
-            this.lookUpEdit1.Name = "lookUpEdit1";
-            this.lookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.le_mx.Location = new System.Drawing.Point(107, 89);
+            this.le_mx.Name = "le_mx";
+            this.le_mx.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lookUpEdit1.Size = new System.Drawing.Size(156, 28);
-            this.lookUpEdit1.TabIndex = 3;
+            this.le_mx.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ST003", ""),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ST001", "名称2", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
+            this.le_mx.Properties.DisplayMember = "ST003";
+            this.le_mx.Properties.NullText = "[选择墓型]";
+            this.le_mx.Properties.ShowHeader = false;
+            this.le_mx.Properties.ValueMember = "ST001";
+            this.le_mx.Size = new System.Drawing.Size(156, 28);
+            this.le_mx.TabIndex = 3;
             // 
             // labelControl2
             // 
@@ -178,9 +231,11 @@
             this.be_position.Name = "be_position";
             this.be_position.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.be_position.Properties.ReadOnly = true;
             this.be_position.Size = new System.Drawing.Size(439, 28);
             this.be_position.TabIndex = 0;
             this.be_position.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.be_position_ButtonClick);
+            this.be_position.DoubleClick += new System.EventHandler(this.be_position_DoubleClick);
             // 
             // groupControl2
             // 
@@ -188,34 +243,59 @@
             this.groupControl2.AppearanceCaption.Options.UseTextOptions = true;
             this.groupControl2.AppearanceCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.groupControl2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.groupControl2.Controls.Add(this.te_ac250);
+            this.groupControl2.Controls.Add(this.labelControl11);
             this.groupControl2.Controls.Add(this.te_free_nums);
             this.groupControl2.Controls.Add(this.labelControl9);
             this.groupControl2.Controls.Add(this.te_price);
             this.groupControl2.Controls.Add(this.labelControl8);
-            this.groupControl2.Controls.Add(this.textEdit5);
+            this.groupControl2.Controls.Add(this.te_ac002);
             this.groupControl2.Controls.Add(this.labelControl7);
-            this.groupControl2.Controls.Add(this.textEdit4);
+            this.groupControl2.Controls.Add(this.te_ac005);
             this.groupControl2.Controls.Add(this.labelControl6);
-            this.groupControl2.Controls.Add(this.textEdit3);
+            this.groupControl2.Controls.Add(this.te_ac004);
             this.groupControl2.Controls.Add(this.labelControl5);
-            this.groupControl2.Controls.Add(this.textEdit2);
+            this.groupControl2.Controls.Add(this.te_ac003);
             this.groupControl2.Controls.Add(this.labelControl4);
             this.groupControl2.GroupStyle = DevExpress.Utils.GroupStyle.Light;
             this.groupControl2.Location = new System.Drawing.Point(18, 166);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(562, 245);
+            this.groupControl2.Size = new System.Drawing.Size(562, 276);
             this.groupControl2.TabIndex = 1;
             this.groupControl2.Text = "购墓信息";
+            this.groupControl2.Paint += new System.Windows.Forms.PaintEventHandler(this.groupControl2_Paint);
+            // 
+            // te_ac250
+            // 
+            this.te_ac250.Location = new System.Drawing.Point(107, 231);
+            this.te_ac250.Name = "te_ac250";
+            this.te_ac250.Size = new System.Drawing.Size(439, 28);
+            this.te_ac250.TabIndex = 17;
+            // 
+            // labelControl11
+            // 
+            this.labelControl11.Appearance.Image = null;
+            this.labelControl11.AppearanceDisabled.Image = null;
+            this.labelControl11.AppearanceHovered.Image = null;
+            this.labelControl11.AppearancePressed.Image = null;
+            this.labelControl11.Location = new System.Drawing.Point(19, 234);
+            this.labelControl11.Name = "labelControl11";
+            this.labelControl11.Size = new System.Drawing.Size(36, 22);
+            this.labelControl11.TabIndex = 16;
+            this.labelControl11.Text = "备注";
             // 
             // te_free_nums
             // 
             this.te_free_nums.Location = new System.Drawing.Point(421, 184);
             this.te_free_nums.Name = "te_free_nums";
+            this.te_free_nums.Properties.Appearance.Options.UseTextOptions = true;
+            this.te_free_nums.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.te_free_nums.Properties.Mask.EditMask = "N0";
             this.te_free_nums.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.te_free_nums.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.te_free_nums.Size = new System.Drawing.Size(125, 28);
             this.te_free_nums.TabIndex = 15;
+            this.te_free_nums.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.te_free_nums_EditValueChanging);
             // 
             // labelControl9
             // 
@@ -233,11 +313,15 @@
             // 
             this.te_price.Location = new System.Drawing.Point(107, 184);
             this.te_price.Name = "te_price";
+            this.te_price.Properties.Appearance.Options.UseTextOptions = true;
+            this.te_price.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.te_price.Properties.Mask.EditMask = "N2";
             this.te_price.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.te_price.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.te_price.Size = new System.Drawing.Size(125, 28);
             this.te_price.TabIndex = 13;
+            this.te_price.EditValueChanged += new System.EventHandler(this.te_price_EditValueChanged);
+            this.te_price.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.te_price_EditValueChanging);
             // 
             // labelControl8
             // 
@@ -251,12 +335,13 @@
             this.labelControl8.TabIndex = 12;
             this.labelControl8.Text = "售价";
             // 
-            // textEdit5
+            // te_ac002
             // 
-            this.textEdit5.Location = new System.Drawing.Point(107, 136);
-            this.textEdit5.Name = "textEdit5";
-            this.textEdit5.Size = new System.Drawing.Size(439, 28);
-            this.textEdit5.TabIndex = 11;
+            this.te_ac002.Location = new System.Drawing.Point(107, 136);
+            this.te_ac002.Name = "te_ac002";
+            this.te_ac002.Size = new System.Drawing.Size(439, 28);
+            this.te_ac002.TabIndex = 11;
+            this.te_ac002.Validating += new System.ComponentModel.CancelEventHandler(this.te_ac002_Validating);
             // 
             // labelControl7
             // 
@@ -270,12 +355,12 @@
             this.labelControl7.TabIndex = 10;
             this.labelControl7.Text = "身份证号";
             // 
-            // textEdit4
+            // te_ac005
             // 
-            this.textEdit4.Location = new System.Drawing.Point(107, 88);
-            this.textEdit4.Name = "textEdit4";
-            this.textEdit4.Size = new System.Drawing.Size(439, 28);
-            this.textEdit4.TabIndex = 9;
+            this.te_ac005.Location = new System.Drawing.Point(107, 88);
+            this.te_ac005.Name = "te_ac005";
+            this.te_ac005.Size = new System.Drawing.Size(439, 28);
+            this.te_ac005.TabIndex = 9;
             // 
             // labelControl6
             // 
@@ -289,12 +374,12 @@
             this.labelControl6.TabIndex = 8;
             this.labelControl6.Text = "联系地址";
             // 
-            // textEdit3
+            // te_ac004
             // 
-            this.textEdit3.Location = new System.Drawing.Point(382, 42);
-            this.textEdit3.Name = "textEdit3";
-            this.textEdit3.Size = new System.Drawing.Size(164, 28);
-            this.textEdit3.TabIndex = 7;
+            this.te_ac004.Location = new System.Drawing.Point(382, 42);
+            this.te_ac004.Name = "te_ac004";
+            this.te_ac004.Size = new System.Drawing.Size(164, 28);
+            this.te_ac004.TabIndex = 7;
             // 
             // labelControl5
             // 
@@ -308,12 +393,12 @@
             this.labelControl5.TabIndex = 6;
             this.labelControl5.Text = "联系电话";
             // 
-            // textEdit2
+            // te_ac003
             // 
-            this.textEdit2.Location = new System.Drawing.Point(107, 42);
-            this.textEdit2.Name = "textEdit2";
-            this.textEdit2.Size = new System.Drawing.Size(125, 28);
-            this.textEdit2.TabIndex = 5;
+            this.te_ac003.Location = new System.Drawing.Point(107, 42);
+            this.te_ac003.Name = "te_ac003";
+            this.te_ac003.Size = new System.Drawing.Size(125, 28);
+            this.te_ac003.TabIndex = 5;
             // 
             // labelControl4
             // 
@@ -330,18 +415,29 @@
             // groupControl3
             // 
             this.groupControl3.Controls.Add(this.gridControl1);
+            buttonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("buttonImageOptions1.Image")));
+            buttonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("buttonImageOptions2.Image")));
+            this.groupControl3.CustomHeaderButtons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
+            new DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("", true, buttonImageOptions1, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "增加", -1, true, null, true, false, true, null, -1),
+            new DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("", true, buttonImageOptions2, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "删除", -1, true, null, true, false, true, null, -1)});
             this.groupControl3.Location = new System.Drawing.Point(587, 9);
             this.groupControl3.Name = "groupControl3";
-            this.groupControl3.Size = new System.Drawing.Size(391, 402);
+            this.groupControl3.Size = new System.Drawing.Size(391, 433);
             this.groupControl3.TabIndex = 2;
             this.groupControl3.Text = "选购服务、祭品";
+            this.groupControl3.CustomButtonClick += new DevExpress.XtraBars.Docking2010.BaseButtonEventHandler(this.groupControl3_CustomButtonClick);
             // 
             // gridControl1
             // 
+            this.gridControl1.DataSource = this.xpCollection_sa01;
             this.gridControl1.Location = new System.Drawing.Point(6, 27);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(380, 367);
+            this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.rep_item_sa004,
+            this.rep_item_price,
+            this.rep_item_nums});
+            this.gridControl1.Size = new System.Drawing.Size(380, 398);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -349,123 +445,285 @@
             // gridView1
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn1,
-            this.gridColumn2,
-            this.gridColumn3,
-            this.gridColumn4,
-            this.gridColumn5,
-            this.gridColumn6,
-            this.gridColumn7,
-            this.gridColumn8,
-            this.gridColumn9});
+            this.colSA001,
+            this.colAC001,
+            this.colSA002,
+            this.colSA003,
+            this.colSA004,
+            this.colSA005,
+            this.colPRICE,
+            this.colNUMS,
+            this.colSA007,
+            this.colSA006,
+            this.colSA008,
+            this.colSA010,
+            this.colSA020,
+            this.colSA025,
+            this.colSA100,
+            this.colSA200,
+            this.colSTATUS});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ColumnAutoWidth = false;
+            this.gridView1.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
+            this.gridView1.OptionsView.ShowFooter = true;
             this.gridView1.OptionsView.ShowGroupPanel = false;
+            this.gridView1.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.gridView1_InitNewRow);
+            this.gridView1.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gridView1_CellValueChanged);
+            this.gridView1.RowDeleted += new DevExpress.Data.RowDeletedEventHandler(this.gridView1_RowDeleted);
+            this.gridView1.ValidatingEditor += new DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventHandler(this.gridView1_ValidatingEditor);
             // 
-            // gridColumn1
+            // colSA001
             // 
-            this.gridColumn1.Caption = "销售流水号";
-            this.gridColumn1.FieldName = "SA001";
-            this.gridColumn1.MinWidth = 25;
-            this.gridColumn1.Name = "gridColumn1";
-            this.gridColumn1.Width = 94;
+            this.colSA001.ColumnEdit = this.rep_item_price;
+            this.colSA001.FieldName = "SA001";
+            this.colSA001.MinWidth = 25;
+            this.colSA001.Name = "colSA001";
+            this.colSA001.OptionsColumn.AllowShowHide = false;
+            this.colSA001.Width = 94;
             // 
-            // gridColumn2
+            // rep_item_price
             // 
-            this.gridColumn2.Caption = "购墓流水号";
-            this.gridColumn2.FieldName = "AC001";
-            this.gridColumn2.MinWidth = 25;
-            this.gridColumn2.Name = "gridColumn2";
-            this.gridColumn2.Width = 94;
+            this.rep_item_price.AutoHeight = false;
+            this.rep_item_price.Mask.EditMask = "N2";
+            this.rep_item_price.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.rep_item_price.Mask.UseMaskAsDisplayFormat = true;
+            this.rep_item_price.Name = "rep_item_price";
             // 
-            // gridColumn3
+            // colAC001
             // 
-            this.gridColumn3.Caption = "服务或商品";
-            this.gridColumn3.FieldName = "SA002";
-            this.gridColumn3.MinWidth = 25;
-            this.gridColumn3.Name = "gridColumn3";
-            this.gridColumn3.Width = 94;
+            this.colAC001.FieldName = "AC001";
+            this.colAC001.MinWidth = 25;
+            this.colAC001.Name = "colAC001";
+            this.colAC001.OptionsColumn.AllowShowHide = false;
+            this.colAC001.Width = 94;
             // 
-            // gridColumn4
+            // colSA002
             // 
-            this.gridColumn4.Caption = "项目名称";
-            this.gridColumn4.FieldName = "SA003";
-            this.gridColumn4.MinWidth = 25;
-            this.gridColumn4.Name = "gridColumn4";
-            this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 0;
-            this.gridColumn4.Width = 110;
+            this.colSA002.FieldName = "SA002";
+            this.colSA002.MinWidth = 25;
+            this.colSA002.Name = "colSA002";
+            this.colSA002.OptionsColumn.AllowShowHide = false;
+            this.colSA002.Width = 94;
             // 
-            // gridColumn5
+            // colSA003
             // 
-            this.gridColumn5.Caption = "服务或商品编号";
-            this.gridColumn5.FieldName = "SA004";
-            this.gridColumn5.MinWidth = 25;
-            this.gridColumn5.Name = "gridColumn5";
-            this.gridColumn5.Width = 94;
+            this.colSA003.FieldName = "SA003";
+            this.colSA003.MinWidth = 25;
+            this.colSA003.Name = "colSA003";
+            this.colSA003.OptionsColumn.AllowShowHide = false;
+            this.colSA003.Width = 94;
             // 
-            // gridColumn6
+            // colSA004
             // 
-            this.gridColumn6.Caption = "业务类型";
-            this.gridColumn6.FieldName = "SA005";
-            this.gridColumn6.MinWidth = 25;
-            this.gridColumn6.Name = "gridColumn6";
-            this.gridColumn6.Width = 94;
+            this.colSA004.Caption = "项目名";
+            this.colSA004.ColumnEdit = this.rep_item_sa004;
+            this.colSA004.FieldName = "SA004";
+            this.colSA004.MinWidth = 25;
+            this.colSA004.Name = "colSA004";
+            this.colSA004.Visible = true;
+            this.colSA004.VisibleIndex = 0;
+            this.colSA004.Width = 121;
             // 
-            // gridColumn7
+            // rep_item_sa004
             // 
-            this.gridColumn7.Caption = "单价";
-            this.gridColumn7.FieldName = "PRICE";
-            this.gridColumn7.MinWidth = 25;
-            this.gridColumn7.Name = "gridColumn7";
-            this.gridColumn7.Visible = true;
-            this.gridColumn7.VisibleIndex = 1;
-            this.gridColumn7.Width = 82;
+            this.rep_item_sa004.AutoHeight = false;
+            this.rep_item_sa004.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.rep_item_sa004.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ITEM_ID", "ITEM_ID", 8, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ITEM_TYPE", "ITEM_TYPE", 8, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ITEM_NAME", "名称", 8, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("PRICE", "单价", 8, DevExpress.Utils.FormatType.Numeric, "N2", true, DevExpress.Utils.HorzAlignment.Far, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("SORTID", "SORTID", 8, DevExpress.Utils.FormatType.Numeric, "", false, DevExpress.Utils.HorzAlignment.Far, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ZJF", "ZJF", 8, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("INV_CODE", "INV_CODE", 8, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ITEM_GGXH", "ITEM_GGXH", 8, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ITEM_JLDW", "ITEM_JLDW", 8, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
+            this.rep_item_sa004.DataSource = this.xpView_allItem;
+            this.rep_item_sa004.DisplayMember = "ITEM_NAME";
+            this.rep_item_sa004.Name = "rep_item_sa004";
+            this.rep_item_sa004.NullText = "[选择项目]";
+            this.rep_item_sa004.ValueMember = "ITEM_ID";
             // 
-            // gridColumn8
+            // xpView_allItem
             // 
-            this.gridColumn8.Caption = "数量";
-            this.gridColumn8.FieldName = "NUMS";
-            this.gridColumn8.MinWidth = 25;
-            this.gridColumn8.Name = "gridColumn8";
-            this.gridColumn8.Visible = true;
-            this.gridColumn8.VisibleIndex = 2;
-            this.gridColumn8.Width = 57;
+            this.xpView_allItem.ObjectType = typeof(green.xpo.orcl.V_ALL_VALIDITEM);
+            this.xpView_allItem.Properties.AddRange(new DevExpress.Xpo.ViewProperty[] {
+            new DevExpress.Xpo.ViewProperty("ITEM_ID", DevExpress.Xpo.SortDirection.None, "[ITEM_ID]", false, true),
+            new DevExpress.Xpo.ViewProperty("ITEM_TYPE", DevExpress.Xpo.SortDirection.None, "[ITEM_TYPE]", false, true),
+            new DevExpress.Xpo.ViewProperty("ITEM_NAME", DevExpress.Xpo.SortDirection.None, "[ITEM_NAME]", false, true),
+            new DevExpress.Xpo.ViewProperty("PRICE", DevExpress.Xpo.SortDirection.None, "[PRICE]", false, true),
+            new DevExpress.Xpo.ViewProperty("SORTID", DevExpress.Xpo.SortDirection.None, "[SORTID]", false, true),
+            new DevExpress.Xpo.ViewProperty("ZJF", DevExpress.Xpo.SortDirection.None, "[ZJF]", false, true),
+            new DevExpress.Xpo.ViewProperty("INV_CODE", DevExpress.Xpo.SortDirection.None, "[INV_CODE]", false, true),
+            new DevExpress.Xpo.ViewProperty("ITEM_GGXH", DevExpress.Xpo.SortDirection.None, "[ITEM_GGXH]", false, true),
+            new DevExpress.Xpo.ViewProperty("ITEM_JLDW", DevExpress.Xpo.SortDirection.None, "[ITEM_JLDW]", false, true)});
+            this.xpView_allItem.Session = this.unitOfWork1;
             // 
-            // gridColumn9
+            // unitOfWork1
             // 
-            this.gridColumn9.Caption = "金额";
-            this.gridColumn9.FieldName = "SA007";
-            this.gridColumn9.MinWidth = 25;
-            this.gridColumn9.Name = "gridColumn9";
-            this.gridColumn9.Visible = true;
-            this.gridColumn9.VisibleIndex = 3;
-            this.gridColumn9.Width = 102;
+            this.unitOfWork1.IsObjectModifiedOnNonPersistentPropertyChange = null;
+            this.unitOfWork1.TrackPropertiesModifications = false;
+            // 
+            // colSA005
+            // 
+            this.colSA005.FieldName = "SA005";
+            this.colSA005.MinWidth = 25;
+            this.colSA005.Name = "colSA005";
+            this.colSA005.OptionsColumn.AllowShowHide = false;
+            this.colSA005.Width = 94;
+            // 
+            // colPRICE
+            // 
+            this.colPRICE.Caption = "单价";
+            this.colPRICE.ColumnEdit = this.rep_item_price;
+            this.colPRICE.FieldName = "PRICE";
+            this.colPRICE.MinWidth = 25;
+            this.colPRICE.Name = "colPRICE";
+            this.colPRICE.Visible = true;
+            this.colPRICE.VisibleIndex = 1;
+            this.colPRICE.Width = 81;
+            // 
+            // colNUMS
+            // 
+            this.colNUMS.Caption = "数量";
+            this.colNUMS.ColumnEdit = this.rep_item_nums;
+            this.colNUMS.FieldName = "NUMS";
+            this.colNUMS.MinWidth = 25;
+            this.colNUMS.Name = "colNUMS";
+            this.colNUMS.Visible = true;
+            this.colNUMS.VisibleIndex = 2;
+            this.colNUMS.Width = 52;
+            // 
+            // rep_item_nums
+            // 
+            this.rep_item_nums.Mask.EditMask = "N0";
+            this.rep_item_nums.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.rep_item_nums.Mask.UseMaskAsDisplayFormat = true;
+            this.rep_item_nums.Name = "rep_item_nums";
+            // 
+            // colSA007
+            // 
+            this.colSA007.Caption = "金额";
+            this.colSA007.DisplayFormat.FormatString = "N2";
+            this.colSA007.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colSA007.FieldName = "SA007";
+            this.colSA007.MinWidth = 25;
+            this.colSA007.Name = "colSA007";
+            this.colSA007.OptionsColumn.AllowEdit = false;
+            this.colSA007.OptionsColumn.ReadOnly = true;
+            this.colSA007.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "SA007", "和={0:N2}")});
+            this.colSA007.Visible = true;
+            this.colSA007.VisibleIndex = 3;
+            this.colSA007.Width = 95;
+            // 
+            // colSA006
+            // 
+            this.colSA006.FieldName = "SA006";
+            this.colSA006.MinWidth = 25;
+            this.colSA006.Name = "colSA006";
+            this.colSA006.OptionsColumn.AllowShowHide = false;
+            this.colSA006.Width = 94;
+            // 
+            // colSA008
+            // 
+            this.colSA008.FieldName = "SA008";
+            this.colSA008.MinWidth = 25;
+            this.colSA008.Name = "colSA008";
+            this.colSA008.OptionsColumn.AllowShowHide = false;
+            this.colSA008.Width = 94;
+            // 
+            // colSA010
+            // 
+            this.colSA010.FieldName = "SA010";
+            this.colSA010.MinWidth = 25;
+            this.colSA010.Name = "colSA010";
+            this.colSA010.OptionsColumn.AllowShowHide = false;
+            this.colSA010.Width = 94;
+            // 
+            // colSA020
+            // 
+            this.colSA020.FieldName = "SA020";
+            this.colSA020.MinWidth = 25;
+            this.colSA020.Name = "colSA020";
+            this.colSA020.OptionsColumn.AllowShowHide = false;
+            this.colSA020.Width = 94;
+            // 
+            // colSA025
+            // 
+            this.colSA025.FieldName = "SA025";
+            this.colSA025.MinWidth = 25;
+            this.colSA025.Name = "colSA025";
+            this.colSA025.OptionsColumn.AllowShowHide = false;
+            this.colSA025.Width = 94;
+            // 
+            // colSA100
+            // 
+            this.colSA100.FieldName = "SA100";
+            this.colSA100.MinWidth = 25;
+            this.colSA100.Name = "colSA100";
+            this.colSA100.OptionsColumn.AllowShowHide = false;
+            this.colSA100.Width = 94;
+            // 
+            // colSA200
+            // 
+            this.colSA200.FieldName = "SA200";
+            this.colSA200.MinWidth = 25;
+            this.colSA200.Name = "colSA200";
+            this.colSA200.OptionsColumn.AllowShowHide = false;
+            this.colSA200.Width = 94;
+            // 
+            // colSTATUS
+            // 
+            this.colSTATUS.FieldName = "STATUS";
+            this.colSTATUS.MinWidth = 25;
+            this.colSTATUS.Name = "colSTATUS";
+            this.colSTATUS.OptionsColumn.AllowShowHide = false;
+            this.colSTATUS.Width = 94;
+            // 
+            // xpCollection_sa01
+            // 
+            this.xpCollection_sa01.ObjectType = typeof(green.xpo.orcl.SA01);
+            this.xpCollection_sa01.Session = this.unitOfWork1;
             // 
             // groupControl4
             // 
             this.groupControl4.Controls.Add(this.gridControl2);
-            buttonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("buttonImageOptions1.Image")));
-            buttonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("buttonImageOptions2.Image")));
+            buttonImageOptions3.Image = ((System.Drawing.Image)(resources.GetObject("buttonImageOptions3.Image")));
+            buttonImageOptions4.Image = ((System.Drawing.Image)(resources.GetObject("buttonImageOptions4.Image")));
             this.groupControl4.CustomHeaderButtons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
-            new DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("", false, buttonImageOptions1, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "增加", -1, true, null, true, false, true, null, -1),
-            new DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("", false, buttonImageOptions2, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "删除", -1, true, null, true, false, true, null, -1)});
-            this.groupControl4.Location = new System.Drawing.Point(18, 418);
+            new DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("", false, buttonImageOptions3, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "增加", -1, true, null, true, false, true, null, -1),
+            new DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("", false, buttonImageOptions4, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "删除", -1, true, null, true, false, true, null, -1)});
+            this.groupControl4.Location = new System.Drawing.Point(18, 448);
             this.groupControl4.Name = "groupControl4";
             this.groupControl4.Size = new System.Drawing.Size(960, 155);
             this.groupControl4.TabIndex = 3;
             this.groupControl4.Text = "安葬逝者信息";
+            this.groupControl4.CustomButtonClick += new DevExpress.XtraBars.Docking2010.BaseButtonEventHandler(this.groupControl4_CustomButtonClick);
             // 
             // gridControl2
             // 
+            this.gridControl2.DataSource = this.xpCollection_ac03;
             this.gridControl2.Location = new System.Drawing.Point(5, 27);
             this.gridControl2.MainView = this.gridView2;
             this.gridControl2.Name = "gridControl2";
+            this.gridControl2.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemRadioGroup1,
+            this.repositoryItemTextEdit1,
+            this.repositoryItemDateEdit1,
+            this.rep_item_gx,
+            this.rep_item_zs});
             this.gridControl2.Size = new System.Drawing.Size(950, 121);
             this.gridControl2.TabIndex = 1;
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
+            // 
+            // xpCollection_ac03
+            // 
+            this.xpCollection_ac03.ObjectType = typeof(green.xpo.orcl.AC03);
+            this.xpCollection_ac03.Session = this.unitOfWork1;
             // 
             // gridView2
             // 
@@ -479,12 +737,19 @@
             this.gridColumn16,
             this.gridColumn17,
             this.gridColumn18,
-            this.gridColumn19});
+            this.gridColumn19,
+            this.gridColumn20,
+            this.gridColumn1});
             this.gridView2.GridControl = this.gridControl2;
             this.gridView2.IndicatorWidth = 35;
             this.gridView2.Name = "gridView2";
             this.gridView2.OptionsView.ColumnAutoWidth = false;
+            this.gridView2.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.gridView2.OptionsView.ShowGroupPanel = false;
+            this.gridView2.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gridView2_CustomDrawRowIndicator);
+            this.gridView2.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.gridView2_InitNewRow);
+            this.gridView2.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gridView2_CellValueChanged);
+            this.gridView2.ValidatingEditor += new DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventHandler(this.gridView2_ValidatingEditor);
             // 
             // gridColumn10
             // 
@@ -507,32 +772,61 @@
             // gridColumn12
             // 
             this.gridColumn12.Caption = "性别";
+            this.gridColumn12.ColumnEdit = this.repositoryItemRadioGroup1;
             this.gridColumn12.FieldName = "AC112";
             this.gridColumn12.MinWidth = 25;
             this.gridColumn12.Name = "gridColumn12";
             this.gridColumn12.Visible = true;
             this.gridColumn12.VisibleIndex = 1;
-            this.gridColumn12.Width = 52;
+            this.gridColumn12.Width = 89;
+            // 
+            // repositoryItemRadioGroup1
+            // 
+            this.repositoryItemRadioGroup1.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
+            new DevExpress.XtraEditors.Controls.RadioGroupItem("0", "男"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem("1", "女")});
+            this.repositoryItemRadioGroup1.Name = "repositoryItemRadioGroup1";
             // 
             // gridColumn13
             // 
+            this.gridColumn13.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn13.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.gridColumn13.Caption = "年龄";
+            this.gridColumn13.ColumnEdit = this.repositoryItemTextEdit1;
             this.gridColumn13.FieldName = "AC114";
             this.gridColumn13.MinWidth = 25;
             this.gridColumn13.Name = "gridColumn13";
             this.gridColumn13.Visible = true;
             this.gridColumn13.VisibleIndex = 2;
-            this.gridColumn13.Width = 59;
+            this.gridColumn13.Width = 52;
+            // 
+            // repositoryItemTextEdit1
+            // 
+            this.repositoryItemTextEdit1.AutoHeight = false;
+            this.repositoryItemTextEdit1.Mask.EditMask = "N0";
+            this.repositoryItemTextEdit1.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.repositoryItemTextEdit1.Mask.UseMaskAsDisplayFormat = true;
+            this.repositoryItemTextEdit1.Name = "repositoryItemTextEdit1";
             // 
             // gridColumn14
             // 
             this.gridColumn14.Caption = "出生日期";
+            this.gridColumn14.ColumnEdit = this.repositoryItemDateEdit1;
             this.gridColumn14.FieldName = "AC116";
             this.gridColumn14.MinWidth = 25;
             this.gridColumn14.Name = "gridColumn14";
             this.gridColumn14.Visible = true;
-            this.gridColumn14.VisibleIndex = 3;
-            this.gridColumn14.Width = 96;
+            this.gridColumn14.VisibleIndex = 4;
+            this.gridColumn14.Width = 104;
+            // 
+            // repositoryItemDateEdit1
+            // 
+            this.repositoryItemDateEdit1.AutoHeight = false;
+            this.repositoryItemDateEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemDateEdit1.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemDateEdit1.Name = "repositoryItemDateEdit1";
             // 
             // gridColumn15
             // 
@@ -540,9 +834,8 @@
             this.gridColumn15.FieldName = "AC117";
             this.gridColumn15.MinWidth = 25;
             this.gridColumn15.Name = "gridColumn15";
-            this.gridColumn15.Visible = true;
-            this.gridColumn15.VisibleIndex = 4;
-            this.gridColumn15.Width = 170;
+            this.gridColumn15.OptionsColumn.AllowShowHide = false;
+            this.gridColumn15.Width = 206;
             // 
             // gridColumn16
             // 
@@ -567,6 +860,7 @@
             // gridColumn18
             // 
             this.gridColumn18.Caption = "关系";
+            this.gridColumn18.ColumnEdit = this.rep_item_gx;
             this.gridColumn18.FieldName = "AC130";
             this.gridColumn18.MinWidth = 25;
             this.gridColumn18.Name = "gridColumn18";
@@ -574,9 +868,25 @@
             this.gridColumn18.VisibleIndex = 7;
             this.gridColumn18.Width = 96;
             // 
+            // rep_item_gx
+            // 
+            this.rep_item_gx.AutoHeight = false;
+            this.rep_item_gx.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.rep_item_gx.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ST001", "名称1", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ST003", "名称2")});
+            this.rep_item_gx.DisplayMember = "ST003";
+            this.rep_item_gx.Name = "rep_item_gx";
+            this.rep_item_gx.NullText = "";
+            this.rep_item_gx.ShowHeader = false;
+            this.rep_item_gx.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.rep_item_gx.ValueMember = "ST001";
+            // 
             // gridColumn19
             // 
             this.gridColumn19.Caption = "葬式";
+            this.gridColumn19.ColumnEdit = this.rep_item_zs;
             this.gridColumn19.FieldName = "AC120";
             this.gridColumn19.MinWidth = 25;
             this.gridColumn19.Name = "gridColumn19";
@@ -584,13 +894,46 @@
             this.gridColumn19.VisibleIndex = 8;
             this.gridColumn19.Width = 118;
             // 
+            // rep_item_zs
+            // 
+            this.rep_item_zs.AutoHeight = false;
+            this.rep_item_zs.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.rep_item_zs.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ST001", "名称3", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ST003", "名称4")});
+            this.rep_item_zs.DisplayMember = "ST003";
+            this.rep_item_zs.Name = "rep_item_zs";
+            this.rep_item_zs.NullText = "";
+            this.rep_item_zs.ShowHeader = false;
+            this.rep_item_zs.ValueMember = "ST001";
+            // 
+            // gridColumn20
+            // 
+            this.gridColumn20.Caption = "籍贯";
+            this.gridColumn20.FieldName = "AC115";
+            this.gridColumn20.MinWidth = 25;
+            this.gridColumn20.Name = "gridColumn20";
+            this.gridColumn20.Visible = true;
+            this.gridColumn20.VisibleIndex = 3;
+            this.gridColumn20.Width = 215;
+            // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "安葬批次号";
+            this.gridColumn1.FieldName = "AC199";
+            this.gridColumn1.MinWidth = 25;
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.OptionsColumn.AllowShowHide = false;
+            this.gridColumn1.Width = 94;
+            // 
             // labelControl10
             // 
             this.labelControl10.Appearance.Image = null;
             this.labelControl10.AppearanceDisabled.Image = null;
             this.labelControl10.AppearanceHovered.Image = null;
             this.labelControl10.AppearancePressed.Image = null;
-            this.labelControl10.Location = new System.Drawing.Point(18, 593);
+            this.labelControl10.Location = new System.Drawing.Point(18, 623);
             this.labelControl10.Name = "labelControl10";
             this.labelControl10.Size = new System.Drawing.Size(72, 22);
             this.labelControl10.TabIndex = 4;
@@ -603,7 +946,7 @@
             this.lc_total.AppearanceHovered.Image = null;
             this.lc_total.AppearancePressed.Image = null;
             this.lc_total.LineVisible = true;
-            this.lc_total.Location = new System.Drawing.Point(125, 594);
+            this.lc_total.Location = new System.Drawing.Point(125, 624);
             this.lc_total.Name = "lc_total";
             this.lc_total.Size = new System.Drawing.Size(54, 21);
             this.lc_total.TabIndex = 5;
@@ -617,7 +960,7 @@
             this.sb_cancel.Appearance.Options.UseForeColor = true;
             this.sb_cancel.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.sb_cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.sb_cancel.Location = new System.Drawing.Point(883, 589);
+            this.sb_cancel.Location = new System.Drawing.Point(883, 619);
             this.sb_cancel.LookAndFeel.UseDefaultLookAndFeel = false;
             this.sb_cancel.Name = "sb_cancel";
             this.sb_cancel.Size = new System.Drawing.Size(90, 30);
@@ -631,18 +974,41 @@
             this.sb_ok.Appearance.Options.UseBackColor = true;
             this.sb_ok.Appearance.Options.UseForeColor = true;
             this.sb_ok.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.sb_ok.Location = new System.Drawing.Point(740, 589);
+            this.sb_ok.Location = new System.Drawing.Point(740, 619);
             this.sb_ok.LookAndFeel.UseDefaultLookAndFeel = false;
             this.sb_ok.Name = "sb_ok";
             this.sb_ok.Size = new System.Drawing.Size(137, 30);
             this.sb_ok.TabIndex = 48;
             this.sb_ok.Text = "确定";
+            this.sb_ok.Click += new System.EventHandler(this.sb_ok_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(254, 619);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 30);
+            this.button1.TabIndex = 18;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(346, 618);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 30);
+            this.button2.TabIndex = 50;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Frm_checkin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(997, 640);
+            this.ClientSize = new System.Drawing.Size(997, 669);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.sb_cancel);
             this.Controls.Add(this.sb_ok);
             this.Controls.Add(this.lc_total);
@@ -653,29 +1019,44 @@
             this.Controls.Add(this.groupControl1);
             this.Name = "Frm_checkin";
             this.Text = "购墓登记";
+            this.Load += new System.EventHandler(this.Frm_checkin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.te_fixprice.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.le_mx.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.be_position.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
             this.groupControl2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.te_ac250.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.te_free_nums.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.te_price.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit5.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.te_ac002.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.te_ac005.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.te_ac004.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.te_ac003.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
             this.groupControl3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rep_item_price)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rep_item_sa004)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xpView_allItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.unitOfWork1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rep_item_nums)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xpCollection_sa01)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).EndInit();
             this.groupControl4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xpCollection_ac03)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRadioGroup1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rep_item_gx)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rep_item_zs)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -686,7 +1067,7 @@
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraEditors.TextEdit te_fixprice;
         private DevExpress.XtraEditors.LabelControl labelControl3;
-        private DevExpress.XtraEditors.LookUpEdit lookUpEdit1;
+        private DevExpress.XtraEditors.LookUpEdit le_mx;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.ButtonEdit be_position;
@@ -695,13 +1076,13 @@
         private DevExpress.XtraEditors.LabelControl labelControl9;
         private DevExpress.XtraEditors.TextEdit te_price;
         private DevExpress.XtraEditors.LabelControl labelControl8;
-        private DevExpress.XtraEditors.TextEdit textEdit5;
+        private DevExpress.XtraEditors.TextEdit te_ac002;
         private DevExpress.XtraEditors.LabelControl labelControl7;
-        private DevExpress.XtraEditors.TextEdit textEdit4;
+        private DevExpress.XtraEditors.TextEdit te_ac005;
         private DevExpress.XtraEditors.LabelControl labelControl6;
-        private DevExpress.XtraEditors.TextEdit textEdit3;
+        private DevExpress.XtraEditors.TextEdit te_ac004;
         private DevExpress.XtraEditors.LabelControl labelControl5;
-        private DevExpress.XtraEditors.TextEdit textEdit2;
+        private DevExpress.XtraEditors.TextEdit te_ac003;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.GroupControl groupControl3;
         private DevExpress.XtraGrid.GridControl gridControl1;
@@ -711,15 +1092,6 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
         private DevExpress.XtraEditors.LabelControl labelControl10;
         private DevExpress.XtraEditors.LabelControl lc_total;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
         private DevExpress.XtraEditors.SimpleButton sb_cancel;
         private DevExpress.XtraEditors.SimpleButton sb_ok;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn10;
@@ -732,5 +1104,40 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn17;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn18;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn19;
+        private DevExpress.XtraEditors.Repository.RepositoryItemRadioGroup repositoryItemRadioGroup1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit repositoryItemDateEdit1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn20;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit rep_item_gx;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit rep_item_zs;
+        private DevExpress.XtraEditors.TextEdit te_ac250;
+        private DevExpress.XtraEditors.LabelControl labelControl11;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit rep_item_sa004;
+        private DevExpress.Xpo.XPView xpView_allItem;
+        private DevExpress.Xpo.XPCollection xpCollection_sa01;
+        private DevExpress.XtraGrid.Columns.GridColumn colSA001;
+        private DevExpress.XtraGrid.Columns.GridColumn colAC001;
+        private DevExpress.XtraGrid.Columns.GridColumn colSA002;
+        private DevExpress.XtraGrid.Columns.GridColumn colSA003;
+        private DevExpress.XtraGrid.Columns.GridColumn colSA004;
+        private DevExpress.XtraGrid.Columns.GridColumn colSA005;
+        private DevExpress.XtraGrid.Columns.GridColumn colPRICE;
+        private DevExpress.XtraGrid.Columns.GridColumn colNUMS;
+        private DevExpress.XtraGrid.Columns.GridColumn colSA007;
+        private DevExpress.XtraGrid.Columns.GridColumn colSA006;
+        private DevExpress.XtraGrid.Columns.GridColumn colSA008;
+        private DevExpress.XtraGrid.Columns.GridColumn colSA010;
+        private DevExpress.XtraGrid.Columns.GridColumn colSA020;
+        private DevExpress.XtraGrid.Columns.GridColumn colSA025;
+        private DevExpress.XtraGrid.Columns.GridColumn colSA100;
+        private DevExpress.XtraGrid.Columns.GridColumn colSA200;
+        private DevExpress.XtraGrid.Columns.GridColumn colSTATUS;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit rep_item_price;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit rep_item_nums;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private DevExpress.Xpo.XPCollection xpCollection_ac03;
+        private DevExpress.Xpo.UnitOfWork unitOfWork1;
     }
 }
