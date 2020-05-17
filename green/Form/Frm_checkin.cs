@@ -18,6 +18,8 @@ using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraGrid.Views.Base;
 using green.xpo.orcl;
 using DevExpress.Internal.WinApi.Windows.UI.Notifications;
+using DevExpress.Xpo;
+using DevExpress.Data.Filtering;
 
 namespace green.Form
 {
@@ -64,7 +66,7 @@ namespace green.Form
             {
                 s_ac001 = this.swapdata["ac001"].ToString();
             }
-            gridControl2.DataSource = ac01_ds.Ac03;
+          
         }
 
         /// <summary>
@@ -113,14 +115,14 @@ namespace green.Form
         /// <param name="e"></param>
         private void gridView2_InitNewRow(object sender, DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs e)
         {
-            //string s_ac111 = MiscAction.GetEntityPK("AC03");
-            //gridView2.SetRowCellValue(e.RowHandle, "AC001", s_ac001);
-            //gridView2.SetRowCellValue(e.RowHandle, "AC112", "0");
-            //gridView2.SetRowCellValue(e.RowHandle, "AC111", s_ac111);
-            //gridView2.SetRowCellValue(e.RowHandle, "STATUS", "1");
-            //gridView2.SetRowCellValue(e.RowHandle, "AC118", DateTime.Today);
-            //gridView2.SetRowCellValue(e.RowHandle, "AC119", DateTime.Today);
-            //gridView2.SetRowCellValue(e.RowHandle, "AC199", s_ac199);
+            string s_ac111 = MiscAction.GetEntityPK("AC03");
+            gridView2.SetRowCellValue(e.RowHandle, "AC001", s_ac001);
+            gridView2.SetRowCellValue(e.RowHandle, "AC112", "0");
+            gridView2.SetRowCellValue(e.RowHandle, "AC111", s_ac111);
+            gridView2.SetRowCellValue(e.RowHandle, "STATUS", '1');
+            gridView2.SetRowCellValue(e.RowHandle, "AC118", DateTime.Today);
+            gridView2.SetRowCellValue(e.RowHandle, "AC119", DateTime.Today);
+            gridView2.SetRowCellValue(e.RowHandle, "AC199", s_ac199);
         }
         /// <summary>
         /// 数据改变事件
@@ -129,14 +131,14 @@ namespace green.Form
         /// <param name="e"></param>
         private void gridView2_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {
-            //if(e.Column.FieldName.ToUpper() == "AC116")  //出生日期
-            //{
-            //    if (e.Value != null &&  !(e.Value is DBNull))
-            //    {
-            //        ChineseDateTime cdt = new ChineseDateTime(Convert.ToDateTime(e.Value));
-            //        gridView2.SetRowCellValue(e.RowHandle, "AC117", cdt.ToChineseString());
-            //    }
-            //}
+            if (e.Column.FieldName.ToUpper() == "AC116")  //出生日期
+            {
+                if (e.Value != null && !(e.Value is DBNull))
+                {
+                    ChineseDateTime cdt = new ChineseDateTime(Convert.ToDateTime(e.Value));
+                    gridView2.SetRowCellValue(e.RowHandle, "AC117", cdt.ToChineseString());
+                }
+            }
         }
         /// <summary>
         /// 显示行号
@@ -166,53 +168,53 @@ namespace green.Form
         /// <param name="e"></param>
         private void gridView2_ValidatingEditor(object sender, BaseContainerValidateEditorEventArgs e)
         {
-            //string colName = (sender as ColumnView).FocusedColumn.FieldName.ToUpper();
-            //if (colName.Equals("AC113"))
-            //{
-            //    if (String.IsNullOrEmpty(e.Value.ToString()))
-            //    {
-            //        e.Valid = false;
-            //        e.ErrorText = "逝者名称不能为空!";
-            //    }
-            //    else
-            //    {
-            //        for (int i = 0; i < gridView1.RowCount - 1; i++)
-            //        {
-            //            if (i == (sender as ColumnView).FocusedRowHandle) continue;
-            //            if (gridView1.GetRowCellValue(i, "AC113") == null) continue;
+            string colName = (sender as ColumnView).FocusedColumn.FieldName.ToUpper();
+            if (colName.Equals("AC113"))
+            {
+                if (String.IsNullOrEmpty(e.Value.ToString()))
+                {
+                    e.Valid = false;
+                    e.ErrorText = "逝者名称不能为空!";
+                }
+                else
+                {
+                    for (int i = 0; i < gridView1.RowCount - 1; i++)
+                    {
+                        if (i == (sender as ColumnView).FocusedRowHandle) continue;
+                        if (gridView1.GetRowCellValue(i, "AC113") == null) continue;
 
-            //            //如果角色名字相同,则校验不通过!                        
-            //            if (String.Equals(gridView1.GetRowCellValue(i, "AC113").ToString(), e.Value.ToString()))
-            //            {
-            //                e.Valid = false;
-            //                e.ErrorText = "逝者名称已经存在!";
-            //                break;
-            //            }
-            //        }
-            //    }
-            //}
-            //else if (colName.Equals("AC116"))  //出生日期
-            //{
-            //    if(e.Value != null && !(e.Value is DBNull))
-            //    {
-            //        if (DateTime.Compare(Convert.ToDateTime(e.Value.ToString()), DateTime.Today) > 0)
-            //        {
-            //            e.Valid = false;
-            //            e.ErrorText = "出生日期错误!";
-            //        }
-            //    }
-            //}
-            //else if(colName.Equals("AC118"))  //逝世时间
-            //{
-            //    if (e.Value != null && !(e.Value is DBNull))
-            //    {
-            //        if (DateTime.Compare(Convert.ToDateTime(e.Value.ToString()), DateTime.Today) > 0)
-            //        {
-            //            e.Valid = false;
-            //            e.ErrorText = "逝世日期错误!";
-            //        }
-            //    }
-            //}
+                        //如果角色名字相同,则校验不通过!                        
+                        if (String.Equals(gridView1.GetRowCellValue(i, "AC113").ToString(), e.Value.ToString()))
+                        {
+                            e.Valid = false;
+                            e.ErrorText = "逝者名称已经存在!";
+                            break;
+                        }
+                    }
+                }
+            }
+            else if (colName.Equals("AC116"))  //出生日期
+            {
+                if (e.Value != null && !(e.Value is DBNull))
+                {
+                    if (DateTime.Compare(Convert.ToDateTime(e.Value.ToString()), DateTime.Today) > 0)
+                    {
+                        e.Valid = false;
+                        e.ErrorText = "出生日期错误!";
+                    }
+                }
+            }
+            else if (colName.Equals("AC118"))  //逝世时间
+            {
+                if (e.Value != null && !(e.Value is DBNull))
+                {
+                    if (DateTime.Compare(Convert.ToDateTime(e.Value.ToString()), DateTime.Today) > 0)
+                    {
+                        e.Valid = false;
+                        e.ErrorText = "逝世日期错误!";
+                    }
+                }
+            }
         }
 
         
@@ -226,6 +228,7 @@ namespace green.Form
             int rowHandle = gridView1.FocusedRowHandle;
             string s_sa001 = MiscAction.GetEntityPK("SA01");
             gridView1.SetRowCellValue(rowHandle, "SA001", s_sa001);           //销售流水号
+            gridView1.SetRowCellValue(rowHandle, "SA002", '1');               //销售项目类型 1-商品或服务
             gridView1.SetRowCellValue(rowHandle, "STATUS", "1");
             gridView1.SetRowCellValue(rowHandle, "AC001", s_ac001);           //购墓流水号
             gridView1.SetRowCellValue(rowHandle, "SA005", "0");               //销售类型 0-购墓
@@ -464,8 +467,6 @@ namespace green.Form
             if (!checkBeforeSave()) return;
             try
             {                 
-               //unitOfWork1.BeginTransaction();
-
                 s_fa001 = MiscAction.GetEntityPK("FA01");
                 //1.购墓登记
                 ac01 = new AC01(unitOfWork1);
@@ -481,6 +482,8 @@ namespace green.Form
                 ac01.AC022 = Convert.ToDecimal(te_price.Text);      //售价
                 ac01.AC038 = Convert.ToInt32(te_free_nums.Text);    //免费管理年限
                 ac01.AC049 = Tools.GetServerDate();                 //购墓日期
+                //ac01.AC050 = BusinessAction.GetCertNum("0");        //购墓证书
+                XtraMessageBox.Show(ac01.AC050,"证书");
                 //管理费到期日期               
                 if (ac01.AC038 > 0)
                     ac01.AC040 = ac01.AC049.AddYears(ac01.AC038);
@@ -495,7 +498,7 @@ namespace green.Form
                 ac01.AC300 = '1';                       //登记类型 1-正常登记 0-原始登记
                 ac01.STATUS = '1';                      //当前状态     
                 ac01.Save();
-
+ 
                 //2.销售项目
                 foreach(SA01 sa01 in xpCollection_sa01)
                 {
@@ -511,11 +514,12 @@ namespace green.Form
                 bi01.BI005 = le_mx.EditValue.ToString();            //墓型
                 bi01.AC001 = s_ac001;                               //购墓登记编号
                 bi01.Save();
-
+ 
                 //4.财务收费信息
                 dec_total = dec_sales + Convert.ToDecimal(te_price.Text);
                 FA01 fa01 = new FA01(unitOfWork1);
                 fa01.FA001 = s_fa001;                               //缴费流水号
+                fa01.AC001 = s_ac001;                               //购墓流水号
                 fa01.FA002 = '0';                                   //收费类型 0-购墓
                 fa01.FA003 = te_ac003.Text;                         //缴费人
                 fa01.FA004 = dec_total;                             //收费金额
@@ -525,12 +529,43 @@ namespace green.Form
                 fa01.STATUS = "1";                                  //状态
                 fa01.WS001 = Envior.WORKSTATIONID;                  //工作站标识
 
-                //unitOfWork1.CommitChanges();
                 unitOfWork1.CommitTransaction();
-                Tools.msg(MessageBoxIcon.Information, "提示", "登记办理成功!");
+
+                int i_papers = BusinessAction.GetInvoicePapers(s_fa001);
+                if(XtraMessageBox.Show("登记办理成功!\r\n" + "本次结算共需要" + i_papers.ToString() + "张发票,现在开具吗?","提示",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    sb_ok.Enabled = false;
+                    //获取税务客户信息
+                    string s_ac003 = te_ac003.Text;
+                    Frm_TaxClientInfo frm_taxClient = new Frm_TaxClientInfo(s_ac003);
+                    if (frm_taxClient.ShowDialog() != DialogResult.OK) return;
+                    TaxClientInfo clientInfo = frm_taxClient.swapdata["taxclientinfo"] as TaxClientInfo;
+
+                    CriteriaOperator criteria = CriteriaOperator.Parse("FA001='" + s_fa001 + "'");
+                    XPCollection<FP01> xpCollection_fp01 = new XPCollection<FP01>(PersistentCriteriaEvaluationBehavior.BeforeTransaction, unitOfWork1,criteria);
+                    foreach(FP01 fp01 in xpCollection_fp01)
+                    {
+                        if (TaxInvoice.GetNextInvoiceNo() > 0)
+                        {
+                            if (XtraMessageBox.Show("下一张税票代码:" + Envior.NEXT_BILL_CODE + "\r\n" + "票号:" + Envior.NEXT_BILL_NUM + ",是否继续?", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                            {
+                                TaxInvoice.Invoice(fp01.FP001, clientInfo);
+                            }
+                        }
+                    }
+                }
+                ////打印证书
+                if(XtraMessageBox.Show("现在打印【购墓证书】?", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    PrintAction.PrintCert(s_ac001);
+                }
+
+                this.Close();
+
             }
             catch(Exception ee)
             {
+                unitOfWork1.RollbackTransaction();
                 Tools.msg(MessageBoxIcon.Error, "错误", ee.ToString());
             }
             
@@ -656,12 +691,7 @@ namespace green.Form
                 XtraMessageBox.Show("未启动事务");
         }
 
-        private void groupControl2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
+        private void sb_cancel_Click(object sender, EventArgs e)
         {
 
         }

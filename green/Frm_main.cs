@@ -294,6 +294,11 @@ namespace green
             }
             frm_checkin.Dispose();
         }
+
+        private void barButtonItem3_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            openBusinessObject("BusinessBrow");
+        }
     }
 
     /// <summary>

@@ -69,6 +69,7 @@ namespace green.xpo.orcl
             set { SetPropertyValue<string>(nameof(AC012), ref fAC012, value); }
         }
         string fAC015;
+        [Indexed(Name = @"IDX_AC01_AC015")]
         [Size(10)]
         public string AC015
         {
@@ -149,6 +150,14 @@ namespace green.xpo.orcl
         {
             get { return fSTATUS; }
             set { SetPropertyValue<char>(nameof(STATUS), ref fSTATUS, value); }
+        }
+        string fAC050;
+        [Indexed(Name = @"IDX_AC01_AC050")]
+        [Size(15)]
+        public string AC050
+        {
+            get { return fAC050; }
+            set { SetPropertyValue<string>(nameof(AC050), ref fAC050, value); }
         }
     }
 

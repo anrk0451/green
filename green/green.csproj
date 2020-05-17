@@ -57,12 +57,16 @@
     <Reference Include="Oracle.ManagedDataAccess">
       <HintPath>..\..\dll\Oracle.ManagedDataAccess.dll</HintPath>
     </Reference>
+    <Reference Include="RestSharp">
+      <HintPath>..\..\dll\RestSharp.dll</HintPath>
+    </Reference>
     <Reference Include="SqlSugar">
       <HintPath>..\..\dll\SqlSugar.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -74,8 +78,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Action\BusinessAction.cs" />
     <Compile Include="Action\MapperID.cs" />
     <Compile Include="Action\MiscAction.cs" />
+    <Compile Include="Action\PrintAction.cs" />
+    <Compile Include="Action\TaxInvoice.cs" />
     <Compile Include="BaseObject\BaseBusiness.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -87,6 +94,12 @@
     </Compile>
     <Compile Include="BaseObject\MyDialog.Designer.cs">
       <DependentUpon>MyDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObject\BusinessBrow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BusinessObject\BusinessBrow.Designer.cs">
+      <DependentUpon>BusinessBrow.cs</DependentUpon>
     </Compile>
     <Compile Include="BusinessObject\DataDict.cs">
       <SubType>UserControl</SubType>
@@ -155,6 +168,12 @@
     <Compile Include="Form\Frm_checkin.Designer.cs">
       <DependentUpon>Frm_checkin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form\Frm_checkinEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Frm_checkinEdit.Designer.cs">
+      <DependentUpon>Frm_checkinEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form\Frm_freeBit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,6 +185,12 @@
     </Compile>
     <Compile Include="Form\Frm_operator.Designer.cs">
       <DependentUpon>Frm_operator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Frm_PayManageFee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Frm_PayManageFee.Designer.cs">
+      <DependentUpon>Frm_PayManageFee.cs</DependentUpon>
     </Compile>
     <Compile Include="Form\Frm_region.cs">
       <SubType>Form</SubType>
@@ -185,6 +210,36 @@
     <Compile Include="Form\Frm_taxBaseInfo.Designer.cs">
       <DependentUpon>Frm_taxBaseInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form\Frm_TaxClientInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Frm_TaxClientInfo.Designer.cs">
+      <DependentUpon>Frm_TaxClientInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Frm_tombQuit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Frm_tombQuit.Designer.cs">
+      <DependentUpon>Frm_tombQuit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Frm_tombRefund.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Frm_tombRefund.Designer.cs">
+      <DependentUpon>Frm_tombRefund.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Frm_TombSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Frm_TombSearch.Designer.cs">
+      <DependentUpon>Frm_TombSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Frm_tombTransfer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Frm_tombTransfer.Designer.cs">
+      <DependentUpon>Frm_tombTransfer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -198,6 +253,7 @@
     <Compile Include="Misc\LogUtils.cs" />
     <Compile Include="Misc\ModelHelper.cs" />
     <Compile Include="Misc\SqlAssist.cs" />
+    <Compile Include="Misc\TaxClientInfo.cs" />
     <Compile Include="Misc\Tools.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -219,14 +275,130 @@
     <Compile Include="xpo\ORMDataModel1Code\BI01.Designer.cs">
       <DependentUpon>BI01.cs</DependentUpon>
     </Compile>
+    <Compile Include="xpo\ORMDataModel1Code\CERTFACTORY.cs" />
+    <Compile Include="xpo\ORMDataModel1Code\CERTFACTORY.Designer.cs">
+      <DependentUpon>CERTFACTORY.cs</DependentUpon>
+    </Compile>
     <Compile Include="xpo\ORMDataModel1Code\ConnectionHelper.cs" />
     <Compile Include="xpo\ORMDataModel1Code\FA01.cs" />
     <Compile Include="xpo\ORMDataModel1Code\FA01.Designer.cs">
       <DependentUpon>FA01.cs</DependentUpon>
     </Compile>
+    <Compile Include="xpo\ORMDataModel1Code\FP01.cs" />
+    <Compile Include="xpo\ORMDataModel1Code\FP01.Designer.cs">
+      <DependentUpon>FP01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="xpo\ORMDataModel1Code\FP02.cs" />
+    <Compile Include="xpo\ORMDataModel1Code\FP02.Designer.cs">
+      <DependentUpon>FP02.cs</DependentUpon>
+    </Compile>
     <Compile Include="xpo\ORMDataModel1Code\GI01.cs" />
     <Compile Include="xpo\ORMDataModel1Code\GI01.Designer.cs">
       <DependentUpon>GI01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="xpo\ORMDataModel1Code\LINDIAN_BIT.cs" />
+    <Compile Include="xpo\ORMDataModel1Code\LINDIAN_BIT.Designer.cs">
+      <DependentUpon>LINDIAN_BIT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="xpo\ORMDataModel1Code\LINDIAN_BOOKIN.cs" />
+    <Compile Include="xpo\ORMDataModel1Code\LINDIAN_BOOKIN.Designer.cs">
+      <DependentUpon>LINDIAN_BOOKIN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="xpo\ORMDataModel1Code\LINDIAN_DICT.cs" />
+    <Compile Include="xpo\ORMDataModel1Code\LINDIAN_DICT.Designer.cs">
+      <DependentUpon>LINDIAN_DICT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="xpo\ORMDataModel1Code\LINDIAN_DISCARD.cs" />
+    <Compile Include="xpo\ORMDataModel1Code\LINDIAN_DISCARD.Designer.cs">
+      <DependentUpon>LINDIAN_DISCARD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="xpo\ORMDataModel1Code\LINDIAN_FLOOR.cs" />
+    <Compile Include="xpo\ORMDataModel1Code\LINDIAN_FLOOR.Designer.cs">
+      <DependentUpon>LINDIAN_FLOOR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="xpo\ORMDataModel1Code\LINDIAN_OPERATOR.cs" />
+    <Compile Include="xpo\ORMDataModel1Code\LINDIAN_OPERATOR.Designer.cs">
+      <DependentUpon>LINDIAN_OPERATOR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="xpo\ORMDataModel1Code\LINDIAN_PAYRECORD.cs" />
+    <Compile Include="xpo\ORMDataModel1Code\LINDIAN_PAYRECORD.Designer.cs">
+      <DependentUpon>LINDIAN_PAYRECORD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="xpo\ORMDataModel1Code\LINDIAN_REGION.cs" />
+    <Compile Include="xpo\ORMDataModel1Code\LINDIAN_REGION.Designer.cs">
+      <DependentUpon>LINDIAN_REGION.cs</DependentUpon>
+    </Compile>
+    <Compile Include="xpo\ORMDataModel1Code\LINDIAN_REGISTER.cs" />
+    <Compile Include="xpo\ORMDataModel1Code\LINDIAN_REGISTER.Designer.cs">
+      <DependentUpon>LINDIAN_REGISTER.cs</DependentUpon>
+    </Compile>
+    <Compile Include="xpo\ORMDataModel1Code\LINDIAN_REGOUT.cs" />
+    <Compile Include="xpo\ORMDataModel1Code\LINDIAN_REGOUT.Designer.cs">
+      <DependentUpon>LINDIAN_REGOUT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="xpo\ORMDataModel1Code\LINDIAN_RIGHTS.cs" />
+    <Compile Include="xpo\ORMDataModel1Code\LINDIAN_RIGHTS.Designer.cs">
+      <DependentUpon>LINDIAN_RIGHTS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="xpo\ORMDataModel1Code\LINDIAN_SALES.cs" />
+    <Compile Include="xpo\ORMDataModel1Code\LINDIAN_SALES.Designer.cs">
+      <DependentUpon>LINDIAN_SALES.cs</DependentUpon>
+    </Compile>
+    <Compile Include="xpo\ORMDataModel1Code\LINDIAN_SALESWASTE.cs" />
+    <Compile Include="xpo\ORMDataModel1Code\LINDIAN_SALESWASTE.Designer.cs">
+      <DependentUpon>LINDIAN_SALESWASTE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="xpo\ORMDataModel1Code\LINDIAN_T_VERSION.cs" />
+    <Compile Include="xpo\ORMDataModel1Code\LINDIAN_T_VERSION.Designer.cs">
+      <DependentUpon>LINDIAN_T_VERSION.cs</DependentUpon>
+    </Compile>
+    <Compile Include="xpo\ORMDataModel1Code\LINDIAN_V_ALL_WARE.cs" />
+    <Compile Include="xpo\ORMDataModel1Code\LINDIAN_V_ALL_WARE.Designer.cs">
+      <DependentUpon>LINDIAN_V_ALL_WARE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="xpo\ORMDataModel1Code\LINDIAN_V_BOOKIN.cs" />
+    <Compile Include="xpo\ORMDataModel1Code\LINDIAN_V_BOOKIN.Designer.cs">
+      <DependentUpon>LINDIAN_V_BOOKIN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="xpo\ORMDataModel1Code\LINDIAN_V_DICT.cs" />
+    <Compile Include="xpo\ORMDataModel1Code\LINDIAN_V_DICT.Designer.cs">
+      <DependentUpon>LINDIAN_V_DICT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="xpo\ORMDataModel1Code\LINDIAN_V_FINANCE.cs" />
+    <Compile Include="xpo\ORMDataModel1Code\LINDIAN_V_FINANCE.Designer.cs">
+      <DependentUpon>LINDIAN_V_FINANCE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="xpo\ORMDataModel1Code\LINDIAN_V_PAYRECORD.cs" />
+    <Compile Include="xpo\ORMDataModel1Code\LINDIAN_V_PAYRECORD.Designer.cs">
+      <DependentUpon>LINDIAN_V_PAYRECORD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="xpo\ORMDataModel1Code\LINDIAN_V_SALES.cs" />
+    <Compile Include="xpo\ORMDataModel1Code\LINDIAN_V_SALES.Designer.cs">
+      <DependentUpon>LINDIAN_V_SALES.cs</DependentUpon>
+    </Compile>
+    <Compile Include="xpo\ORMDataModel1Code\LINDIAN_V_WARE.cs" />
+    <Compile Include="xpo\ORMDataModel1Code\LINDIAN_V_WARE.Designer.cs">
+      <DependentUpon>LINDIAN_V_WARE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="xpo\ORMDataModel1Code\LINDIAN_V_WCLRY.cs" />
+    <Compile Include="xpo\ORMDataModel1Code\LINDIAN_V_WCLRY.Designer.cs">
+      <DependentUpon>LINDIAN_V_WCLRY.cs</DependentUpon>
+    </Compile>
+    <Compile Include="xpo\ORMDataModel1Code\LINDIAN_WARE.cs" />
+    <Compile Include="xpo\ORMDataModel1Code\LINDIAN_WARE.Designer.cs">
+      <DependentUpon>LINDIAN_WARE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="xpo\ORMDataModel1Code\PR01.cs" />
+    <Compile Include="xpo\ORMDataModel1Code\PR01.Designer.cs">
+      <DependentUpon>PR01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="xpo\ORMDataModel1Code\REFUND.cs" />
+    <Compile Include="xpo\ORMDataModel1Code\REFUND.Designer.cs">
+      <DependentUpon>REFUND.cs</DependentUpon>
+    </Compile>
+    <Compile Include="xpo\ORMDataModel1Code\RG01.cs" />
+    <Compile Include="xpo\ORMDataModel1Code\RG01.Designer.cs">
+      <DependentUpon>RG01.cs</DependentUpon>
     </Compile>
     <Compile Include="xpo\ORMDataModel1Code\SA01.cs" />
     <Compile Include="xpo\ORMDataModel1Code\SA01.Designer.cs">
@@ -244,6 +416,18 @@
     <Compile Include="xpo\ORMDataModel1Code\ST01.Designer.cs">
       <DependentUpon>ST01.cs</DependentUpon>
     </Compile>
+    <Compile Include="xpo\ORMDataModel1Code\TR01.cs" />
+    <Compile Include="xpo\ORMDataModel1Code\TR01.Designer.cs">
+      <DependentUpon>TR01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="xpo\ORMDataModel1Code\TU01.cs" />
+    <Compile Include="xpo\ORMDataModel1Code\TU01.Designer.cs">
+      <DependentUpon>TU01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="xpo\ORMDataModel1Code\V_AC01_REPORT.cs" />
+    <Compile Include="xpo\ORMDataModel1Code\V_AC01_REPORT.Designer.cs">
+      <DependentUpon>V_AC01_REPORT.cs</DependentUpon>
+    </Compile>
     <Compile Include="xpo\ORMDataModel1Code\V_ALL_ITEM.cs" />
     <Compile Include="xpo\ORMDataModel1Code\V_ALL_ITEM.Designer.cs">
       <DependentUpon>V_ALL_ITEM.cs</DependentUpon>
@@ -252,11 +436,22 @@
     <Compile Include="xpo\ORMDataModel1Code\V_ALL_VALIDITEM.Designer.cs">
       <DependentUpon>V_ALL_VALIDITEM.cs</DependentUpon>
     </Compile>
+    <Compile Include="xpo\ORMDataModel1Code\V_PR01.cs" />
+    <Compile Include="xpo\ORMDataModel1Code\V_PR01.Designer.cs">
+      <DependentUpon>V_PR01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="xpo\ORMDataModel1Code\V_SA01.cs" />
+    <Compile Include="xpo\ORMDataModel1Code\V_SA01.Designer.cs">
+      <DependentUpon>V_SA01.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="BaseObject\BaseBusiness.resx">
       <DependentUpon>BaseBusiness.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BaseObject\MyDialog.resx">
       <DependentUpon>MyDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BusinessObject\BusinessBrow.resx">
+      <DependentUpon>BusinessBrow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BusinessObject\DataDict.resx">
       <DependentUpon>DataDict.cs</DependentUpon>
@@ -282,11 +477,17 @@
     <EmbeddedResource Include="Form\Frm_checkin.resx">
       <DependentUpon>Frm_checkin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form\Frm_checkinEdit.resx">
+      <DependentUpon>Frm_checkinEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form\Frm_freeBit.resx">
       <DependentUpon>Frm_freeBit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\Frm_operator.resx">
       <DependentUpon>Frm_operator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Frm_PayManageFee.resx">
+      <DependentUpon>Frm_PayManageFee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\Frm_region.resx">
       <DependentUpon>Frm_region.cs</DependentUpon>
@@ -296,6 +497,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form\Frm_taxBaseInfo.resx">
       <DependentUpon>Frm_taxBaseInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Frm_TaxClientInfo.resx">
+      <DependentUpon>Frm_TaxClientInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Frm_tombQuit.resx">
+      <DependentUpon>Frm_tombQuit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Frm_tombRefund.resx">
+      <DependentUpon>Frm_tombRefund.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Frm_TombSearch.resx">
+      <DependentUpon>Frm_TombSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Frm_tombTransfer.resx">
+      <DependentUpon>Frm_tombTransfer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_main.resx">
       <DependentUpon>Frm_main.cs</DependentUpon>

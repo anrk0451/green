@@ -188,7 +188,10 @@ namespace green.Action
 			op_regionId.Value = regionId;
 
 			Object re = SqlAssist.ExecuteFunction("pkg_report.fun_getMaxCols", new OracleParameter[] { op_regionId });
-			return Convert.ToInt32(re.ToString());
+			if (re != null)
+				return Convert.ToInt32(re.ToString());
+			else
+				return 0;
 		}
 		/// <summary>
 		/// 根据排号和号位描述返回墓位号

@@ -58,6 +58,8 @@
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.xpCollection_sa01 = new DevExpress.Xpo.XPCollection(this.components);
+            this.unitOfWork1 = new DevExpress.Xpo.UnitOfWork(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colSA001 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.rep_item_price = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
@@ -67,7 +69,6 @@
             this.colSA004 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.rep_item_sa004 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.xpView_allItem = new DevExpress.Xpo.XPView(this.components);
-            this.unitOfWork1 = new DevExpress.Xpo.UnitOfWork(this.components);
             this.colSA005 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colPRICE = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNUMS = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -81,7 +82,6 @@
             this.colSA100 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSA200 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSTATUS = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.xpCollection_sa01 = new DevExpress.Xpo.XPCollection(this.components);
             this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
             this.gridControl2 = new DevExpress.XtraGrid.GridControl();
             this.xpCollection_ac03 = new DevExpress.Xpo.XPCollection(this.components);
@@ -103,12 +103,12 @@
             this.rep_item_zs = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.gridColumn20 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.lc_total = new DevExpress.XtraEditors.LabelControl();
             this.sb_cancel = new DevExpress.XtraEditors.SimpleButton();
             this.sb_ok = new DevExpress.XtraEditors.SimpleButton();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.te_fixprice.Properties)).BeginInit();
@@ -126,13 +126,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
             this.groupControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xpCollection_sa01)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.unitOfWork1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rep_item_price)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rep_item_sa004)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xpView_allItem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.unitOfWork1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rep_item_nums)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xpCollection_sa01)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).BeginInit();
             this.groupControl4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
@@ -263,7 +263,6 @@
             this.groupControl2.Size = new System.Drawing.Size(562, 276);
             this.groupControl2.TabIndex = 1;
             this.groupControl2.Text = "购墓信息";
-            this.groupControl2.Paint += new System.Windows.Forms.PaintEventHandler(this.groupControl2_Paint);
             // 
             // te_ac250
             // 
@@ -442,6 +441,17 @@
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
+            // xpCollection_sa01
+            // 
+            this.xpCollection_sa01.LoadingEnabled = false;
+            this.xpCollection_sa01.ObjectType = typeof(green.xpo.orcl.SA01);
+            this.xpCollection_sa01.Session = this.unitOfWork1;
+            // 
+            // unitOfWork1
+            // 
+            this.unitOfWork1.IsObjectModifiedOnNonPersistentPropertyChange = null;
+            this.unitOfWork1.TrackPropertiesModifications = false;
+            // 
             // gridView1
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
@@ -561,11 +571,6 @@
             new DevExpress.Xpo.ViewProperty("ITEM_JLDW", DevExpress.Xpo.SortDirection.None, "[ITEM_JLDW]", false, true)});
             this.xpView_allItem.Session = this.unitOfWork1;
             // 
-            // unitOfWork1
-            // 
-            this.unitOfWork1.IsObjectModifiedOnNonPersistentPropertyChange = null;
-            this.unitOfWork1.TrackPropertiesModifications = false;
-            // 
             // colSA005
             // 
             this.colSA005.FieldName = "SA005";
@@ -683,11 +688,6 @@
             this.colSTATUS.OptionsColumn.AllowShowHide = false;
             this.colSTATUS.Width = 94;
             // 
-            // xpCollection_sa01
-            // 
-            this.xpCollection_sa01.ObjectType = typeof(green.xpo.orcl.SA01);
-            this.xpCollection_sa01.Session = this.unitOfWork1;
-            // 
             // groupControl4
             // 
             this.groupControl4.Controls.Add(this.gridControl2);
@@ -722,6 +722,7 @@
             // 
             // xpCollection_ac03
             // 
+            this.xpCollection_ac03.LoadingEnabled = false;
             this.xpCollection_ac03.ObjectType = typeof(green.xpo.orcl.AC03);
             this.xpCollection_ac03.Session = this.unitOfWork1;
             // 
@@ -739,7 +740,9 @@
             this.gridColumn18,
             this.gridColumn19,
             this.gridColumn20,
-            this.gridColumn1});
+            this.gridColumn1,
+            this.gridColumn2,
+            this.gridColumn3});
             this.gridView2.GridControl = this.gridControl2;
             this.gridView2.IndicatorWidth = 35;
             this.gridView2.Name = "gridView2";
@@ -783,8 +786,8 @@
             // repositoryItemRadioGroup1
             // 
             this.repositoryItemRadioGroup1.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
-            new DevExpress.XtraEditors.Controls.RadioGroupItem("0", "男"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem("1", "女")});
+            new DevExpress.XtraEditors.Controls.RadioGroupItem('0', "男"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem('1', "女")});
             this.repositoryItemRadioGroup1.Name = "repositoryItemRadioGroup1";
             // 
             // gridColumn13
@@ -826,6 +829,8 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.repositoryItemDateEdit1.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemDateEdit1.Mask.AutoComplete = DevExpress.XtraEditors.Mask.AutoCompleteType.Optimistic;
+            this.repositoryItemDateEdit1.Mask.UseMaskAsDisplayFormat = true;
             this.repositoryItemDateEdit1.Name = "repositoryItemDateEdit1";
             // 
             // gridColumn15
@@ -927,6 +932,24 @@
             this.gridColumn1.OptionsColumn.AllowShowHide = false;
             this.gridColumn1.Width = 94;
             // 
+            // gridColumn2
+            // 
+            this.gridColumn2.Caption = "购墓编号";
+            this.gridColumn2.FieldName = "AC001";
+            this.gridColumn2.MinWidth = 25;
+            this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.OptionsColumn.AllowShowHide = false;
+            this.gridColumn2.Width = 94;
+            // 
+            // gridColumn3
+            // 
+            this.gridColumn3.Caption = "gridColumn3";
+            this.gridColumn3.FieldName = "STATUS";
+            this.gridColumn3.MinWidth = 25;
+            this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.OptionsColumn.AllowShowHide = false;
+            this.gridColumn3.Width = 94;
+            // 
             // labelControl10
             // 
             this.labelControl10.Appearance.Image = null;
@@ -966,6 +989,7 @@
             this.sb_cancel.Size = new System.Drawing.Size(90, 30);
             this.sb_cancel.TabIndex = 49;
             this.sb_cancel.Text = "关闭";
+            this.sb_cancel.Click += new System.EventHandler(this.sb_cancel_Click);
             // 
             // sb_ok
             // 
@@ -982,33 +1006,11 @@
             this.sb_ok.Text = "确定";
             this.sb_ok.Click += new System.EventHandler(this.sb_ok_Click);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(254, 619);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 30);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(346, 618);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 30);
-            this.button2.TabIndex = 50;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // Frm_checkin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(997, 669);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.sb_cancel);
             this.Controls.Add(this.sb_ok);
             this.Controls.Add(this.lc_total);
@@ -1039,13 +1041,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
             this.groupControl3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xpCollection_sa01)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.unitOfWork1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rep_item_price)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rep_item_sa004)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xpView_allItem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.unitOfWork1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rep_item_nums)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xpCollection_sa01)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).EndInit();
             this.groupControl4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
@@ -1135,9 +1137,9 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit rep_item_price;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit rep_item_nums;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
         private DevExpress.Xpo.XPCollection xpCollection_ac03;
         private DevExpress.Xpo.UnitOfWork unitOfWork1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
     }
 }

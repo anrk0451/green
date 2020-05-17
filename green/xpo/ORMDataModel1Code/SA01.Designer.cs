@@ -104,11 +104,11 @@ namespace green.xpo.orcl
             get { return fSA020; }
             set { SetPropertyValue<char>(nameof(SA020), ref fSA020, value); }
         }
-        int fSA025;
-        public int SA025
+        decimal fSA025;
+        public decimal SA025
         {
             get { return fSA025; }
-            set { SetPropertyValue<int>(nameof(SA025), ref fSA025, value); }
+            set { SetPropertyValue<decimal>(nameof(SA025), ref fSA025, value); }
         }
         string fSA100;
         [Size(10)]
@@ -124,6 +124,7 @@ namespace green.xpo.orcl
             set { SetPropertyValue<DateTime>(nameof(SA200), ref fSA200, value); }
         }
         char fSTATUS;
+        [Indexed(Name = @"IDX_SA01_STATUS")]
         public char STATUS
         {
             get { return fSTATUS; }
