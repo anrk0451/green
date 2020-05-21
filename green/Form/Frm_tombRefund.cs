@@ -77,6 +77,7 @@ namespace green.Form
             REFUND refund = null;
             int i_invoice_num;
 
+            if (XtraMessageBox.Show("确认要进行退墓操作,本操作将不可撤销,是否继续?", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No) return;
             if(decimal.TryParse(te_refund.Text,out dec_tomb))
             {
                 if(dec_tomb<=0 || dec_tomb > ac01.AC022)

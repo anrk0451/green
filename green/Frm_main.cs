@@ -299,6 +299,23 @@ namespace green
         {
             openBusinessObject("BusinessBrow");
         }
+
+        /// <summary>
+        /// 购墓预定登记
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void barButtonItem8_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Frm_bookin frm_1 = new Frm_bookin();
+            frm_1.ShowDialog();
+            frm_1.Dispose();
+        }
+
+        private void barButtonItem18_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            openBusinessObject("BookinBrow");
+        }
     }
 
     /// <summary>

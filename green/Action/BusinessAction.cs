@@ -178,5 +178,56 @@ namespace green.Action
  
 			return SqlAssist.ExecuteProcedure("pkg_business.prc_TombTransfer", new OracleParameter[] { op_ac001,op_bi001,op_reason, op_handler });
 		}
+
+		/// <summary>
+		/// 弃墓处理
+		/// </summary>
+		/// <param name="ac001"></param>
+		/// <param name="reason"></param>
+		/// <param name="handler"></param>
+		/// <returns></returns>
+		public static int TombQuit(string ac001,string reason,string handler)
+		{
+			//购墓流水号
+			OracleParameter op_ac001 = new OracleParameter("ic_ac001", OracleDbType.Varchar2, 10);
+			op_ac001.Direction = ParameterDirection.Input;
+			op_ac001.Value = ac001;
+
+			 
+			//调整原因
+			OracleParameter op_reason = new OracleParameter("ic_reason", OracleDbType.Varchar2, 100);
+			op_reason.Direction = ParameterDirection.Input;
+			op_reason.Value = reason;
+
+			//经办人
+			OracleParameter op_handler = new OracleParameter("ic_handler", OracleDbType.Varchar2, 10);
+			op_handler.Direction = ParameterDirection.Input;
+			op_handler.Value = handler;
+
+			return SqlAssist.ExecuteProcedure("pkg_business.prc_tombQuit", new OracleParameter[] { op_ac001, op_reason, op_handler });
+		}
+
+		/// <summary>
+		/// 购墓预定强制刷新
+		/// </summary>
+		/// <returns></returns>
+		public static int ForceRefreshBookin()
+		{
+			return SqlAssist.ExecuteProcedure("pkg_business.prc_ForceRefreshBookin", new OracleParameter[] { });
+		}
+		/// <summary>
+		/// 墓位预定取消
+		/// </summary>
+		/// <returns></returns>
+		public static int BookinCanceled(string bk001)
+		{
+			//经办人
+			OracleParameter op_bk001 = new OracleParameter("ic_bk001", OracleDbType.Varchar2, 10);
+			op_bk001.Direction = ParameterDirection.Input;
+			op_bk001.Value = bk001;
+
+			return SqlAssist.ExecuteProcedure("pkg_business.prc_BookinCanceled", new OracleParameter[] { op_bk001 });
+		}
+
 	}
 }

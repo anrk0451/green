@@ -8,9 +8,9 @@ using System.Reflection;
 namespace green.xpo.orcl
 {
 
-    public partial class LINDIAN_FLOOR
+    public partial class V_BK01_LIST
     {
-        public LINDIAN_FLOOR(Session session) : base(session) { }
+        public V_BK01_LIST(Session session) : base(session) { }
         public override void AfterConstruction() { base.AfterConstruction(); }
     }
 

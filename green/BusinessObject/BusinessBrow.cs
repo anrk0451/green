@@ -17,6 +17,7 @@ using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using green.xpo.orcl;
 using DevExpress.Xpo;
 using System.Web.UI.WebControls;
+using System.Windows.Forms.VisualStyles;
 
 namespace green.BusinessObject
 {
@@ -172,12 +173,7 @@ namespace green.BusinessObject
         /// <param name="e"></param>
         private void barButtonItem11_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            UnitOfWork unitOfWork = new UnitOfWork();
-            if (xpCollection_ac01.LoadingEnabled)
-            {        
-                xpCollection_ac01.Session = unitOfWork;
-                xpCollection_ac01.Reload();
-            }
+            this.RefreshData();
         }
 
         private void barButtonItem22_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -244,10 +240,44 @@ namespace green.BusinessObject
                 frm_1.swapdata["ac01"] = ac01;
                 if (frm_1.ShowDialog() == DialogResult.OK)
                 {
-                    ac01.Session.Reload(ac01);
+                    this.RefreshData();
                 }
                 frm_1.Dispose();
             }
+        }
+
+        private void barButtonItem25_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            int rowHandle = gridView1.FocusedRowHandle;
+            V_AC01_REPORT ac01 = null;
+            if (rowHandle >= 0)
+            {
+                ac01 = xpCollection_ac01[gridView1.GetDataSourceRowIndex(rowHandle)] as V_AC01_REPORT;                 
+
+                Frm_tombQuit frm_1 = new Frm_tombQuit();
+                frm_1.swapdata["ac01"] = ac01;
+                if (frm_1.ShowDialog() == DialogResult.OK)
+                {
+                    this.RefreshData();
+                }
+                frm_1.Dispose();
+            }
+        }
+        /// <summary>
+        /// 刷新
+        /// </summary>
+        private void RefreshData()
+        {
+            this.Cursor = Cursors.WaitCursor;
+            gridView1.BeginUpdate();
+            UnitOfWork unitOfWork = new UnitOfWork();
+            if (xpCollection_ac01.LoadingEnabled)
+            {
+                xpCollection_ac01.Session = unitOfWork;
+                xpCollection_ac01.Reload();
+            }
+            gridView1.EndUpdate();
+            this.Cursor = Cursors.Arrow;
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace green.BusinessObject
 {
-    partial class BusinessBrow
+    partial class BookinBrow
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,22 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BusinessBrow));
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BookinBrow));
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.barButtonItem10 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem20 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem23 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem11 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem22 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem24 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem25 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem26 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem27 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem28 = new DevExpress.XtraBars.BarButtonItem();
-            this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
-            this.te_quicksearch = new DevExpress.XtraBars.BarEditItem();
-            this.repositoryItemTextEdit4 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -71,40 +64,36 @@
             this.barButtonItem19 = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItem3 = new DevExpress.XtraBars.BarSubItem();
             this.barButtonItem21 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem22 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem24 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem25 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem26 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem27 = new DevExpress.XtraBars.BarButtonItem();
+            this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
+            this.te_quicksearch = new DevExpress.XtraBars.BarEditItem();
+            this.repositoryItemTextEdit4 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.repositoryItemTextEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.repositoryItemTextEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.xpCollection_ac01 = new DevExpress.Xpo.XPCollection(this.components);
+            this.xpCollection1 = new DevExpress.Xpo.XPCollection(this.components);
             this.unitOfWork1 = new DevExpress.Xpo.UnitOfWork(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colAC001 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colAC002 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colAC003 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colAC004 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colAC005 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colBK001 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colPOSITION = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colAC020 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colAC022 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colAC040 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colAC049 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colAC050 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colHANDLER = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colAC200 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colAC250 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colAC300 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
-            this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.barButtonItem20 = new DevExpress.XtraBars.BarButtonItem();
+            this.colBK003 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colBK009 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colBK005 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colBK100 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colBK200 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSTATUS = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xpCollection_ac01)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xpCollection1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.unitOfWork1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -149,8 +138,9 @@
             this.barButtonItem27,
             this.barButtonItem28,
             this.barStaticItem1,
-            this.te_quicksearch});
-            this.barManager1.MaxItemId = 36;
+            this.te_quicksearch,
+            this.barButtonItem20});
+            this.barManager1.MaxItemId = 37;
             this.barManager1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemTextEdit2,
             this.repositoryItemTextEdit3,
@@ -164,16 +154,10 @@
             this.bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem10, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem20, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem23, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem11, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem22, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem24, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem25, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem26, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem27, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem28, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barStaticItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.Width, this.te_quicksearch, "", false, true, true, 142)});
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem28, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.bar1.OptionsBar.AllowQuickCustomization = false;
             this.bar1.OptionsBar.DrawDragBorder = false;
             this.bar1.Text = "工具";
@@ -186,13 +170,22 @@
             this.barButtonItem10.Name = "barButtonItem10";
             this.barButtonItem10.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem10_ItemClick);
             // 
+            // barButtonItem20
+            // 
+            this.barButtonItem20.Caption = "取消预定";
+            this.barButtonItem20.Id = 36;
+            this.barButtonItem20.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem20.ImageOptions.Image")));
+            this.barButtonItem20.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem20.ImageOptions.LargeImage")));
+            this.barButtonItem20.Name = "barButtonItem20";
+            this.barButtonItem20.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem20_ItemClick);
+            // 
             // barButtonItem23
             // 
-            this.barButtonItem23.Caption = "编辑";
+            this.barButtonItem23.Caption = "购墓登记";
             this.barButtonItem23.Id = 26;
-            this.barButtonItem23.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem23.ImageOptions.SvgImage")));
+            this.barButtonItem23.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem23.ImageOptions.Image")));
+            this.barButtonItem23.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem23.ImageOptions.LargeImage")));
             this.barButtonItem23.Name = "barButtonItem23";
-            this.barButtonItem23.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem23_ItemClick);
             // 
             // barButtonItem11
             // 
@@ -202,45 +195,6 @@
             this.barButtonItem11.Name = "barButtonItem11";
             this.barButtonItem11.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem11_ItemClick);
             // 
-            // barButtonItem22
-            // 
-            this.barButtonItem22.Caption = "缴管理费";
-            this.barButtonItem22.Id = 25;
-            this.barButtonItem22.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem22.ImageOptions.SvgImage")));
-            this.barButtonItem22.Name = "barButtonItem22";
-            this.barButtonItem22.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem22_ItemClick);
-            // 
-            // barButtonItem24
-            // 
-            this.barButtonItem24.Caption = "退墓";
-            this.barButtonItem24.Id = 27;
-            this.barButtonItem24.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem24.ImageOptions.SvgImage")));
-            this.barButtonItem24.Name = "barButtonItem24";
-            this.barButtonItem24.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem24_ItemClick);
-            // 
-            // barButtonItem25
-            // 
-            this.barButtonItem25.Caption = "弃墓";
-            this.barButtonItem25.Id = 28;
-            this.barButtonItem25.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem25.ImageOptions.SvgImage")));
-            this.barButtonItem25.Name = "barButtonItem25";
-            this.barButtonItem25.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem25_ItemClick);
-            // 
-            // barButtonItem26
-            // 
-            this.barButtonItem26.Caption = "墓位调整";
-            this.barButtonItem26.Id = 29;
-            this.barButtonItem26.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem26.ImageOptions.SvgImage")));
-            this.barButtonItem26.Name = "barButtonItem26";
-            this.barButtonItem26.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem26_ItemClick);
-            // 
-            // barButtonItem27
-            // 
-            this.barButtonItem27.Caption = "缴费期限调整";
-            this.barButtonItem27.Id = 30;
-            this.barButtonItem27.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem27.ImageOptions.SvgImage")));
-            this.barButtonItem27.Name = "barButtonItem27";
-            // 
             // barButtonItem28
             // 
             this.barButtonItem28.Caption = "导出";
@@ -248,40 +202,21 @@
             this.barButtonItem28.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem28.ImageOptions.SvgImage")));
             this.barButtonItem28.Name = "barButtonItem28";
             // 
-            // barStaticItem1
-            // 
-            this.barStaticItem1.Caption = "        快速查找";
-            this.barStaticItem1.Id = 32;
-            this.barStaticItem1.Name = "barStaticItem1";
-            // 
-            // te_quicksearch
-            // 
-            this.te_quicksearch.Caption = "barEditItem1";
-            this.te_quicksearch.Edit = this.repositoryItemTextEdit4;
-            this.te_quicksearch.Id = 35;
-            this.te_quicksearch.Name = "te_quicksearch";
-            this.te_quicksearch.EditValueChanged += new System.EventHandler(this.te_quicksearch_EditValueChanged);
-            // 
-            // repositoryItemTextEdit4
-            // 
-            this.repositoryItemTextEdit4.AutoHeight = false;
-            this.repositoryItemTextEdit4.Name = "repositoryItemTextEdit4";
-            // 
             // barDockControlTop
             // 
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(1262, 35);
+            this.barDockControlTop.Size = new System.Drawing.Size(1347, 35);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 687);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 540);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(1262, 0);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1347, 0);
             // 
             // barDockControlLeft
             // 
@@ -289,15 +224,15 @@
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 35);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 652);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 505);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1262, 35);
+            this.barDockControlRight.Location = new System.Drawing.Point(1347, 35);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 652);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 505);
             // 
             // barButtonItem1
             // 
@@ -459,6 +394,59 @@
             this.barButtonItem21.Id = 24;
             this.barButtonItem21.Name = "barButtonItem21";
             // 
+            // barButtonItem22
+            // 
+            this.barButtonItem22.Caption = "缴管理费";
+            this.barButtonItem22.Id = 25;
+            this.barButtonItem22.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem22.ImageOptions.SvgImage")));
+            this.barButtonItem22.Name = "barButtonItem22";
+            // 
+            // barButtonItem24
+            // 
+            this.barButtonItem24.Caption = "退墓";
+            this.barButtonItem24.Id = 27;
+            this.barButtonItem24.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem24.ImageOptions.SvgImage")));
+            this.barButtonItem24.Name = "barButtonItem24";
+            // 
+            // barButtonItem25
+            // 
+            this.barButtonItem25.Caption = "弃墓";
+            this.barButtonItem25.Id = 28;
+            this.barButtonItem25.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem25.ImageOptions.SvgImage")));
+            this.barButtonItem25.Name = "barButtonItem25";
+            // 
+            // barButtonItem26
+            // 
+            this.barButtonItem26.Caption = "墓位调整";
+            this.barButtonItem26.Id = 29;
+            this.barButtonItem26.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem26.ImageOptions.SvgImage")));
+            this.barButtonItem26.Name = "barButtonItem26";
+            // 
+            // barButtonItem27
+            // 
+            this.barButtonItem27.Caption = "缴费期限调整";
+            this.barButtonItem27.Id = 30;
+            this.barButtonItem27.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem27.ImageOptions.SvgImage")));
+            this.barButtonItem27.Name = "barButtonItem27";
+            // 
+            // barStaticItem1
+            // 
+            this.barStaticItem1.Caption = "        快速查找";
+            this.barStaticItem1.Id = 32;
+            this.barStaticItem1.Name = "barStaticItem1";
+            // 
+            // te_quicksearch
+            // 
+            this.te_quicksearch.Caption = "barEditItem1";
+            this.te_quicksearch.Edit = this.repositoryItemTextEdit4;
+            this.te_quicksearch.Id = 35;
+            this.te_quicksearch.Name = "te_quicksearch";
+            // 
+            // repositoryItemTextEdit4
+            // 
+            this.repositoryItemTextEdit4.AutoHeight = false;
+            this.repositoryItemTextEdit4.Name = "repositoryItemTextEdit4";
+            // 
             // repositoryItemTextEdit2
             // 
             this.repositoryItemTextEdit2.AutoHeight = false;
@@ -471,24 +459,24 @@
             // 
             // gridControl1
             // 
-            this.gridControl1.DataSource = this.xpCollection_ac01;
+            this.gridControl1.DataSource = this.xpCollection1;
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            gridLevelNode1.RelationName = "Level1";
+            gridLevelNode2.RelationName = "Level1";
             this.gridControl1.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode1});
+            gridLevelNode2});
             this.gridControl1.Location = new System.Drawing.Point(0, 35);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(1262, 652);
-            this.gridControl1.TabIndex = 30;
+            this.gridControl1.Size = new System.Drawing.Size(1347, 505);
+            this.gridControl1.TabIndex = 31;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
-            // xpCollection_ac01
+            // xpCollection1
             // 
-            this.xpCollection_ac01.LoadingEnabled = false;
-            this.xpCollection_ac01.ObjectType = typeof(green.xpo.orcl.V_AC01_REPORT);
-            this.xpCollection_ac01.Session = this.unitOfWork1;
+            this.xpCollection1.LoadingEnabled = false;
+            this.xpCollection1.ObjectType = typeof(green.xpo.orcl.V_BK01_LIST);
+            this.xpCollection1.Session = this.unitOfWork1;
             // 
             // unitOfWork1
             // 
@@ -507,23 +495,16 @@
             this.gridView1.Appearance.HeaderPanel.Options.UseImage = true;
             this.gridView1.Appearance.HeaderPanel.Options.UseTextOptions = true;
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colAC001,
-            this.colAC002,
-            this.colAC003,
-            this.colAC004,
-            this.colAC005,
+            this.colBK001,
             this.colPOSITION,
-            this.colAC020,
-            this.colAC022,
-            this.colAC040,
-            this.colAC049,
-            this.colAC050,
-            this.colHANDLER,
-            this.colAC200,
-            this.colAC250,
-            this.colAC300});
+            this.colBK003,
+            this.colBK009,
+            this.colBK005,
+            this.colBK100,
+            this.colBK200,
+            this.colSTATUS});
             this.gridView1.GridControl = this.gridControl1;
-            this.gridView1.IndicatorWidth = 45;
+            this.gridView1.IndicatorWidth = 35;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.OptionsBehavior.ReadOnly = true;
@@ -536,63 +517,18 @@
             this.gridView1.OptionsView.ShowFooter = true;
             this.gridView1.OptionsView.ShowGroupPanel = false;
             this.gridView1.PaintStyleName = "Skin";
-            this.gridView1.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
-            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colAC040, DevExpress.Data.ColumnSortOrder.Ascending)});
             this.gridView1.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gridView1_CustomDrawRowIndicator);
             this.gridView1.CustomColumnDisplayText += new DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventHandler(this.gridView1_CustomColumnDisplayText);
-            this.gridView1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.gridView1_MouseDown);
             // 
-            // colAC001
+            // colBK001
             // 
-            this.colAC001.Caption = "购墓编号";
-            this.colAC001.FieldName = "AC001";
-            this.colAC001.MinWidth = 25;
-            this.colAC001.Name = "colAC001";
-            this.colAC001.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count, "AC001", "合计={0}")});
-            this.colAC001.Visible = true;
-            this.colAC001.VisibleIndex = 0;
-            this.colAC001.Width = 110;
-            // 
-            // colAC002
-            // 
-            this.colAC002.Caption = "购墓人身份证号";
-            this.colAC002.FieldName = "AC002";
-            this.colAC002.MinWidth = 25;
-            this.colAC002.Name = "colAC002";
-            this.colAC002.Visible = true;
-            this.colAC002.VisibleIndex = 4;
-            this.colAC002.Width = 185;
-            // 
-            // colAC003
-            // 
-            this.colAC003.Caption = "购墓人";
-            this.colAC003.FieldName = "AC003";
-            this.colAC003.MinWidth = 25;
-            this.colAC003.Name = "colAC003";
-            this.colAC003.Visible = true;
-            this.colAC003.VisibleIndex = 3;
-            this.colAC003.Width = 94;
-            // 
-            // colAC004
-            // 
-            this.colAC004.Caption = "联系电话";
-            this.colAC004.FieldName = "AC004";
-            this.colAC004.MinWidth = 25;
-            this.colAC004.Name = "colAC004";
-            this.colAC004.Visible = true;
-            this.colAC004.VisibleIndex = 6;
-            this.colAC004.Width = 148;
-            // 
-            // colAC005
-            // 
-            this.colAC005.Caption = "联系地址";
-            this.colAC005.FieldName = "AC005";
-            this.colAC005.MinWidth = 25;
-            this.colAC005.Name = "colAC005";
-            this.colAC005.Visible = true;
-            this.colAC005.VisibleIndex = 7;
-            this.colAC005.Width = 218;
+            this.colBK001.Caption = "预定流水号";
+            this.colBK001.FieldName = "BK001";
+            this.colBK001.MinWidth = 25;
+            this.colBK001.Name = "colBK001";
+            this.colBK001.Visible = true;
+            this.colBK001.VisibleIndex = 0;
+            this.colBK001.Width = 107;
             // 
             // colPOSITION
             // 
@@ -602,132 +538,69 @@
             this.colPOSITION.Name = "colPOSITION";
             this.colPOSITION.Visible = true;
             this.colPOSITION.VisibleIndex = 1;
-            this.colPOSITION.Width = 117;
+            this.colPOSITION.Width = 168;
             // 
-            // colAC020
+            // colBK003
             // 
-            this.colAC020.Caption = "定价";
-            this.colAC020.DisplayFormat.FormatString = "N2";
-            this.colAC020.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.colAC020.FieldName = "AC020";
-            this.colAC020.MinWidth = 25;
-            this.colAC020.Name = "colAC020";
-            this.colAC020.Visible = true;
-            this.colAC020.VisibleIndex = 8;
-            this.colAC020.Width = 105;
+            this.colBK003.Caption = "预定人";
+            this.colBK003.FieldName = "BK003";
+            this.colBK003.MinWidth = 25;
+            this.colBK003.Name = "colBK003";
+            this.colBK003.Visible = true;
+            this.colBK003.VisibleIndex = 2;
+            this.colBK003.Width = 94;
             // 
-            // colAC022
+            // colBK009
             // 
-            this.colAC022.Caption = "售价";
-            this.colAC022.DisplayFormat.FormatString = "N2";
-            this.colAC022.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.colAC022.FieldName = "AC022";
-            this.colAC022.MinWidth = 25;
-            this.colAC022.Name = "colAC022";
-            this.colAC022.Visible = true;
-            this.colAC022.VisibleIndex = 9;
-            this.colAC022.Width = 106;
+            this.colBK009.Caption = "预留日期";
+            this.colBK009.FieldName = "BK009";
+            this.colBK009.MinWidth = 25;
+            this.colBK009.Name = "colBK009";
+            this.colBK009.Visible = true;
+            this.colBK009.VisibleIndex = 4;
+            this.colBK009.Width = 107;
             // 
-            // colAC040
+            // colBK005
             // 
-            this.colAC040.Caption = "到期日期";
-            this.colAC040.DisplayFormat.FormatString = "d";
-            this.colAC040.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.colAC040.FieldName = "AC040";
-            this.colAC040.MinWidth = 25;
-            this.colAC040.Name = "colAC040";
-            this.colAC040.Visible = true;
-            this.colAC040.VisibleIndex = 10;
-            this.colAC040.Width = 118;
+            this.colBK005.Caption = "联系电话";
+            this.colBK005.FieldName = "BK005";
+            this.colBK005.MinWidth = 25;
+            this.colBK005.Name = "colBK005";
+            this.colBK005.Visible = true;
+            this.colBK005.VisibleIndex = 3;
+            this.colBK005.Width = 206;
             // 
-            // colAC049
+            // colBK100
             // 
-            this.colAC049.Caption = "购墓日期";
-            this.colAC049.DisplayFormat.FormatString = "d";
-            this.colAC049.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.colAC049.FieldName = "AC049";
-            this.colAC049.MinWidth = 25;
-            this.colAC049.Name = "colAC049";
-            this.colAC049.Visible = true;
-            this.colAC049.VisibleIndex = 2;
-            this.colAC049.Width = 100;
+            this.colBK100.Caption = "经办人";
+            this.colBK100.FieldName = "BK100";
+            this.colBK100.MinWidth = 25;
+            this.colBK100.Name = "colBK100";
+            this.colBK100.Visible = true;
+            this.colBK100.VisibleIndex = 5;
+            this.colBK100.Width = 87;
             // 
-            // colAC050
+            // colBK200
             // 
-            this.colAC050.Caption = "证书编号";
-            this.colAC050.FieldName = "AC050";
-            this.colAC050.MinWidth = 25;
-            this.colAC050.Name = "colAC050";
-            this.colAC050.Visible = true;
-            this.colAC050.VisibleIndex = 5;
-            this.colAC050.Width = 132;
+            this.colBK200.Caption = "办理日期";
+            this.colBK200.FieldName = "BK200";
+            this.colBK200.MinWidth = 25;
+            this.colBK200.Name = "colBK200";
+            this.colBK200.Visible = true;
+            this.colBK200.VisibleIndex = 6;
+            this.colBK200.Width = 104;
             // 
-            // colHANDLER
+            // colSTATUS
             // 
-            this.colHANDLER.Caption = "经办人";
-            this.colHANDLER.FieldName = "HANDLER";
-            this.colHANDLER.MinWidth = 25;
-            this.colHANDLER.Name = "colHANDLER";
-            this.colHANDLER.Visible = true;
-            this.colHANDLER.VisibleIndex = 11;
-            this.colHANDLER.Width = 79;
+            this.colSTATUS.Caption = "状态";
+            this.colSTATUS.FieldName = "STATUS";
+            this.colSTATUS.MinWidth = 25;
+            this.colSTATUS.Name = "colSTATUS";
+            this.colSTATUS.Visible = true;
+            this.colSTATUS.VisibleIndex = 7;
+            this.colSTATUS.Width = 94;
             // 
-            // colAC200
-            // 
-            this.colAC200.Caption = "经办日期";
-            this.colAC200.DisplayFormat.FormatString = "d";
-            this.colAC200.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.colAC200.FieldName = "AC200";
-            this.colAC200.MinWidth = 25;
-            this.colAC200.Name = "colAC200";
-            this.colAC200.Visible = true;
-            this.colAC200.VisibleIndex = 12;
-            this.colAC200.Width = 94;
-            // 
-            // colAC250
-            // 
-            this.colAC250.Caption = "备注";
-            this.colAC250.FieldName = "AC250";
-            this.colAC250.MinWidth = 25;
-            this.colAC250.Name = "colAC250";
-            this.colAC250.Visible = true;
-            this.colAC250.VisibleIndex = 13;
-            this.colAC250.Width = 203;
-            // 
-            // colAC300
-            // 
-            this.colAC300.Caption = "登记类型";
-            this.colAC300.FieldName = "AC300";
-            this.colAC300.MinWidth = 25;
-            this.colAC300.Name = "colAC300";
-            this.colAC300.Visible = true;
-            this.colAC300.VisibleIndex = 14;
-            this.colAC300.Width = 94;
-            // 
-            // repositoryItemTextEdit1
-            // 
-            this.repositoryItemTextEdit1.Mask.EditMask = "N2";
-            this.repositoryItemTextEdit1.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.repositoryItemTextEdit1.Mask.UseMaskAsDisplayFormat = true;
-            this.repositoryItemTextEdit1.Name = "repositoryItemTextEdit1";
-            // 
-            // repositoryItemLookUpEdit1
-            // 
-            this.repositoryItemLookUpEdit1.AutoHeight = false;
-            this.repositoryItemLookUpEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemLookUpEdit1.DisplayMember = "UC003";
-            this.repositoryItemLookUpEdit1.Name = "repositoryItemLookUpEdit1";
-            this.repositoryItemLookUpEdit1.NullText = "";
-            this.repositoryItemLookUpEdit1.ValueMember = "UC001";
-            // 
-            // barButtonItem20
-            // 
-            this.barButtonItem20.Caption = "购墓登记";
-            this.barButtonItem20.Id = 22;
-            this.barButtonItem20.Name = "barButtonItem20";
-            // 
-            // BusinessBrow
+            // BookinBrow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -736,18 +609,17 @@
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
-            this.Name = "BusinessBrow";
-            this.Size = new System.Drawing.Size(1262, 687);
+            this.Name = "BookinBrow";
+            this.Size = new System.Drawing.Size(1347, 540);
+            this.Load += new System.EventHandler(this.BookinBrow_Load);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xpCollection_ac01)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xpCollection1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.unitOfWork1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -757,6 +629,23 @@
 
         private DevExpress.XtraBars.BarManager barManager1;
         private DevExpress.XtraBars.Bar bar1;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem10;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem23;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem11;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem22;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem24;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem25;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem26;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem27;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem28;
+        private DevExpress.XtraBars.BarStaticItem barStaticItem1;
+        private DevExpress.XtraBars.BarEditItem te_quicksearch;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit4;
+        private DevExpress.XtraBars.BarDockControl barDockControlTop;
+        private DevExpress.XtraBars.BarDockControl barDockControlBottom;
+        private DevExpress.XtraBars.BarDockControl barDockControlLeft;
+        private DevExpress.XtraBars.BarDockControl barDockControlRight;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraBars.BarSubItem barSubItem1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
         private DevExpress.XtraBars.BarButtonItem barButtonItem3;
@@ -766,58 +655,32 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem7;
         private DevExpress.XtraBars.BarButtonItem barButtonItem8;
         private DevExpress.XtraBars.BarButtonItem barButtonItem9;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem10;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem19;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem11;
         private DevExpress.XtraBars.BarButtonItem barButtonItem12;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem17;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem18;
-        private DevExpress.XtraBars.BarDockControl barDockControlTop;
-        private DevExpress.XtraBars.BarDockControl barDockControlBottom;
-        private DevExpress.XtraBars.BarDockControl barDockControlLeft;
-        private DevExpress.XtraBars.BarDockControl barDockControlRight;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem13;
         private DevExpress.XtraBars.BarSubItem barSubItem2;
         private DevExpress.XtraBars.BarButtonItem barButtonItem16;
         private DevExpress.XtraBars.BarButtonItem barButtonItem14;
         private DevExpress.XtraBars.BarButtonItem barButtonItem15;
         private DevExpress.XtraBars.BarLinkContainerItem barLinkContainerItem1;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem17;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem18;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem19;
         private DevExpress.XtraBars.BarSubItem barSubItem3;
-        private DevExpress.XtraGrid.GridControl gridControl1;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit1;
-        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit1;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem20;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem23;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem22;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem24;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem25;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem26;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem27;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem28;
         private DevExpress.XtraBars.BarButtonItem barButtonItem21;
-        private DevExpress.Xpo.XPCollection xpCollection_ac01;
-        private DevExpress.XtraGrid.Columns.GridColumn colAC001;
-        private DevExpress.XtraGrid.Columns.GridColumn colAC002;
-        private DevExpress.XtraGrid.Columns.GridColumn colAC003;
-        private DevExpress.XtraGrid.Columns.GridColumn colAC004;
-        private DevExpress.XtraGrid.Columns.GridColumn colAC005;
-        private DevExpress.XtraGrid.Columns.GridColumn colPOSITION;
-        private DevExpress.XtraGrid.Columns.GridColumn colAC020;
-        private DevExpress.XtraGrid.Columns.GridColumn colAC022;
-        private DevExpress.XtraGrid.Columns.GridColumn colAC040;
-        private DevExpress.XtraGrid.Columns.GridColumn colAC049;
-        private DevExpress.XtraGrid.Columns.GridColumn colAC050;
-        private DevExpress.XtraGrid.Columns.GridColumn colHANDLER;
-        private DevExpress.XtraGrid.Columns.GridColumn colAC200;
-        private DevExpress.XtraGrid.Columns.GridColumn colAC250;
-        private DevExpress.XtraGrid.Columns.GridColumn colAC300;
-        private DevExpress.XtraBars.BarStaticItem barStaticItem1;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit2;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit3;
-        private DevExpress.XtraBars.BarEditItem te_quicksearch;
-        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit4;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem20;
+        private DevExpress.XtraGrid.GridControl gridControl1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.Xpo.UnitOfWork unitOfWork1;
+        private DevExpress.Xpo.XPCollection xpCollection1;
+        private DevExpress.XtraGrid.Columns.GridColumn colBK001;
+        private DevExpress.XtraGrid.Columns.GridColumn colPOSITION;
+        private DevExpress.XtraGrid.Columns.GridColumn colBK003;
+        private DevExpress.XtraGrid.Columns.GridColumn colBK009;
+        private DevExpress.XtraGrid.Columns.GridColumn colBK005;
+        private DevExpress.XtraGrid.Columns.GridColumn colBK100;
+        private DevExpress.XtraGrid.Columns.GridColumn colBK200;
+        private DevExpress.XtraGrid.Columns.GridColumn colSTATUS;
     }
 }

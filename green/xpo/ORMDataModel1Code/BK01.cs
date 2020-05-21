@@ -8,9 +8,9 @@ using System.Reflection;
 namespace green.xpo.orcl
 {
 
-    public partial class LINDIAN_T_VERSION
+    public partial class BK01
     {
-        public LINDIAN_T_VERSION(Session session) : base(session) { }
+        public BK01(Session session) : base(session) { }
         public override void AfterConstruction() { base.AfterConstruction(); }
     }
 

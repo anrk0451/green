@@ -8,9 +8,9 @@ using System.Reflection;
 namespace green.xpo.orcl
 {
 
-    public partial class LINDIAN_V_SALES
+    public partial class QT01
     {
-        public LINDIAN_V_SALES(Session session) : base(session) { }
+        public QT01(Session session) : base(session) { }
         public override void AfterConstruction() { base.AfterConstruction(); }
     }
 
