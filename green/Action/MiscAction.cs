@@ -138,6 +138,22 @@ namespace green.Action
 			return re.ToString();
 		}
 		/// <summary>
+		/// 墓型映射
+		/// </summary>
+		/// <param name="bi005"></param>
+		/// <returns></returns>
+		public static string Mapper_mx(string bi005)
+		{
+			OracleParameter op_mx = new OracleParameter("ic_mx", OracleDbType.Varchar2, 10);
+			op_mx.Direction = ParameterDirection.Input;
+			op_mx.Value = bi005;
+
+			Object re = SqlAssist.ExecuteFunction("pkg_report.fun_mapper_mx", new OracleParameter[] {op_mx});
+			return re.ToString();
+		}
+
+
+		/// <summary>
 		/// 获取系统参数1
 		/// </summary>
 		/// <param name="propId"></param>
@@ -212,6 +228,30 @@ namespace green.Action
 			Object re = SqlAssist.ExecuteFunction("pkg_business.fun_GetTombID", new OracleParameter[] { op_rowerId,op_bitdesc });
 			return re.ToString();
 		}
+		/// <summary>
+		/// 根据墓位 号位文字描述+排序号 返回墓位编号
+		/// </summary>
+		/// <param name="rg001"></param>
+		/// <param name="bi003"></param>
+		/// <param name="rowerOrder"></param>
+		/// <returns></returns>
+		public static string GetBi001ByBitdescRowOrder(string rg001,string bi003,int rowerOrder)
+		{
+			OracleParameter op_rg001 = new OracleParameter("ic_rg001", OracleDbType.Varchar2, 10);
+			op_rg001.Direction = ParameterDirection.Input;
+			op_rg001.Value = rg001;
+
+			OracleParameter op_bi003 = new OracleParameter("ic_bi003", OracleDbType.Varchar2, 50);
+			op_bi003.Direction = ParameterDirection.Input;
+			op_bi003.Value = bi003;
+
+			OracleParameter op_order = new OracleParameter("in_roworder", OracleDbType.Int32);
+			op_order.Direction = ParameterDirection.Input;
+			op_order.Value = rowerOrder;
+
+			Object re = SqlAssist.ExecuteFunction("pkg_business.fun_GetBi001ByBitdescRowOrder", new OracleParameter[] { op_rg001,op_bi003,op_order});
+			return re.ToString();
+		}
 
 		/// <summary>
 		/// 保存税务发票基本信息
@@ -284,6 +324,60 @@ namespace green.Action
 			op_max.Value = max;
 
 			return SqlAssist.ExecuteProcedure("pkg_business.prc_SaveTaxInfo", new OracleParameter[] { op_url, op_id, op_appId, op_addr, op_bank, op_fplx, op_public, op_private, op_cashier, op_checker,op_max });
+		}
+		/// <summary>
+		/// 墓区结构维护后,保存墓区基本信息
+		/// </summary>
+		/// <returns></returns>
+		public static int UpdateTombInfo()
+		{
+			return SqlAssist.ExecuteProcedure("pkg_business.prc_UpdateTombInfo", new OracleParameter[] {   });
+		}
+
+		/// <summary>
+		/// 修改密码
+		/// </summary>
+		/// <param name="uc001"></param>
+		/// <param name="newpwd"></param>
+		/// <returns></returns>
+		public static int Modify_Pwd(string uc001, string newpwd)
+		{
+			//用户编号
+			OracleParameter op_uc001 = new OracleParameter("ic_uc001", OracleDbType.Varchar2, 10);
+			op_uc001.Direction = ParameterDirection.Input;
+			op_uc001.Value = uc001;
+
+			//新密码
+			OracleParameter op_newpwd = new OracleParameter("ic_newPwd", OracleDbType.Varchar2, 50);
+			op_newpwd.Direction = ParameterDirection.Input;
+			op_newpwd.Value = newpwd;
+
+			return SqlAssist.ExecuteProcedure("pkg_business.prc_Modify_Pwd",
+				new OracleParameter[] { op_uc001, op_newpwd });
+		}
+		/// <summary>
+		/// 判断工作站是否注册登记
+		/// </summary>
+		/// <param name="ws001"></param>
+		/// <param name="ws005"></param>
+		/// <param name="ws007"></param>
+		/// <returns></returns>
+		public static int WorkStationIsRegistered(string ws001, string ws005, string ws007)
+		{
+			//工作站编号
+			OracleParameter op_ws001 = new OracleParameter("ic_workStationId", OracleDbType.Varchar2, 10);
+			op_ws001.Direction = ParameterDirection.Input;
+			op_ws001.Value = ws001;
+			//工作站计算机名称
+			OracleParameter op_ws005 = new OracleParameter("ic_hostname", OracleDbType.Varchar2, 50);
+			op_ws005.Direction = ParameterDirection.Input;
+			op_ws005.Value = ws005;
+			//工作站ip地址
+			OracleParameter op_ws007 = new OracleParameter("ic_ipaddress", OracleDbType.Varchar2, 50);
+			op_ws007.Direction = ParameterDirection.Input;
+			op_ws007.Value = ws007;
+
+			return Convert.ToInt32(SqlAssist.ExecuteFunction("pkg_business.fun_workStationIsRegistered", new OracleParameter[] { op_ws001, op_ws005, op_ws007 }).ToString());
 		}
 	}
 }

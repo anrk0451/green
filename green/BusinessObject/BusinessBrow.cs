@@ -18,6 +18,8 @@ using green.xpo.orcl;
 using DevExpress.Xpo;
 using System.Web.UI.WebControls;
 using System.Windows.Forms.VisualStyles;
+using DevExpress.XtraPrinting;
+using green.Action;
 
 namespace green.BusinessObject
 {
@@ -38,6 +40,7 @@ namespace green.BusinessObject
             Frm_TombSearch frm_1 = new Frm_TombSearch();
             if (frm_1.ShowDialog() == DialogResult.OK)
             {
+                this.Cursor = Cursors.WaitCursor;
                 string s_ac001 = frm_1.swapdata["ac001"].ToString();
                 string s_ac003 = frm_1.swapdata["ac003"].ToString();
                 string s_ac050 = frm_1.swapdata["ac050"].ToString();
@@ -58,6 +61,7 @@ namespace green.BusinessObject
                 CriteriaOperator criteria = CriteriaOperator.Parse(s_criteria);
                 xpCollection_ac01.Criteria = criteria;
                 xpCollection_ac01.LoadingEnabled = true;
+                this.Cursor = Cursors.Arrow;
             }
             frm_1.Dispose();
         }
@@ -175,7 +179,11 @@ namespace green.BusinessObject
         {
             this.RefreshData();
         }
-
+        /// <summary>
+        /// 缴管理费
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void barButtonItem22_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             int rowHandle = gridView1.FocusedRowHandle;
@@ -278,6 +286,89 @@ namespace green.BusinessObject
             }
             gridView1.EndUpdate();
             this.Cursor = Cursors.Arrow;
+        }
+        /// <summary>
+        /// 查找
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void barButtonItem29_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (!gridView1.IsFindPanelVisible)
+                gridView1.ShowFindPanel();
+            else
+                gridView1.HideFindPanel();
+        }
+
+        private void barButtonItem28_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            SaveFileDialog fileDialog = new SaveFileDialog();
+            fileDialog.Title = "导出Excel";
+            fileDialog.Filter = "Excel文件(*.xlsx)|*.xlsx";
+
+            DialogResult dialogResult = fileDialog.ShowDialog(this);
+            if (dialogResult == DialogResult.OK)
+            {
+                DevExpress.XtraPrinting.XlsxExportOptions options = new DevExpress.XtraPrinting.XlsxExportOptions();
+                options.TextExportMode = TextExportMode.Text;//设置导出模式为文本
+                gridControl1.ExportToXlsx(fileDialog.FileName, options);
+                XtraMessageBox.Show("导出成功！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+        /// <summary>
+        /// 打印购墓协议
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void barButtonItem32_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            int rowHandle = gridView1.FocusedRowHandle;
+            string s_ac001 = string.Empty;
+            if(rowHandle >= 0)
+            {
+                if(XtraMessageBox.Show("现在打印【购墓协议】吗?","提示",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    s_ac001 = gridView1.GetRowCellValue(rowHandle, "AC001").ToString();
+                    PrintAction.PrintProtocol(s_ac001);
+                }                
+            }
+        }
+        /// <summary>
+        /// 补打证书
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void barButtonItem30_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            int rowHandle = gridView1.FocusedRowHandle;
+            string s_ac001 = string.Empty;
+            if (rowHandle >= 0)
+            {
+                if (XtraMessageBox.Show("现在打印【证书】吗?", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    s_ac001 = gridView1.GetRowCellValue(rowHandle, "AC001").ToString();
+                    PrintAction.PrintCert(s_ac001);
+                }                
+            }
+        }
+        /// <summary>
+        /// 补打缴费记录
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void barButtonItem31_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            int rowHandle = gridView1.FocusedRowHandle;
+            string s_ac001 = string.Empty;
+            if(rowHandle >= 0)
+            {
+                s_ac001 = gridView1.GetRowCellValue(rowHandle, "AC001").ToString();
+                Frm_payrecord frm_1 = new Frm_payrecord();
+                frm_1.swapdata["ac001"] = s_ac001;
+                frm_1.ShowDialog();
+                frm_1.Dispose();
+            }
+            
         }
     }
 }

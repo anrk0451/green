@@ -24,6 +24,19 @@ namespace green.Action
 			Object re = SqlAssist.ExecuteFunction("pkg_report.fun_getInvoicePapers", new OracleParameter[] { op_fa001 });
 			return Convert.ToInt32(re.ToString());
 		}
+		/// <summary>
+		/// 获取收费业务已开发票数
+		/// </summary>
+		/// <param name="fa001"></param>
+		/// <returns></returns>
+		public static int GetHaveInvoicePapers(string fa001)
+		{
+			OracleParameter op_fa001 = new OracleParameter("ic_fa001", OracleDbType.Varchar2, 10);
+			op_fa001.Direction = ParameterDirection.Input;
+			op_fa001.Value = fa001;
+			Object re = SqlAssist.ExecuteFunction("pkg_report.fun_getHaveInvoicePapers", new OracleParameter[] { op_fa001 });
+			return Convert.ToInt32(re.ToString());
+		}
 
 
 		/// <summary>
@@ -228,6 +241,115 @@ namespace green.Action
 
 			return SqlAssist.ExecuteProcedure("pkg_business.prc_BookinCanceled", new OracleParameter[] { op_bk001 });
 		}
+		/// <summary>
+		/// 获取墓区墓位总数
+		/// </summary>
+		/// <param name="rg001"></param>
+		/// <returns></returns>
+		public static int TombTotal_stat(string rg001)
+		{
+			OracleParameter op_rg001 = new OracleParameter("ic_rg001", OracleDbType.Varchar2, 10);
+			op_rg001.Direction = ParameterDirection.Input;
+			op_rg001.Value = rg001;
 
+			return Convert.ToInt32(SqlAssist.ExecuteScalar("select pkg_report.fun_TombTotal_stat(:isOrig) from dual", new OracleParameter[] { op_rg001 }));
+		}
+		/// <summary>
+		/// 获取墓区已售墓位数
+		/// </summary>
+		/// <param name="rg001"></param>
+		/// <returns></returns>
+		public static int TombSaled_stat(string rg001)
+		{
+			OracleParameter op_rg001 = new OracleParameter("ic_rg001", OracleDbType.Varchar2, 10);
+			op_rg001.Direction = ParameterDirection.Input;
+			op_rg001.Value = rg001;
+
+			return Convert.ToInt32(SqlAssist.ExecuteScalar("select pkg_report.fun_TombSaled_stat(:isOrig) from dual", new OracleParameter[] { op_rg001 }));
+		}
+		/// <summary>
+		/// 获取墓区未售墓位数
+		/// </summary>
+		/// <param name="rg001"></param>
+		/// <returns></returns>
+		public static int TombUnsaled_stat(string rg001)
+		{
+			OracleParameter op_rg001 = new OracleParameter("ic_rg001", OracleDbType.Varchar2, 10);
+			op_rg001.Direction = ParameterDirection.Input;
+			op_rg001.Value = rg001;
+
+			return Convert.ToInt32(SqlAssist.ExecuteScalar("select pkg_report.fun_TombUnsaled_stat(:isOrig) from dual", new OracleParameter[] { op_rg001 }));
+		}
+		/// <summary>
+		/// 获取墓区欠费墓位数
+		/// </summary>
+		/// <param name="rg001"></param>
+		/// <returns></returns>
+		public static int TombDebt_stat(string rg001)
+		{
+			OracleParameter op_rg001 = new OracleParameter("ic_rg001", OracleDbType.Varchar2, 10);
+			op_rg001.Direction = ParameterDirection.Input;
+			op_rg001.Value = rg001;
+
+			return Convert.ToInt32(SqlAssist.ExecuteScalar("select pkg_report.fun_TombDebt_stat(:isOrig) from dual", new OracleParameter[] { op_rg001 }));
+		}
+		/// <summary>
+		/// 获取墓区预定墓位数
+		/// </summary>
+		/// <param name="rg001"></param>
+		/// <returns></returns>
+		public static int TombBookin_stat(string rg001)
+		{
+			OracleParameter op_rg001 = new OracleParameter("ic_rg001", OracleDbType.Varchar2, 10);
+			op_rg001.Direction = ParameterDirection.Input;
+			op_rg001.Value = rg001;
+
+			return Convert.ToInt32(SqlAssist.ExecuteScalar("select pkg_report.fun_TombBookin_stat(:isOrig) from dual", new OracleParameter[] { op_rg001 }));
+		}
+
+		/// <summary>
+		/// 判断 当前工作站是否允许 操作结算记录 1-允许操作 0-不允许
+		/// </summary>
+		/// <param name="fa001"></param>
+		/// <param name="ws001"></param>
+		/// <returns></returns>
+		public static string CheckWorkStationCompare(string fa001, string ws001)
+		{
+			OracleParameter op_fa001 = new OracleParameter("ic_fa001", OracleDbType.Varchar2, 10);
+			op_fa001.Direction = ParameterDirection.Input;
+			op_fa001.Value = fa001;
+
+			OracleParameter op_ws001 = new OracleParameter("ic_ws001", OracleDbType.Varchar2, 10);
+			op_ws001.Direction = ParameterDirection.Input;
+			op_ws001.Value = ws001;
+
+			return SqlAssist.ExecuteScalar("select pkg_business.fun_CheckWorkStationCompare(:ic_fa001,:ic_ws001) from dual", new OracleParameter[] { op_fa001, op_ws001 }).ToString();
+		}
+		/// <summary>
+		/// 收费作废
+		/// </summary>
+		/// <param name="fa001"></param>
+		/// <param name="reason"></param>
+		/// <param name="handler"></param>
+		/// <returns></returns>
+		public static int FinanceRemove(string fa001, string reason, string handler)
+		{
+			//结算流水号
+			OracleParameter op_fa001 = new OracleParameter("ic_fa001", OracleDbType.Varchar2, 10);
+			op_fa001.Direction = ParameterDirection.Input;
+			op_fa001.Value = fa001;
+ 
+			//作废原因
+			OracleParameter op_reason = new OracleParameter("ic_reason", OracleDbType.Varchar2, 100);
+			op_reason.Direction = ParameterDirection.Input;
+			op_reason.Value = reason;
+
+			//经办人
+			OracleParameter op_handler = new OracleParameter("ic_handler", OracleDbType.Varchar2, 10);
+			op_handler.Direction = ParameterDirection.Input;
+			op_handler.Value = handler;
+
+			return SqlAssist.ExecuteProcedure("pkg_business.prc_FinanceRemove", new OracleParameter[] { op_fa001, op_reason, op_handler });
+		}
 	}
 }

@@ -12,12 +12,14 @@ using System.Runtime.InteropServices;
 using DevExpress.XtraSplashScreen;
 using System.Threading;
 using green.Misc;
+using System.Net.Sockets;
 using System.Diagnostics;
 using DevExpress.XtraTab;
 using Oracle.ManagedDataAccess.Client;
 using green.BaseObject;
 using DevExpress.XtraTab.ViewInfo;
 using green.Form;
+using DevExpress.XtraEditors;
 
 namespace green
 {     
@@ -25,11 +27,12 @@ namespace green
     {
         [DllImport("user32.dll", EntryPoint = "FindWindow")]
         private extern static IntPtr FindWindow(string lpClassName, string lpWindowName);
-        [DllImport("user32.dll", EntryPoint = "SendMessage", SetLastError = true, CharSet = CharSet.Auto)]
-        private static extern int SendMessage(IntPtr hwnd, uint wMsg, int wParam, int lParam);
- 
-        
+        //[DllImport("user32.dll", EntryPoint = "SendMessage", SetLastError = true, CharSet = CharSet.Auto)]
+        //private static extern int SendMessage(IntPtr hwnd, uint wMsg, int wParam, int lParam);
+  
         Process printprocess = new Process();                            //打印服务进程
+        public static SocketClient socket = new SocketClient();
+
         public Dictionary<string, Object> swapdata { get; set; }         //交换数据对象
 
 
@@ -50,8 +53,8 @@ namespace green
             swapdata = new Dictionary<string, object>();
 
             //启动打印服务进程
-            //printprocess.StartInfo.FileName = "pbnative.exe";
-            //printprocess.Start();
+            printprocess.StartInfo.FileName = "pbnative.exe";
+            printprocess.Start();
              
         }
 
@@ -67,10 +70,9 @@ namespace green
 
             //断开数据库
             SqlAssist.DisConnect();
- 
+
             //关闭关联的打印进程
-            //if (!printprocess.HasExited) printprocess.Kill();
- 
+            if (!printprocess.HasExited) printprocess.Kill();
         }
 
         /// <summary>
@@ -87,8 +89,40 @@ namespace green
             List<Bo01> bo01_rows = ModelHelper.TableToEntity<Bo01>(dt_bo01);
             businessTab = bo01_rows.ToDictionary(key => key.bo001, value => value);
 
+            Frm_login f_login = new Frm_login();
+            f_login.ShowDialog();
+
+            if (f_login.DialogResult == DialogResult.OK)  //登录成功处理..........
+            {
+                bs_user.Caption = Envior.cur_userName;
+                bs_version.Caption = AppInfo.AppVersion;
+                f_login.Dispose();
+            }
+            else
+                return;
+             
+             
             //读取发票基础信息
             this.ReadInvoiceBaseInfo();
+
+            //连接打印服务
+            this.ConnectPrtServ();
+        }
+
+        /// <summary>
+		/// 连接打印服务
+		/// </summary>
+		private void ConnectPrtServ()
+        {
+            IntPtr hwnd = FindWindow(null, "prtserv");
+            if (hwnd != IntPtr.Zero)
+            {
+                Envior.prtservHandle = hwnd;
+            }
+            else
+            {
+                XtraMessageBox.Show("没有找到打印服务进程,不能打印!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
         }
 
         /// <summary>
@@ -315,6 +349,53 @@ namespace green
         private void barButtonItem18_ItemClick(object sender, ItemClickEventArgs e)
         {
             openBusinessObject("BookinBrow");
+        }
+        /// <summary>
+        /// 服务祭品
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void barButtonItem19_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Frm_TempSales frm_1 = new Frm_TempSales();
+            frm_1.ShowDialog();
+            frm_1.Dispose();
+        }
+
+        private void barButtonItem20_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            openBusinessObject("TombData");
+        }
+
+        private void barButtonItem21_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            openBusinessObject("Report_cancel");
+        }
+
+        private void barButtonItem22_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            openBusinessObject("Report_quit");
+        }
+
+        private void barButtonItem4_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            openBusinessObject("FinanceDaySearch");
+        }
+
+        private void barButtonItem24_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            openBusinessObject("WorkStationList");
+        }
+        /// <summary>
+        /// 修改密码
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void barButtonItem26_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Frm_chgPwd frm_modify_pwd = new Frm_chgPwd();
+            frm_modify_pwd.ShowDialog();
+            frm_modify_pwd.Dispose();
         }
     }
 

@@ -83,6 +83,7 @@ namespace green.BusinessObject
 
                 curRegionId = e.Node.GetValue("RG001").ToString();
                 dv_rower.RowFilter = "rg009='" + curRegionId + "'";
+                dv_rower.Sort = "RG001";
 
                 SplashScreenManager.ShowDefaultWaitForm("请等待", "处理中....");
                 DrawGrid(e.Node.GetValue("RG001").ToString());
@@ -340,8 +341,8 @@ namespace green.BusinessObject
             }
             else if(s_bitStatus == "2")     //已使用
             {
-                e.Appearance.BackColor = Color.Red;
-                e.Appearance.ForeColor = Color.White;
+                e.Appearance.BackColor = Color.Yellow;
+                e.Appearance.ForeColor = Color.Black;
             }
             else if (s_bitStatus == "3")    //预定
             {
@@ -357,15 +358,22 @@ namespace green.BusinessObject
         private void barButtonItem5_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             treeList1.SetFocusedNode(treeList1.GetNodeByVisibleIndex(0));
-              
+            OracleTransaction trans = null;
             try
             {
+                trans = SqlAssist.conn.BeginTransaction();
                 tg_ds.Update_Rg01();
-                tg_ds.Update_Bi01();                
+                tg_ds.Update_Bi01();
+                trans.Commit();
+
+                ////更新墓区信息(独立事务)
+                MiscAction.UpdateTombInfo();
+
                 XtraMessageBox.Show("保存成功!", "提示");
             }
             catch (Exception ee)
             {
+                trans.Rollback();
                 Tools.msg(MessageBoxIcon.Error, "错误", "保存墓位结构错误!\n" + ee.ToString());          
             }
             this.RefreshData();

@@ -158,6 +158,7 @@ namespace green.Form
                 fa01.FA002 = '0';                       //结算类型 0-购墓 1-服务祭品 2-管理费
                 fa01.FA003 = ac01.AC003;                //购墓人
                 fa01.FA004 = 0 - (dec_tomb + dec_sales);//金额
+                fa01.FA190 = '0';                       //开票标志 0-未开票
                 fa01.FA100 = Envior.cur_userId;         //经办人
                 fa01.FA200 = Tools.GetServerDate();     //经办日期
                 fa01.STATUS = "1";                      //状态
@@ -178,7 +179,8 @@ namespace green.Form
                     bi01.STATUS = '1';
                     bi01.Save();
                 }
-                unitOfWork1.CommitChanges();
+                unitOfWork1.CommitTransaction();
+
                 i_invoice_num = BusinessAction.GetInvoicePapers(s_fa001);
                 if(i_invoice_num ==0)
                 {

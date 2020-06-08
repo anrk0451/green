@@ -54,7 +54,7 @@ namespace green.xpo.orcl
             set { SetPropertyValue<string>(nameof(BK005), ref fBK005, value); }
         }
         string fBK100;
-        [Size(10)]
+        [Size(4000)]
         public string BK100
         {
             get { return fBK100; }

@@ -41,9 +41,7 @@ namespace green.Form
             if(ac01 == null)
             {
                 Tools.msg(MessageBoxIcon.Warning, "提示", "未找到数据!");
-                sb_ok.Enabled = false;
-                sb_print_cert.Enabled = false;
-                sb_print_pr.Enabled = false;
+                sb_ok.Enabled = false;                
                 return;
             }
             bi01 = unitOfWork1.GetObjectByKey<BI01>(ac01.AC015, true);
@@ -51,8 +49,6 @@ namespace green.Form
             {
                 Tools.msg(MessageBoxIcon.Warning, "提示", "未找到数据!");
                 sb_ok.Enabled = false;
-                sb_print_cert.Enabled = false;
-                sb_print_pr.Enabled = false;
                 return;
             }
 
@@ -191,6 +187,11 @@ namespace green.Form
         private void sb_print_cert_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void sb_print_pr_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

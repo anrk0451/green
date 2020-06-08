@@ -29,7 +29,10 @@ namespace green.Misc
 
         public static string WORKSTATIONID { get; set; }      //工作站ID
 
- 
+        public static int PRINT_PORT { get; set; }            //打印端口 
+        public static IntPtr prtservHandle { get; set; }      //打印服务窗口Handle
+
+
         public static char loginMode { get; set; }            //登陆模式
  
         public static bool canInvoice { get; set; }		      //当前的用户允许开发票

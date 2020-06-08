@@ -94,13 +94,11 @@ namespace green.Action
 			string s_req_sid = MiscAction.GetEntityPK("TAXREQ");            //报文请求ID
 
  
-			Tools.msg(MessageBoxIcon.Information, "获取票号debug", s_json);
-			Envior.NEXT_BILL_CODE = "000000000001";  //发票代码
-			Envior.NEXT_BILL_NUM = "9999999999999";   //发票号码
-			return 1;
+			//Tools.msg(MessageBoxIcon.Information, "获取票号debug", s_json);
+			//Envior.NEXT_BILL_CODE = "000000000001";  //发票代码
+			//Envior.NEXT_BILL_NUM = "9999999999999";   //发票号码
+			//return 1;
  
-
-
 			string s_retstr = WrapData("HQDQFPDMHM", s_req_sid, s_json);
 
 			if (string.IsNullOrEmpty(s_retstr))
@@ -309,8 +307,8 @@ namespace green.Action
 			string s_json = Tools.ConvertObjectToJson(bdata);
 			string s_req_sid = MiscAction.GetEntityPK("TAXREQ"); //报文请求ID
 
-			Tools.msg(MessageBoxIcon.Information, "debug", s_json);
-			return 1;
+			//Tools.msg(MessageBoxIcon.Information, "debug", s_json);
+			//return 1;
 
 			string s_retstr = WrapData("FPKJ", s_req_sid, s_json);
 			 
@@ -710,5 +708,103 @@ namespace green.Action
 			 op_invnum,op_mw,op_jym,op_hjje,op_jshj});
 		}
 
+		/// <summary>
+		/// 发票作废
+		/// </summary>
+		/// <param name="fpdm"></param>
+		/// <param name="fphm"></param>
+		/// <returns></returns>
+		public static int Remove(string fa001, string zfr)
+		{
+			string s_fpdm = string.Empty;
+			string s_fphm = string.Empty;
+			decimal dec_hjje = new decimal(0);
+
+			OracleParameter op_fa001 = new OracleParameter("fa001", OracleDbType.Varchar2, 10);
+			op_fa001.Direction = ParameterDirection.Input;
+			op_fa001.Value = fa001;
+			OracleDataReader reader = SqlAssist.ExecuteReader("select * from fp01 where fa001 = :fa001", new OracleParameter[] { op_fa001 });
+
+			try
+			{
+				reader.Read();
+				if (reader.HasRows)
+				{
+					s_fpdm = reader["INVOICECODE"].ToString();
+					s_fphm = reader["INVOICENUM"].ToString();
+					dec_hjje = Convert.ToDecimal(reader["HJJE"]);
+					reader.Dispose();
+
+					//1.组装业务数据
+					Dictionary<string, Object> bdata = new Dictionary<string, object>();
+					bdata.Add("fplxdm", Envior.TAX_INVOICE_TYPE);             //发票类型代码
+					bdata.Add("fpdm", s_fpdm);                                //发票代码
+					bdata.Add("fphm", s_fphm);                                //发票号码
+					bdata.Add("hjje", dec_hjje.ToString());                   //合计金额
+					bdata.Add("zfr", zfr);                                    //作废人
+
+					//2.将业务数据转换为Json字符串
+					string s_json = Tools.ConvertObjectToJson(bdata);
+					string s_req_sid = MiscAction.GetEntityPK("TAXREQ"); //报文请求ID
+					string s_retstr = WrapData("FPZF", s_req_sid, s_json);
+
+					//3.分析返回结果
+					Object obj = JsonConvert.DeserializeObject(s_retstr);
+					Newtonsoft.Json.Linq.JObject js = obj as Newtonsoft.Json.Linq.JObject;
+					if (js["code"].ToString() == "00000")   //成功
+					{
+						XtraMessageBox.Show("作废税务发票成功!\r\n" + "发票代码:" + s_fpdm + "," + "发票号码:" + s_fphm, "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+						return 1;
+					}
+					else
+					{
+						Tools.msg(MessageBoxIcon.Error, "错误", "作废发票失败, 请与管理员联系!\r\n" + js["msg"]);
+						return -1;
+					}
+				}
+				else
+				{
+					XtraMessageBox.Show("未找到开票记录!税务发票作废失败", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+					return -1;
+				}
+			}
+			catch (Exception ee)
+			{
+				Tools.msg(MessageBoxIcon.Error, "错误", ee.ToString());
+			}
+			finally
+			{
+				reader.Dispose();
+			}
+			return -1;
+		}
+
+		/// <summary>
+		/// 税务发票作废日志
+		/// </summary>
+		/// <param name="fa001"></param>
+		/// <param name="zfr"></param>
+		/// <param name="reason"></param>
+		/// <returns></returns>
+		public static int TaxRemove_log(string fa001, string zfr, string reason)
+		{
+			//结算流水号
+			OracleParameter op_fa001 = new OracleParameter("ic_fa001", OracleDbType.Varchar2, 10);
+			op_fa001.Direction = ParameterDirection.Input;
+			op_fa001.Value = fa001;
+
+			//作废人
+			OracleParameter op_zfr = new OracleParameter("ic_zfr", OracleDbType.Varchar2, 50);
+			op_zfr.Direction = ParameterDirection.Input;
+			op_zfr.Value = zfr;
+
+			//作废原因
+			OracleParameter op_reason = new OracleParameter("ic_reason", OracleDbType.Varchar2, 100);
+			op_reason.Direction = ParameterDirection.Input;
+			op_reason.Value = reason;
+
+			return SqlAssist.ExecuteProcedure("pkg_business.prc_TaxRemove_log",
+				new OracleParameter[] { op_fa001, op_zfr, op_reason });
+		}
 	}
 }

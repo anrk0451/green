@@ -174,6 +174,13 @@ namespace green.xpo.orcl
             get { return fORI_INVOICENUM; }
             set { SetPropertyValue<string>(nameof(ORI_INVOICENUM), ref fORI_INVOICENUM, value); }
         }
+        string fWS001;
+        [Size(10)]
+        public string WS001
+        {
+            get { return fWS001; }
+            set { SetPropertyValue<string>(nameof(WS001), ref fWS001, value); }
+        }
     }
 
 }

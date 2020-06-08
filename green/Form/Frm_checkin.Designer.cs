@@ -481,6 +481,7 @@
             this.gridView1.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.gridView1_InitNewRow);
             this.gridView1.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gridView1_CellValueChanged);
             this.gridView1.RowDeleted += new DevExpress.Data.RowDeletedEventHandler(this.gridView1_RowDeleted);
+            this.gridView1.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gridView1_ValidateRow);
             this.gridView1.ValidatingEditor += new DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventHandler(this.gridView1_ValidatingEditor);
             // 
             // colSA001
@@ -886,7 +887,7 @@
             this.rep_item_gx.NullText = "";
             this.rep_item_gx.ShowHeader = false;
             this.rep_item_gx.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.rep_item_gx.ValueMember = "ST001";
+            this.rep_item_gx.ValueMember = "ST003";
             // 
             // gridColumn19
             // 

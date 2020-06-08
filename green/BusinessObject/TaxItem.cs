@@ -195,19 +195,19 @@ namespace green.BusinessObject
                 }
                 else
                 {
-                    for (int i = 0; i < gridView1.RowCount - 1; i++)
-                    {
-                        if (i == (sender as ColumnView).FocusedRowHandle) continue;
-                        if (gridView1.GetRowCellValue(i, "TI002") == null) continue;
+                    //for (int i = 0; i < gridView1.RowCount - 1; i++)
+                    //{
+                    //    if (i == (sender as ColumnView).FocusedRowHandle) continue;
+                    //    if (gridView1.GetRowCellValue(i, "TI002") == null) continue;
 
-                        //如果名字相同,则校验不通过!                        
-                        if (String.Equals(gridView1.GetRowCellValue(i, "TI002").ToString(), e.Value.ToString()))
-                        {
-                            e.Valid = false;
-                            e.ErrorText = "值已经存在!";
-                            break;
-                        }
-                    }
+                    //    //如果名字相同,则校验不通过!                        
+                    //    if (String.Equals(gridView1.GetRowCellValue(i, "TI002").ToString(), e.Value.ToString()))
+                    //    {
+                    //        e.Valid = false;
+                    //        e.ErrorText = "值已经存在!";
+                    //        break;
+                    //    }
+                    //}
                 }
             }
             else if (colName.Equals("TI003"))  //项目名称

@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions buttonImageOptions1 = new DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions();
+            DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions buttonImageOptions3 = new DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_checkinEdit));
-            DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions buttonImageOptions2 = new DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions();
+            DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions buttonImageOptions4 = new DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions();
             this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -95,8 +95,6 @@
             this.colPR008 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colHANDLER = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colPR200 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.sb_print_cert = new DevExpress.XtraEditors.SimpleButton();
-            this.sb_print_pr = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRadioGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
@@ -288,7 +286,7 @@
             this.rep_item_gx.NullText = "";
             this.rep_item_gx.ShowHeader = false;
             this.rep_item_gx.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.rep_item_gx.ValueMember = "ST001";
+            this.rep_item_gx.ValueMember = "ST003";
             // 
             // gridColumn19
             // 
@@ -383,11 +381,11 @@
             // groupControl4
             // 
             this.groupControl4.Controls.Add(this.gridControl2);
-            buttonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("buttonImageOptions1.Image")));
-            buttonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("buttonImageOptions2.Image")));
+            buttonImageOptions3.Image = ((System.Drawing.Image)(resources.GetObject("buttonImageOptions3.Image")));
+            buttonImageOptions4.Image = ((System.Drawing.Image)(resources.GetObject("buttonImageOptions4.Image")));
             this.groupControl4.CustomHeaderButtons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
-            new DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("", false, buttonImageOptions1, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "增加", -1, true, null, true, false, true, null, -1),
-            new DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("", false, buttonImageOptions2, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "删除", -1, true, null, true, false, true, null, -1)});
+            new DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("", false, buttonImageOptions3, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "增加", -1, true, null, true, false, true, null, -1),
+            new DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("", false, buttonImageOptions4, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "删除", -1, true, null, true, false, true, null, -1)});
             this.groupControl4.Location = new System.Drawing.Point(18, 453);
             this.groupControl4.Name = "groupControl4";
             this.groupControl4.Size = new System.Drawing.Size(960, 155);
@@ -417,7 +415,7 @@
             this.sb_ok.Appearance.Options.UseBackColor = true;
             this.sb_ok.Appearance.Options.UseForeColor = true;
             this.sb_ok.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.sb_ok.Location = new System.Drawing.Point(456, 621);
+            this.sb_ok.Location = new System.Drawing.Point(739, 621);
             this.sb_ok.LookAndFeel.UseDefaultLookAndFeel = false;
             this.sb_ok.Name = "sb_ok";
             this.sb_ok.Size = new System.Drawing.Size(137, 30);
@@ -852,42 +850,11 @@
             this.colPR200.VisibleIndex = 7;
             this.colPR200.Width = 100;
             // 
-            // sb_print_cert
-            // 
-            this.sb_print_cert.Appearance.BackColor = System.Drawing.Color.LightGreen;
-            this.sb_print_cert.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.sb_print_cert.Appearance.Options.UseBackColor = true;
-            this.sb_print_cert.Appearance.Options.UseForeColor = true;
-            this.sb_print_cert.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.sb_print_cert.Location = new System.Drawing.Point(599, 621);
-            this.sb_print_cert.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.sb_print_cert.Name = "sb_print_cert";
-            this.sb_print_cert.Size = new System.Drawing.Size(137, 30);
-            this.sb_print_cert.TabIndex = 59;
-            this.sb_print_cert.Text = "补打证书";
-            this.sb_print_cert.Click += new System.EventHandler(this.sb_print_cert_Click);
-            // 
-            // sb_print_pr
-            // 
-            this.sb_print_pr.Appearance.BackColor = System.Drawing.Color.LightGreen;
-            this.sb_print_pr.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.sb_print_pr.Appearance.Options.UseBackColor = true;
-            this.sb_print_pr.Appearance.Options.UseForeColor = true;
-            this.sb_print_pr.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.sb_print_pr.Location = new System.Drawing.Point(742, 621);
-            this.sb_print_pr.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.sb_print_pr.Name = "sb_print_pr";
-            this.sb_print_pr.Size = new System.Drawing.Size(137, 30);
-            this.sb_print_pr.TabIndex = 60;
-            this.sb_print_pr.Text = "补打缴费记录";
-            // 
             // Frm_checkinEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(997, 669);
-            this.Controls.Add(this.sb_print_pr);
-            this.Controls.Add(this.sb_print_cert);
             this.Controls.Add(this.groupControl3);
             this.Controls.Add(this.groupControl4);
             this.Controls.Add(this.sb_cancel);
@@ -988,8 +955,6 @@
         private DevExpress.XtraEditors.GroupControl groupControl3;
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraEditors.SimpleButton sb_print_cert;
-        private DevExpress.XtraEditors.SimpleButton sb_print_pr;
         private DevExpress.Xpo.XPCollection xpCollection_pr01;
         private DevExpress.XtraGrid.Columns.GridColumn colPR001;
         private DevExpress.XtraGrid.Columns.GridColumn colAC001;

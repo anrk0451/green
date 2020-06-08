@@ -98,7 +98,7 @@ namespace green.Form
                 newrow["RG002"] = "1";                              //0-顶级节点 1-墓区 2-排
                 newrow["RG003"] = te_rg003.Text;
                 newrow["RG004"] = gl_mx.EditValue;
-                newrow["PRICE"] = te_price.EditValue;
+                newrow["PRICE"] = te_price.EditValue == null ? 0 : Convert.ToDecimal(te_price.EditValue);
                 newrow["RG009"] = "0000000000";
                 tg_ds.dt_rg01.Rows.Add(newrow);
             }

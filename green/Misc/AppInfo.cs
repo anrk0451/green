@@ -15,7 +15,7 @@ namespace green.Misc
         private static string _ADMINGID = "0000000000";             //管理员组ID
         private static int _GRID_HEIGHT = 30;
         private static int _GRID_WIDTH = 40;
-
+        private static string _TOMB_ROOT_ID = "0000000000";         //墓区结构顶级节点ID
  
         private static int _TAXITEMCOUNT = 8;                       //打印发票清单阈值
  
@@ -57,6 +57,10 @@ namespace green.Misc
         }
 
         public static string ADMINGID { get { return _ADMINGID; } }
-          
+        
+        public static string TOMB_ROOT_ID
+        {
+            get { return _TOMB_ROOT_ID; }
+        }
     }
 }

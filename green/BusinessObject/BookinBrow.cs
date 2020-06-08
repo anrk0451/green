@@ -15,6 +15,7 @@ using green.Action;
 using System.Windows.Forms.VisualStyles;
 using green.Misc;
 using DevExpress.Xpo;
+using DevExpress.XtraPrinting;
 
 namespace green.BusinessObject
 {
@@ -137,6 +138,61 @@ namespace green.BusinessObject
             }
             gridView1.EndUpdate();
             this.Cursor = Cursors.Arrow;
+        }
+        /// <summary>
+        /// 购墓登记
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void barButtonItem23_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            int rowHandle = gridView1.FocusedRowHandle;
+            string s_bk001 = string.Empty;
+            if (rowHandle >= 0)
+            {
+                if(gridView1.GetRowCellValue(rowHandle,"STATUS").ToString() != "1")
+                {
+                    Tools.msg(MessageBoxIcon.Warning, "提示", "只有未到期的预定记录才可以进行登记!");
+                    return;
+                }
+                s_bk001 = gridView1.GetRowCellValue(rowHandle, "BK001").ToString();
+                Frm_checkin frm_1 = new Frm_checkin();
+                frm_1.swapdata["action"] = "bookin";
+                frm_1.swapdata["bk001"] = s_bk001;
+                if(frm_1.ShowDialog() == DialogResult.OK)
+                {
+                    this.RefreshData();
+                }
+                frm_1.Dispose();
+            }
+        }
+        /// <summary>
+        /// 查找
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void barButtonItem29_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (!gridView1.IsFindPanelVisible)
+                gridView1.ShowFindPanel();
+            else
+                gridView1.HideFindPanel();
+        }
+
+        private void barButtonItem28_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            SaveFileDialog fileDialog = new SaveFileDialog();
+            fileDialog.Title = "导出Excel";
+            fileDialog.Filter = "Excel文件(*.xlsx)|*.xlsx";
+
+            DialogResult dialogResult = fileDialog.ShowDialog(this);
+            if (dialogResult == DialogResult.OK)
+            {
+                DevExpress.XtraPrinting.XlsxExportOptions options = new DevExpress.XtraPrinting.XlsxExportOptions();
+                options.TextExportMode = TextExportMode.Text;//设置导出模式为文本
+                gridControl1.ExportToXlsx(fileDialog.FileName, options);
+                XtraMessageBox.Show("导出成功！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }
