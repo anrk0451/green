@@ -43,6 +43,8 @@
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.sb_cancel = new DevExpress.XtraEditors.SimpleButton();
             this.sb_ok = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
             ((System.ComponentModel.ISupportInitialize)(this.te_ac001.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.te_ac003.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.te_ac050.Properties)).BeginInit();
@@ -50,6 +52,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.xpCollection1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.session1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.te_bi003.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // labelControl1
@@ -201,11 +204,38 @@
             this.sb_ok.Text = "确定";
             this.sb_ok.Click += new System.EventHandler(this.sb_ok_Click);
             // 
+            // labelControl6
+            // 
+            this.labelControl6.Appearance.Image = null;
+            this.labelControl6.AppearanceDisabled.Image = null;
+            this.labelControl6.AppearanceHovered.Image = null;
+            this.labelControl6.AppearancePressed.Image = null;
+            this.labelControl6.Location = new System.Drawing.Point(39, 244);
+            this.labelControl6.Name = "labelControl6";
+            this.labelControl6.Size = new System.Drawing.Size(72, 22);
+            this.labelControl6.TabIndex = 52;
+            this.labelControl6.Text = "购墓日期";
+            // 
+            // comboBoxEdit1
+            // 
+            this.comboBoxEdit1.Location = new System.Drawing.Point(145, 243);
+            this.comboBoxEdit1.Name = "comboBoxEdit1";
+            this.comboBoxEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboBoxEdit1.Properties.Items.AddRange(new object[] {
+            "当日",
+            "一周以内",
+            "一月以内"});
+            this.comboBoxEdit1.Size = new System.Drawing.Size(226, 28);
+            this.comboBoxEdit1.TabIndex = 53;
+            // 
             // Frm_TombSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(540, 248);
+            this.ClientSize = new System.Drawing.Size(540, 299);
+            this.Controls.Add(this.comboBoxEdit1);
+            this.Controls.Add(this.labelControl6);
             this.Controls.Add(this.sb_cancel);
             this.Controls.Add(this.sb_ok);
             this.Controls.Add(this.labelControl5);
@@ -228,6 +258,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.xpCollection1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.session1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.te_bi003.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -249,5 +280,7 @@
         private DevExpress.XtraEditors.SimpleButton sb_ok;
         private DevExpress.Xpo.Session session1;
         private DevExpress.Xpo.XPCollection xpCollection1;
+        private DevExpress.XtraEditors.LabelControl labelControl6;
+        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit1;
     }
 }

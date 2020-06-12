@@ -47,16 +47,45 @@ namespace green.BusinessObject
                 string s_rg001 = frm_1.swapdata["rg001"].ToString();
                 string s_bi003 = frm_1.swapdata["bi003"].ToString();
                 string s_criteria = string.Empty;
+                string s_range = string.Empty;
+
                 if (s_ac001 != "%")
                 {
                     s_criteria = "AC001='" + s_ac001 + "'";
-                } else 
+                } 
+                else 
                 {
-                    s_criteria = @"AC001 like '" + s_ac001 + "' and " +
-                                     "AC003 like '" + s_ac003 + "' and " +
-                                     "AC050 like '" + s_ac050 + "' and " +
-                                     "AC010 like '" + s_rg001 + "' and " +
-                                     "BI003 like '" + s_bi003 + "'"; 
+                    if(s_ac050 == "%")
+                        s_criteria = @"AC001 like '" + s_ac001 + "' and " +
+                                         "AC003 like '" + s_ac003 + "' and " +
+                                         "AC010 like '" + s_rg001 + "' and " +
+                                         "BI003 like '" + s_bi003 + "'"; 
+                    else
+                        s_criteria = @"AC001 like '" + s_ac001 + "' and " +
+                                        "AC003 like '" + s_ac003 + "' and " +
+                                        "AC050 like '" + s_ac050 + "' and " +
+                                        "AC010 like '" + s_rg001 + "' and " +
+                                        "BI003 like '" + s_bi003 + "'";
+
+                    if (frm_1.swapdata.ContainsKey("range"))
+                    {
+                        switch (frm_1.swapdata["range"].ToString())
+                        {
+                            case "当日":
+                                s_range = "( AC200 >= #" + Tools.GetServerDate().ToString("yyyy-MM-dd") + "# and AC200 < #" + Tools.GetServerDate().AddDays(1).ToString("yyyy-MM-dd") + "#)";
+                                break;
+                            case "一周以内":
+                                s_range = "( AC200 >= #" + Tools.GetServerDate().AddDays(-7).ToString("yyyy-MM-dd") + "# and AC200 < #" + Tools.GetServerDate().AddDays(1).ToString("yyyy-MM-dd") + "#)";
+                                break;
+                            case "一月以内":
+                                s_range = "( AC200 >= #" + Tools.GetServerDate().AddDays(-30).ToString("yyyy-MM-dd") + "# and AC200 < #" + Tools.GetServerDate().AddDays(1).ToString("yyyy-MM-dd") + "#)";
+                                break;
+                        }
+
+
+                        s_criteria +=  " and " + s_range;
+                    }
+
                 }
                 CriteriaOperator criteria = CriteriaOperator.Parse(s_criteria);
                 xpCollection_ac01.Criteria = criteria;
@@ -369,6 +398,16 @@ namespace green.BusinessObject
                 frm_1.Dispose();
             }
             
+        }
+        /// <summary>
+        /// 管理费缴纳期限调整
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void barButtonItem27_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            string s_1 = Tools.GetServerDate().ToString("yyyy&MM&dd");
+            XtraMessageBox.Show(s_1);
         }
     }
 }

@@ -448,7 +448,29 @@ namespace green.BusinessObject
         /// <param name="e"></param>
         private void barButtonItem24_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            int rowHandle = gridView1.FocusedRowHandle;
+            string s_fa001 = string.Empty;
+            if (rowHandle >= 0)
+            {
+                if(Convert.ToDecimal(gridView1.GetRowCellValue(rowHandle,"FA004")) < 0)
+                {
+                    Tools.msg(MessageBoxIcon.Exclamation, "提示", "此收费业务不能退费!");
+                    return;
+                }
+                s_fa001 = gridView1.GetRowCellValue(rowHandle, "FA001").ToString();
+                if(BusinessAction.HaveRefund(s_fa001) == "1")
+                {
+                    Tools.msg(MessageBoxIcon.Exclamation, "提示", "此收费已经办理有过退费记录!");
+                    return;
+                }
+                Frm_refund frm_1 = new Frm_refund();
+                frm_1.swapdata["fa001"] = s_fa001;
+                if(frm_1.ShowDialog() == DialogResult.OK)
+                {
+                    this.RefreshData();                    
+                }
+                frm_1.Dispose();
+            }
         }
     }
 }

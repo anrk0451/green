@@ -79,6 +79,13 @@ namespace green.Form
                 b_full = false;
                 this.swapdata["bi003"] = te_bi003.Text;
             }
+            if (!string.IsNullOrEmpty(comboBoxEdit1.Text))
+            {
+                b_full = false;
+                this.swapdata["range"] = comboBoxEdit1.Text;
+            }
+
+
             if (b_full)
             {
                 if (XtraMessageBox.Show("还未输入任何条件,将检索出所有记录,是否继续?", "确认", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No) return;

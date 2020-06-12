@@ -34,6 +34,8 @@
             DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
             DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
@@ -64,6 +66,7 @@
             this.barButtonItem25 = new DevExpress.XtraBars.BarButtonItem();
             this.bs_version = new DevExpress.XtraBars.BarStaticItem();
             this.barButtonItem26 = new DevExpress.XtraBars.BarButtonItem();
+            this.skinDropDownButtonItem1 = new DevExpress.XtraBars.SkinDropDownButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -116,15 +119,17 @@
             this.bs_user,
             this.barButtonItem25,
             this.bs_version,
-            this.barButtonItem26});
+            this.barButtonItem26,
+            this.skinDropDownButtonItem1});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
             this.ribbon.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.ribbon.MaxItemId = 31;
+            this.ribbon.MaxItemId = 34;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
             this.ribbon.QuickToolbarItemLinks.Add(this.barButtonItem16);
             this.ribbon.QuickToolbarItemLinks.Add(this.barButtonItem26);
+            this.ribbon.QuickToolbarItemLinks.Add(this.skinDropDownButtonItem1);
             this.ribbon.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbon.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.ShowOnMultiplePages;
             this.ribbon.Size = new System.Drawing.Size(1362, 168);
@@ -144,6 +149,7 @@
             this.barButtonItem2.Id = 2;
             this.barButtonItem2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem2.ImageOptions.SvgImage")));
             this.barButtonItem2.Name = "barButtonItem2";
+            this.barButtonItem2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem2_ItemClick);
             // 
             // barButtonItem3
             // 
@@ -327,6 +333,7 @@
             this.barButtonItem23.Id = 23;
             this.barButtonItem23.ImageOptions.SvgImage = global::green.Properties.Resources.bo_dashboard;
             this.barButtonItem23.Name = "barButtonItem23";
+            this.barButtonItem23.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem23_ItemClick);
             // 
             // barButtonItem24
             // 
@@ -370,6 +377,14 @@
             superToolTip2.Items.Add(toolTipItem2);
             this.barButtonItem26.SuperTip = superToolTip2;
             this.barButtonItem26.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem26_ItemClick);
+            // 
+            // skinDropDownButtonItem1
+            // 
+            this.skinDropDownButtonItem1.Id = 33;
+            this.skinDropDownButtonItem1.Name = "skinDropDownButtonItem1";
+            toolTipItem3.Text = "选择皮肤";
+            superToolTip3.Items.Add(toolTipItem3);
+            this.skinDropDownButtonItem1.SuperTip = superToolTip3;
             // 
             // ribbonPage1
             // 
@@ -536,5 +551,6 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem25;
         private DevExpress.XtraBars.BarStaticItem bs_version;
         private DevExpress.XtraBars.BarButtonItem barButtonItem26;
+        private DevExpress.XtraBars.SkinDropDownButtonItem skinDropDownButtonItem1;
     }
 }

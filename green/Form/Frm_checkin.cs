@@ -210,13 +210,13 @@ namespace green.Form
                 }
                 else
                 {
-                    for (int i = 0; i < gridView1.RowCount - 1; i++)
+                    for (int i = 0; i < gridView2.RowCount - 1; i++)
                     {
                         if (i == (sender as ColumnView).FocusedRowHandle) continue;
-                        if (gridView1.GetRowCellValue(i, "AC113") == null) continue;
+                        if (gridView2.GetRowCellValue(i, "AC113") == null) continue;
 
                         //如果角色名字相同,则校验不通过!                        
-                        if (String.Equals(gridView1.GetRowCellValue(i, "AC113").ToString(), e.Value.ToString()))
+                        if (String.Equals(gridView2.GetRowCellValue(i, "AC113").ToString(), e.Value.ToString()))
                         {
                             e.Valid = false;
                             e.ErrorText = "逝者名称已经存在!";
@@ -437,7 +437,7 @@ namespace green.Form
                 gridView2.AddNewRow();
                 int rowno = gridView2.FocusedRowHandle;
                 /////// 设置焦点 开始编辑 !!!
-                gridView2.FocusedColumn = gridView1.Columns["AC113"];
+                gridView2.FocusedColumn = gridView2.Columns["AC113"];
                 gridView2.ShowEditor();
             }
             else if (s_button == "删除")
@@ -531,8 +531,6 @@ namespace green.Form
                 ac01.AC038 = Convert.ToInt32(te_free_nums.Text);    //免费管理年限
 
                 ac01.AC049 = Tools.GetServerDate();                 //购墓日期
-                //ac01.AC050 = BusinessAction.GetCertNum("0");      //购墓证书
-                XtraMessageBox.Show(ac01.AC050,"证书");
                 //管理费到期日期               
                 if (ac01.AC038 > 0)
                     ac01.AC040 = ac01.AC049.AddYears(ac01.AC038);

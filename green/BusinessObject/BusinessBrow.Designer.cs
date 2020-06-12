@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BusinessBrow));
+            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
             DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
@@ -252,6 +254,7 @@
             this.barButtonItem27.Id = 30;
             this.barButtonItem27.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem27.ImageOptions.SvgImage")));
             this.barButtonItem27.Name = "barButtonItem27";
+            this.barButtonItem27.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem27_ItemClick);
             // 
             // barSubItem4
             // 
@@ -314,6 +317,9 @@
             this.te_quicksearch.Edit = this.repositoryItemTextEdit4;
             this.te_quicksearch.Id = 35;
             this.te_quicksearch.Name = "te_quicksearch";
+            toolTipItem1.Text = "可以输入购墓者姓名、证书编号、购墓编号进行查询";
+            superToolTip1.Items.Add(toolTipItem1);
+            this.te_quicksearch.SuperTip = superToolTip1;
             this.te_quicksearch.EditValueChanged += new System.EventHandler(this.te_quicksearch_EditValueChanged);
             // 
             // repositoryItemTextEdit4

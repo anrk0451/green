@@ -397,6 +397,18 @@ namespace green
             frm_modify_pwd.ShowDialog();
             frm_modify_pwd.Dispose();
         }
+
+        private void barButtonItem2_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Frm_checkinOrig frm_1 = new Frm_checkinOrig();
+            frm_1.ShowDialog();
+            frm_1.Dispose();
+        }
+
+        private void barButtonItem23_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            openBusinessObject("InvoiceReport");
+        }
     }
 
     /// <summary>

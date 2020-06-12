@@ -351,5 +351,19 @@ namespace green.Action
 
 			return SqlAssist.ExecuteProcedure("pkg_business.prc_FinanceRemove", new OracleParameter[] { op_fa001, op_reason, op_handler });
 		}
+
+		/// <summary>
+		/// 是否办理过退费
+		/// </summary>
+		/// <param name="fa001"></param>
+		/// <returns></returns>
+		public static string HaveRefund(string fa001)
+		{
+			OracleParameter op_fa001 = new OracleParameter("ic_fa001", OracleDbType.Varchar2, 10);
+			op_fa001.Direction = ParameterDirection.Input;
+			op_fa001.Value = fa001;
+
+			return SqlAssist.ExecuteScalar("select pkg_business.fun_haveRefund(:ic_fa001) from dual", new OracleParameter[] { op_fa001 }).ToString();
+		}
 	}
 }

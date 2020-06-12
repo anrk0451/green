@@ -120,6 +120,12 @@
     <Compile Include="BusinessObject\FinanceDaySearch.Designer.cs">
       <DependentUpon>FinanceDaySearch.cs</DependentUpon>
     </Compile>
+    <Compile Include="BusinessObject\InvoiceReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BusinessObject\InvoiceReport.Designer.cs">
+      <DependentUpon>InvoiceReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="BusinessObject\Operators.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -223,6 +229,12 @@
     <Compile Include="Form\Frm_checkinEdit.Designer.cs">
       <DependentUpon>Frm_checkinEdit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form\Frm_checkinOrig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Frm_checkinOrig.Designer.cs">
+      <DependentUpon>Frm_checkinOrig.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form\Frm_chgPwd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -276,6 +288,12 @@
     </Compile>
     <Compile Include="Form\Frm_payrecord.Designer.cs">
       <DependentUpon>Frm_payrecord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Frm_refund.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Frm_refund.Designer.cs">
+      <DependentUpon>Frm_refund.cs</DependentUpon>
     </Compile>
     <Compile Include="Form\Frm_region.cs">
       <SubType>Form</SubType>
@@ -582,6 +600,9 @@
     <EmbeddedResource Include="BusinessObject\FinanceDaySearch.resx">
       <DependentUpon>FinanceDaySearch.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BusinessObject\InvoiceReport.resx">
+      <DependentUpon>InvoiceReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BusinessObject\Operators.resx">
       <DependentUpon>Operators.cs</DependentUpon>
     </EmbeddedResource>
@@ -624,6 +645,9 @@
     <EmbeddedResource Include="Form\Frm_checkinEdit.resx">
       <DependentUpon>Frm_checkinEdit.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form\Frm_checkinOrig.resx">
+      <DependentUpon>Frm_checkinOrig.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form\Frm_chgPwd.resx">
       <DependentUpon>Frm_chgPwd.cs</DependentUpon>
     </EmbeddedResource>
@@ -650,6 +674,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form\Frm_payrecord.resx">
       <DependentUpon>Frm_payrecord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Frm_refund.resx">
+      <DependentUpon>Frm_refund.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\Frm_region.resx">
       <DependentUpon>Frm_region.cs</DependentUpon>
@@ -727,6 +754,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Objects.ico" />
+    <None Include="Resources\media_16x16.png" />
+    <None Include="Resources\media_32x32.png" />
     <None Include="Resources\bo_security_permission.svg" />
     <None Include="Resources\bg1.jpg" />
     <None Include="Resources\electronics_desktopmac.svg" />
