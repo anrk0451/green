@@ -64,13 +64,13 @@ namespace green.Form
         {
             if (e.Column.FieldName.ToUpper() == "SA004" && (e.Value != DBNull.Value))   //选择服务或商品
             {
-                V_ALL_VALIDITEM v_allItem = unitOfWork1.GetObjectByKey<V_ALL_VALIDITEM>(e.Value);
-                if (v_allItem != null)
+                DataRow dr_item = SqlAssist.GetSingelRow("select * from v_all_validItem where item_id='" + e.Value + "'");
+                if (dr_item != null)
                 {
-                    gridView1.SetRowCellValue(e.RowHandle, "SA003", v_allItem.ITEM_NAME);  //项目名称
-                    gridView1.SetRowCellValue(e.RowHandle, "PRICE", v_allItem.PRICE);      //单价
-                    gridView1.SetRowCellValue(e.RowHandle, "SA006", v_allItem.PRICE);      //原始单价
-                    gridView1.SetRowCellValue(e.RowHandle, "SA025", v_allItem.TAXRATE);    //税率          
+                    gridView1.SetRowCellValue(e.RowHandle, "SA003", dr_item["ITEM_NAME"].ToString());  //项目名称
+                    gridView1.SetRowCellValue(e.RowHandle, "PRICE", dr_item["PRICE"]);               //单价
+                    gridView1.SetRowCellValue(e.RowHandle, "SA006", dr_item["PRICE"]);               //原始单价
+                    gridView1.SetRowCellValue(e.RowHandle, "SA025", dr_item["TAXRATE"]);             //税率          
                     //计算小计金额
                     decimal dec_price = decimal.Zero;
                     int i_nums = 0;
@@ -232,7 +232,7 @@ namespace green.Form
                 //财务收费信息
                 FA01 fa01 = new FA01(unitOfWork1);
                 fa01.FA001 = s_fa001;                               //缴费流水号
-                fa01.FA002 = '0';                                   //收费类型 0-购墓
+                fa01.FA002 = '1';                                   //收费类型 0-购墓 1-服务祭品 2-管理费
                 fa01.FA003 = te_cuname.Text;                        //缴费人
                 fa01.FA004 = dec_sum;                               //收费金额
                 fa01.FA190 = '0';                                   //开票标志 0-未开票

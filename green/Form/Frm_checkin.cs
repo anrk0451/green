@@ -35,9 +35,7 @@ namespace green.Form
         private BK01 bk01 = null;
 
         private DataDict_ds dd_ds = new DataDict_ds();  //字典数据源
-
-        //private Ac01_ds ac01_ds = new Ac01_ds();      //数据集
-
+ 
         private decimal dec_total = decimal.Zero;
         private decimal dec_sales = decimal.Zero;
 
@@ -64,6 +62,7 @@ namespace green.Form
                 s_ac001 = MiscAction.GetEntityPK("AC01");
                 s_ac199 = s_ac001;
                 te_free_nums.EditValue = MiscAction.GetSysParaValue1("FREEYEARS");
+                de_ac049.EditValue = Tools.GetServerDate();
             }
             else if(s_action == "bookin")   //预定登记
             {
@@ -91,14 +90,62 @@ namespace green.Form
                     s_ac001 = MiscAction.GetEntityPK("AC01");
                     s_ac199 = s_ac001;
                     te_free_nums.EditValue = MiscAction.GetSysParaValue1("FREEYEARS");
+                    de_ac049.EditValue = Tools.GetServerDate();
                 }
             }
             else //如果是更新资料,检索信息
             {
                 s_ac001 = this.swapdata["ac001"].ToString();
             }
-          
+
+            ///增加购墓自动选择项
+            if (s_action == "add" || s_action == "bookin")
+            {
+                AutoAdd();
+            }
+
         }
+
+        /// <summary>
+        /// 购墓时必选项目
+        /// </summary>
+        private void AutoAdd()
+        {
+            using (OracleDataReader reader = SqlAssist.ExecuteReader("select * from v_all_validitem where autochoose = '1' "))
+            {
+                SA01 sa01 = null;
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        sa01 = new SA01(unitOfWork1);
+                        sa01.SA004 = reader["ITEM_ID"].ToString();
+                        sa01.SA001 = MiscAction.GetEntityPK("SA01");
+                        sa01.SA002 = '1';                               //销售项目类型 1 - 商品或服务
+                        sa01.SA003 = reader["ITEM_NAME"].ToString();    //项目名称
+                        sa01.STATUS = '1';
+                        sa01.AC001 = s_ac001;                           //购墓流水号
+                        sa01.SA005 = '0';                               //销售类型 0-购墓
+                        sa01.SA008 = '0';                               //结算标志 0-未结算
+                        sa01.SA100 = Envior.cur_userId;                 //经办人
+                        sa01.SA200 = Tools.GetServerDate();             //经办日期
+                        sa01.SA025 = Convert.ToDecimal(reader["TAXRATE"]);
+
+                        if (sa01.SA003 == "管理费")
+                            sa01.NUMS = MiscAction.GetSysParaValue1("MANAGEFEE_NUMS");
+                        else
+                            sa01.NUMS = 1;
+
+                        sa01.PRICE = Convert.ToDecimal(reader["PRICE"]);//单价
+                        sa01.SA007 = sa01.PRICE * sa01.NUMS;
+                        sa01.SA006 = sa01.PRICE;
+
+                        xpCollection_sa01.Add(sa01);
+                    }
+                }
+            }
+        }
+
 
         /// <summary>
         /// 调用 选择墓位
@@ -512,6 +559,7 @@ namespace green.Form
 
         private void sb_ok_Click(object sender, EventArgs e)
         {
+            bool b_payrecord = false;
             if (!checkBeforeSave()) return;
             try
             {                 
@@ -529,14 +577,26 @@ namespace green.Form
                 ac01.AC020 = Convert.ToDecimal(bi01.PRICE);         //墓位定价
                 ac01.AC022 = Convert.ToDecimal(te_price.Text);      //售价
                 ac01.AC038 = Convert.ToInt32(te_free_nums.Text);    //免费管理年限
+                ac01.AC049 = Convert.ToDateTime(de_ac049.Text);     //购墓日期
 
-                ac01.AC049 = Tools.GetServerDate();                 //购墓日期
                 //管理费到期日期               
                 if (ac01.AC038 > 0)
+				{
                     ac01.AC040 = ac01.AC049.AddYears(ac01.AC038);
-                else
-                    ac01.AC040 = ac01.AC049;
-
+                    b_payrecord = true;
+                }                    
+				else
+				{
+                    int rowHandle = gridView1.LocateByValue("SA003", "管理费");
+                    if (rowHandle >= 0)
+					{
+                        ac01.AC040 = ac01.AC049.AddYears(Convert.ToInt32(gridView1.GetRowCellValue(rowHandle,"NUMS")));
+                        b_payrecord = true;
+					}
+                    else
+                        ac01.AC040 = ac01.AC049;
+                }
+                   
                 ac01.AC042 = '1';                       //缴费状态
                 ac01.AC048 = s_fa001;                   //缴费流水号
                 ac01.AC100 = Envior.cur_userId;         //经办人
@@ -554,7 +614,27 @@ namespace green.Form
                     sa01.SA020 = 'T';                   //发票类型
                     sa01.SA100 = Envior.cur_userId;     //经办人
                     sa01.SA200 = Tools.GetServerDate(); //经办日期
+                    sa01.Save();
+                    if(sa01.SA003 == "管理费"  /*如果是管理费*/ && sa01.SA002 == '1')
+					{
+                        //插入缴费表 
+                        PR01 pr01 = new PR01(unitOfWork1);
+                        pr01.PR001 = s_fa001;
+                        pr01.AC001 = s_ac001;
+                        pr01.PR002 = ac01.AC049;   //缴费开始日期
+                        pr01.PR003 = ac01.AC049.AddYears(Convert.ToInt32(sa01.NUMS));
+                        pr01.PRICE = sa01.PRICE;
+                        pr01.NUMS = sa01.NUMS;
+                        pr01.PR007 = sa01.SA007;
+                        pr01.PR008 = '1';
+                        pr01.PR100 = Envior.cur_userId;
+                        pr01.PR200 = Tools.GetServerDate();
+                        pr01.STATUS = '1';
+                        pr01.Save();
+                    }
                 }
+
+
                 //3.号位信息  
                 bi01.STATUS = '2';                                  //已使用
                 bi01.PRICE = Convert.ToDecimal(te_fixprice.Text);   //定价
@@ -572,7 +652,8 @@ namespace green.Form
                 fa01.FA004 = dec_total;                             //收费金额
                 fa01.FA190 = '0';                                   //开票标志-未开票
                 fa01.FA100 = Envior.cur_userId;                     //收费人
-                fa01.FA180 = te_ac250.Text;                         //备注
+
+                fa01.FA180 = MiscAction.GetTombPosition(bi01.BI001);//备注(墓穴位置)
                 fa01.FA200 = Tools.GetServerDate();                 //缴费时间
                 fa01.STATUS = "1";                                  //状态
                 fa01.WS001 = Envior.WORKSTATIONID;                  //工作站标识
@@ -586,6 +667,8 @@ namespace green.Form
                 }
 
                 unitOfWork1.CommitTransaction();
+                ///设置附加信息
+                BusinessAction.SetExtraInfo(s_ac001);
 
                 int i_papers = BusinessAction.GetInvoicePapers(s_fa001);
                 if(XtraMessageBox.Show("登记办理成功!\r\n" + "本次结算共需要" + i_papers.ToString() + "张发票,现在开具吗?","提示",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
@@ -615,15 +698,15 @@ namespace green.Form
                 {
                     PrintAction.PrintCert(s_ac001);
                 }
-                if (XtraMessageBox.Show("现在打印【缴费记录】?", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (b_payrecord && XtraMessageBox.Show("现在打印【缴费记录】?", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     PrintAction.PrintPayRecord(s_fa001);
                 }
                 ////打印购墓协议
-                if (XtraMessageBox.Show("现在打印【购墓协议】?", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    PrintAction.PrintProtocol(s_ac001);
-                }
+                //if (XtraMessageBox.Show("现在打印【购墓协议】?", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                //{
+                //    PrintAction.PrintProtocol(s_ac001);
+                //}
 
 
                 this.Close();
@@ -710,6 +793,14 @@ namespace green.Form
                 te_free_nums.Focus();
             }
 
+            DateTime dt_ac049;
+            if (!DateTime.TryParse(de_ac049.Text, out dt_ac049))
+            {
+                de_ac049.ErrorImageOptions.Alignment = ErrorIconAlignment.MiddleRight;
+                de_ac049.ErrorText = "请输入正确的购墓日期!";
+                return false;
+            }
+
             if (!gridView1.PostEditor()) return false;
             if (!gridView1.UpdateCurrentRow()) return false;
             if (!gridView2.PostEditor()) return false;
@@ -732,6 +823,14 @@ namespace green.Form
                     Tools.msg(MessageBoxIcon.Exclamation, "提示", "请输入数量!");
                     return false;
                 }
+
+                ///管理费和免费年限不可同时
+                if(s.SA003 == "管理费" && Convert.ToInt32(te_free_nums.EditValue) > 0)
+				{
+                    te_free_nums.ErrorImageOptions.Alignment = ErrorIconAlignment.MiddleRight;
+                    te_free_nums.ErrorText = "服务祭品中含有管理费,不能再设置免费年限!";
+                    return false;
+				}
             }
              
             return true;
@@ -774,19 +873,20 @@ namespace green.Form
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (unitOfWork1.InTransaction)
-                XtraMessageBox.Show("已经启动事务");
-            else
-                XtraMessageBox.Show("未启动事务");
-        }
 
-        private void sb_cancel_Click(object sender, EventArgs e)
+		}
+
+		private void sb_cancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
-        private void gridView1_ValidateRow(object sender, ValidateRowEventArgs e)
-        {          
+ 
+		private void te_fixprice_Validated(object sender, EventArgs e)
+		{
+            if (string.IsNullOrEmpty(te_price.Text) || Convert.ToDecimal(te_price.Text) == 0)
+            {
+                te_price.Text = te_fixprice.Text;
+            }
         }
-    }
+	}
 }

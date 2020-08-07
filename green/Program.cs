@@ -53,7 +53,8 @@ namespace green
 
 				BonusSkins.Register();
 				SkinManager.EnableFormSkins();
-				//UserLookAndFeel.Default.SetSkinStyle("DevExpress Style");
+
+				//UserLookAndFeel.Default.SetSkinStyle("Darkroom");
 
 				///// 连接数据库 //////
 				SqlAssist.ConnectDb();

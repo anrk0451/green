@@ -186,8 +186,8 @@ namespace green.Form
             }
             else if (s_bitStatus == "2")     //已使用
             {
-                e.Appearance.BackColor = Color.Red;
-                e.Appearance.ForeColor = Color.White;
+                e.Appearance.BackColor = Color.Yellow;
+                e.Appearance.ForeColor = Color.Black;
             }
             else if (s_bitStatus == "3")    //预定
             {

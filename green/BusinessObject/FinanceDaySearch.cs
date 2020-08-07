@@ -164,7 +164,11 @@ namespace green.BusinessObject
                 //if (!AppAction.CheckRight("收费作废", s_handler)) return;
 
                 string s_reason = string.Empty;
-                string s_ac001 = gridView1.GetRowCellValue(rowHandle, "AC001").ToString();
+                //string s_ac001 = string.Empty;
+
+                //if(gridView1.GetRowCellValue(rowHandle, "AC001") != null)
+                //    s_ac001 = gridView1.GetRowCellValue(rowHandle, "AC001").ToString();
+
                 string s_fa001 = gridView1.GetRowCellValue(rowHandle, "FA001").ToString();
                 string s_fa190 = gridView1.GetRowCellValue(rowHandle, "FA190").ToString();
                 string s_fpinfo = string.Empty;
@@ -243,8 +247,12 @@ namespace green.BusinessObject
                     Tools.msg(MessageBoxIcon.Exclamation, "提示", "不能补开以前财政发票收费!");
                     return;
                 }
- 
                 s_fa001 = gridView1.GetRowCellValue(rowHandle, "FA001").ToString();
+
+                int i_papers = BusinessAction.GetInvoicePapers(s_fa001);
+                if (XtraMessageBox.Show("本次结算共需要" + i_papers.ToString() + "张发票,现在开具吗?", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No) return;
+ 
+                
                 //获取税务客户信息
                 s_fa003 = gridView1.GetRowCellValue(rowHandle, "FA003").ToString();
 

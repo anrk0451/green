@@ -27,15 +27,8 @@ namespace green.Form
         private string s_action = string.Empty;
         private string s_bi001 = string.Empty;          //墓位编号
         private BI01 bi01 = null;
-        private BK01 bk01 = null;
-
         private DataDict_ds dd_ds = new DataDict_ds();  //字典数据源
-
-        //private Ac01_ds ac01_ds = new Ac01_ds();      //数据集
-
-        private decimal dec_total = decimal.Zero;
-        private decimal dec_sales = decimal.Zero;
-
+         
         private string s_fa001 = string.Empty;
         private AC01 ac01 = null;
 
@@ -51,7 +44,9 @@ namespace green.Form
         {
             s_ac001 = MiscAction.GetEntityPK("AC01");
             s_ac199 = s_ac001;
-            te_free_nums.EditValue = MiscAction.GetSysParaValue1("FREEYEARS");             
+            te_free_nums.EditValue = MiscAction.GetSysParaValue1("FREEYEARS");
+
+            de_ac049.EditValue = Tools.GetServerDate();
         }
         /// <summary>
         /// 选择墓位
@@ -301,8 +296,7 @@ namespace green.Form
                 ac01.AC020 = Convert.ToDecimal(bi01.PRICE);         //墓位定价
                 ac01.AC022 = Convert.ToDecimal(te_price.Text);      //售价
                 ac01.AC038 = Convert.ToInt32(te_free_nums.Text);    //免费管理年限
-
-                ac01.AC049 = Tools.GetServerDate();                 //购墓日期
+                ac01.AC049 = Convert.ToDateTime(de_ac049.Text);     //购墓日期
         
                 //管理费到期日期               
                 if (ac01.AC038 > 0)
@@ -328,6 +322,8 @@ namespace green.Form
                 bi01.Save();
  
                 unitOfWork1.CommitTransaction();
+                BusinessAction.SetExtraInfo(s_ac001);
+
                 Tools.msg(MessageBoxIcon.Information, "提示", "登记成功!");
 
                 this.Close();
@@ -369,6 +365,15 @@ namespace green.Form
                 te_ac002.ErrorText = "请输入购墓人身份证号!";
                 return false;
             }
+
+            DateTime dt_ac049;
+            if(!DateTime.TryParse(de_ac049.Text,out dt_ac049))
+			{
+                de_ac049.ErrorImageOptions.Alignment = ErrorIconAlignment.MiddleRight;
+                de_ac049.ErrorText = "请输入正确的购墓日期!";
+                return false;
+			}
+
 
             decimal dec_1 = decimal.Zero;
 

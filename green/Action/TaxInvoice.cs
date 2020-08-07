@@ -60,6 +60,7 @@ namespace green.Action
 
 			//3.将请求报文转换为Json 字符串 并整体用公钥 加密
 			string s_msg_json = Tools.ConvertObjectToJson(sendmsg);
+			//XtraMessageBox.Show(s_msg_json, "debug");
 
 			string s_fullmi = Tools.AesEncrypt(s_msg_json, Envior.TAX_PUBLIC_KEY);
 
@@ -92,13 +93,7 @@ namespace green.Action
 			//将业务数据转换为Json字符串
 			string s_json = Tools.ConvertObjectToJson(bdata);
 			string s_req_sid = MiscAction.GetEntityPK("TAXREQ");            //报文请求ID
-
- 
-			//Tools.msg(MessageBoxIcon.Information, "获取票号debug", s_json);
-			//Envior.NEXT_BILL_CODE = "000000000001";  //发票代码
-			//Envior.NEXT_BILL_NUM = "9999999999999";   //发票号码
-			//return 1;
- 
+			 
 			string s_retstr = WrapData("HQDQFPDMHM", s_req_sid, s_json);
 
 			if (string.IsNullOrEmpty(s_retstr))
@@ -204,6 +199,7 @@ namespace green.Action
 
 			//判断是正数负数发票
 			decimal dec_sum = Convert.ToDecimal(SqlAssist.ExecuteScalar("select je from v_fp01_nopen where fp001='" + fp001 + "'"));
+			string s_memo = SqlAssist.ExecuteScalar("select fa180 from fa01 f,v_fp01_nopen p where f.fa001 = p.fa001 and fp001='" + fp001 + "'").ToString();
 
 			//退费红冲 和 正数发票分开 
 			if (dec_sum < 0) return InvoiceRefund(fp001, taxClient);
@@ -267,7 +263,7 @@ namespace green.Action
 				c_detail.spsl = dec_nums.ToString();									 //数量
 				c_detail.dj = dec_price_notax.ToString();                                //单价(不含税)
 				c_detail.je = dec_je_notax.ToString();                                   //金额(不含税)
-				c_detail.sl = dec_rate.ToString();                                       //税率
+				c_detail.sl = dec_rate.ToString("#0.00");                                //税率
 				c_detail.se = dec_tax.ToString();                                        //税额						
 				c_detail.hsbz = "0";                                                     //含税标志 0 不含税1 含税
 				c_detail.spbm = BusinessAction.GetItemInvoiceCode(reader_sa01["SA002"].ToString(), reader_sa01["SA004"].ToString());  //商品编码(税务发票编码)
@@ -290,7 +286,7 @@ namespace green.Action
 			bdata.Add("hjje", dec_sum_notax.ToString());     //合计金额(不含税)
 			bdata.Add("hjse", dec_sum_tax.ToString());       //合计税额
 			bdata.Add("jshj", dec_sum_sum.ToString());       //价税合计
-			bdata.Add("bz", "");                             //备注
+			bdata.Add("bz", s_memo);                         //备注
 			bdata.Add("skr", Envior.TAX_CASHIER);            //收款人
 			bdata.Add("fhr", Envior.TAX_CHECKER);            //复核人
 			bdata.Add("kpr", Envior.cur_userName);           //开票人
@@ -307,9 +303,8 @@ namespace green.Action
 			string s_json = Tools.ConvertObjectToJson(bdata);
 			string s_req_sid = MiscAction.GetEntityPK("TAXREQ"); //报文请求ID
 
-			//Tools.msg(MessageBoxIcon.Information, "debug", s_json);
-			//return 1;
-
+			//XtraMessageBox.Show(s_json, "debug");
+ 
 			string s_retstr = WrapData("FPKJ", s_req_sid, s_json);
 			 
 			//分析返回结果
@@ -394,6 +389,7 @@ namespace green.Action
 			int itemCount = Convert.ToInt32(SqlAssist.ExecuteScalar("select count(*) from v_invoice_detail where fp001 ='" + fp001 + "'"));
 			//退费总金额
 			decimal dec_sum = Convert.ToDecimal(SqlAssist.ExecuteScalar("select sum(fp022) from v_invoice_detail where fp001='" + fp001 + "'"));
+			string s_memo = SqlAssist.ExecuteScalar("select fa180 from fa01 f,v_fp01_nopen p where f.fa001 = p.fa001 and fp001='" + fp001 + "'").ToString();
 
 			bdata.Add("fplxdm", Envior.TAX_INVOICE_TYPE);             //发票类型代码
 			bdata.Add("kplx", "1");                                   //开票类型 0-正数发票 1-负数
@@ -469,7 +465,7 @@ namespace green.Action
 				bdata.Add("hjje", dec_sum_notax.ToString());     //合计金额(不含税)
 				bdata.Add("hjse", dec_sum_tax.ToString());       //合计税额
 				bdata.Add("jshj", dec_sum_sum.ToString());       //价税合计
-				bdata.Add("bz", "");                             //备注
+				bdata.Add("bz", s_memo);                         //备注
 				bdata.Add("skr", Envior.TAX_CASHIER);            //收款人
 				bdata.Add("fhr", Envior.TAX_CHECKER);            //复核人
 				bdata.Add("kpr", Envior.cur_userName);           //开票人
@@ -504,7 +500,7 @@ namespace green.Action
 					c_detail.spsl = dec_nums.ToString(); ;									 //数量 
 					c_detail.dj = dec_price_notax.ToString();                                //单价(不含税) 
 					c_detail.je = dec_je_notax.ToString();                                   //金额(不含税)
-					c_detail.sl = dec_rate.ToString();                                       //税率
+					c_detail.sl = dec_rate.ToString("#0.00");                                //税率
 					c_detail.se = dec_tax.ToString();                                        //税额						
 					c_detail.hsbz = "0";                                                     //含税标志 0 不含税1 含税
 					c_detail.spbm = BusinessAction.GetItemInvoiceCode("", reader_sa01["SA004"].ToString());    //商品编码(税务发票编码)

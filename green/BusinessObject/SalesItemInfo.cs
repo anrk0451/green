@@ -212,7 +212,7 @@ namespace green.BusinessObject
 			DataTable dt_source = curIndex == 0 ? salesItem_ds.Si01 : salesItem_ds.Gi01;
 			foreach (DataRow dr in dt_source.Rows)
 			{
-				if (dr[2] == null || dr[2] is DBNull)
+				if (dr[1] == null || dr[1] is DBNull)
 				{
 					XtraMessageBox.Show("项目名称必须输入!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 					return false;

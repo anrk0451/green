@@ -15,90 +15,92 @@ using System.ComponentModel;
 using System.Reflection;
 namespace green.xpo.orcl
 {
-    public static class ConnectionHelper
-    {
-        static Type[] persistentTypes = new Type[] {
-            typeof(AC01),
-            typeof(FA01),
-            typeof(GI01),
-            typeof(SA01),
-            typeof(SI01),
-            typeof(SP01),
-            typeof(ST01),
-            typeof(V_ALL_VALIDITEM),
-            typeof(BI01),
-            typeof(V_ALL_ITEM),
-            typeof(AC03),
-            typeof(TU01),
-            typeof(FP01),
-            typeof(FP02),
-            typeof(CERTFACTORY),
-            typeof(V_AC01_REPORT),
-            typeof(RG01),
-            typeof(PR01),
-            typeof(V_PR01),
-            typeof(V_SA01),
-            typeof(TR01),
-            typeof(REFUND),
-            typeof(QT01),
-            typeof(BK01),
-            typeof(V_BK01_LIST),
-            typeof(V_REPORT_TOMBDATA_UNSALED),
-            typeof(V_REPORT_TOMBDATA_SALED),
-            typeof(V_REPORT_TOMBDATA_DEBT),
-            typeof(V_REPORT_TOMBDATA_BOOKIN),
-            typeof(V_REPORT_TOMBCANCEL),
-            typeof(V_REPORT_TOMBQUIT),
-            typeof(V_FA01_SEARCH),
-            typeof(UC01),
-            typeof(UR_MAPPER),
-            typeof(FA02),
-            typeof(SA10),
-            typeof(WS01),
-            typeof(排映射),
-            typeof(FA03),
-            typeof(墓区映射),
-            typeof(号位映射),
-            typeof(V_FINDETAIL),
-            typeof(V_HAVE_INVOICED),
-            typeof(V_PRINT_CERT),
-            typeof(V_PRINT_PAYRECORD),
-            typeof(V_PRINT_PROTOCOL)
-        };
-        public static Type[] GetPersistentTypes()
-        {
-            Type[] copy = new Type[persistentTypes.Length];
-            Array.Copy(persistentTypes, copy, persistentTypes.Length);
-            return copy;
-        }
-        public static string ConnectionString { get { return System.Configuration.ConfigurationManager.ConnectionStrings["orcl"].ConnectionString; } }
-        public static void Connect(DevExpress.Xpo.DB.AutoCreateOption autoCreateOption, bool threadSafe = false)
-        {
-            if (threadSafe)
-            {
-                var provider = XpoDefault.GetConnectionProvider(ConnectionString, autoCreateOption);
-                var dictionary = new DevExpress.Xpo.Metadata.ReflectionDictionary();
-                dictionary.GetDataStoreSchema(persistentTypes);
-                XpoDefault.DataLayer = new ThreadSafeDataLayer(dictionary, provider);
-            }
-            else
-            {
-                XpoDefault.DataLayer = XpoDefault.GetDataLayer(ConnectionString, autoCreateOption);
-            }
-            XpoDefault.Session = null;
-        }
-        public static DevExpress.Xpo.DB.IDataStore GetConnectionProvider(DevExpress.Xpo.DB.AutoCreateOption autoCreateOption)
-        {
-            return XpoDefault.GetConnectionProvider(ConnectionString, autoCreateOption);
-        }
-        public static DevExpress.Xpo.DB.IDataStore GetConnectionProvider(DevExpress.Xpo.DB.AutoCreateOption autoCreateOption, out IDisposable[] objectsToDisposeOnDisconnect)
-        {
-            return XpoDefault.GetConnectionProvider(ConnectionString, autoCreateOption, out objectsToDisposeOnDisconnect);
-        }
-        public static IDataLayer GetDataLayer(DevExpress.Xpo.DB.AutoCreateOption autoCreateOption)
-        {
-            return XpoDefault.GetDataLayer(ConnectionString, autoCreateOption);
-        }
-    }
+	public static class ConnectionHelper
+	{
+		static Type[] persistentTypes = new Type[] {
+			typeof(AC01),
+			typeof(FA01),
+			typeof(GI01),
+			typeof(SA01),
+			typeof(SI01),
+			typeof(SP01),
+			typeof(ST01),
+			typeof(V_ALL_VALIDITEM),
+			typeof(BI01),
+			typeof(V_ALL_ITEM),
+			typeof(AC03),
+			typeof(TU01),
+			typeof(FP01),
+			typeof(FP02),
+			typeof(CERTFACTORY),
+			typeof(V_AC01_REPORT),
+			typeof(RG01),
+			typeof(PR01),
+			typeof(V_PR01),
+			typeof(V_SA01),
+			typeof(TR01),
+			typeof(REFUND),
+			typeof(QT01),
+			typeof(BK01),
+			typeof(V_BK01_LIST),
+			typeof(V_REPORT_TOMBDATA_UNSALED),
+			typeof(V_REPORT_TOMBDATA_SALED),
+			typeof(V_REPORT_TOMBDATA_DEBT),
+			typeof(V_REPORT_TOMBDATA_BOOKIN),
+			typeof(V_REPORT_TOMBCANCEL),
+			typeof(V_REPORT_TOMBQUIT),
+			typeof(V_FA01_SEARCH),
+			typeof(UC01),
+			typeof(UR_MAPPER),
+			typeof(FA02),
+			typeof(SA10),
+			typeof(WS01),
+			typeof(排映射),
+			typeof(FA03),
+			typeof(墓区映射),
+			typeof(号位映射),
+			typeof(V_FINDETAIL),
+			typeof(V_HAVE_INVOICED),
+			typeof(V_PRINT_CERT),
+			typeof(V_PRINT_PAYRECORD),
+			typeof(V_PRINT_PROTOCOL),
+			typeof(V_INVOICEDETAIL_REPORT),
+			typeof(V_INVOICE_REPORT)
+		};
+		public static Type[] GetPersistentTypes()
+		{
+			Type[] copy = new Type[persistentTypes.Length];
+			Array.Copy(persistentTypes, copy, persistentTypes.Length);
+			return copy;
+		}
+		public static string ConnectionString { get { return System.Configuration.ConfigurationManager.ConnectionStrings["orcl"].ConnectionString; } }
+		public static void Connect(DevExpress.Xpo.DB.AutoCreateOption autoCreateOption, bool threadSafe = false)
+		{
+			if (threadSafe)
+			{
+				var provider = XpoDefault.GetConnectionProvider(ConnectionString, autoCreateOption);
+				var dictionary = new DevExpress.Xpo.Metadata.ReflectionDictionary();
+				dictionary.GetDataStoreSchema(persistentTypes);
+				XpoDefault.DataLayer = new ThreadSafeDataLayer(dictionary, provider);
+			}
+			else
+			{
+				XpoDefault.DataLayer = XpoDefault.GetDataLayer(ConnectionString, autoCreateOption);
+			}
+			XpoDefault.Session = null;
+		}
+		public static DevExpress.Xpo.DB.IDataStore GetConnectionProvider(DevExpress.Xpo.DB.AutoCreateOption autoCreateOption)
+		{
+			return XpoDefault.GetConnectionProvider(ConnectionString, autoCreateOption);
+		}
+		public static DevExpress.Xpo.DB.IDataStore GetConnectionProvider(DevExpress.Xpo.DB.AutoCreateOption autoCreateOption, out IDisposable[] objectsToDisposeOnDisconnect)
+		{
+			return XpoDefault.GetConnectionProvider(ConnectionString, autoCreateOption, out objectsToDisposeOnDisconnect);
+		}
+		public static IDataLayer GetDataLayer(DevExpress.Xpo.DB.AutoCreateOption autoCreateOption)
+		{
+			return XpoDefault.GetDataLayer(ConnectionString, autoCreateOption);
+		}
+	}
 
 }

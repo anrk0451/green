@@ -365,5 +365,98 @@ namespace green.Action
 
 			return SqlAssist.ExecuteScalar("select pkg_business.fun_haveRefund(:ic_fa001) from dual", new OracleParameter[] { op_fa001 }).ToString();
 		}
+		/// <summary>
+		/// 映射服务商品
+		/// </summary>
+		/// <param name="itemId"></param>
+		/// <returns></returns>
+		public static string Mapper_item(string itemId)
+		{
+			OracleParameter op_itemId = new OracleParameter("ic_itemId", OracleDbType.Varchar2, 10);
+			op_itemId.Direction = ParameterDirection.Input;
+			op_itemId.Value = itemId;
+			Object re = SqlAssist.ExecuteFunction("pkg_report.fun_mapper_item", new OracleParameter[] { op_itemId });
+			return re.ToString();
+		}
+
+		/// <summary>
+		///	财务综合统计-笔数	
+		/// </summary>
+		/// <param name="sbegin"></param>
+		/// <param name="send"></param>
+		/// <returns></returns>
+		public static int FinStat_bs(string sbegin,string send)
+		{
+			OracleParameter op_begin = new OracleParameter("ic_begin", OracleDbType.Varchar2, 10);
+			op_begin.Direction = ParameterDirection.Input;
+			op_begin.Value = sbegin;
+
+			OracleParameter op_end = new OracleParameter("ic_end", OracleDbType.Varchar2, 10);
+			op_end.Direction = ParameterDirection.Input;
+			op_end.Value = send;
+			;
+			Object re = SqlAssist.ExecuteFunction("pkg_report.fun_finstat_bs", new OracleParameter[] { op_begin,op_end });
+			return Convert.ToInt32(re.ToString());
+		}
+
+		/// <summary>
+		///	财务综合统计-金额	
+		/// </summary>
+		/// <param name="sbegin"></param>
+		/// <param name="send"></param>
+		/// <returns></returns>
+		public static decimal FinStat_je(string sbegin, string send)
+		{
+			OracleParameter op_begin = new OracleParameter("ic_begin", OracleDbType.Varchar2, 10);
+			op_begin.Direction = ParameterDirection.Input;
+			op_begin.Value = sbegin;
+
+			OracleParameter op_end = new OracleParameter("ic_end", OracleDbType.Varchar2, 10);
+			op_end.Direction = ParameterDirection.Input;
+			op_end.Value = send;
+			;
+			Object re = SqlAssist.ExecuteFunction("pkg_report.fun_finstat_je", new OracleParameter[] { op_begin, op_end });
+			return Convert.ToDecimal(re.ToString());
+		}
+
+		/// <summary>
+		/// 设置 逝者附加信息
+		/// </summary>
+		/// <param name="ac001"></param>
+		/// <returns></returns>
+		public static int SetExtraInfo(string ac001)
+		{
+			//购墓流水号
+			OracleParameter op_ac001 = new OracleParameter("ic_ac001", OracleDbType.Varchar2, 10);
+			op_ac001.Direction = ParameterDirection.Input;
+			op_ac001.Value = ac001;
+
+			return SqlAssist.ExecuteProcedure("pkg_business.prc_SetExtraInfo", new OracleParameter[] { op_ac001 });
+		}
+		/// <summary>
+		/// 收款员统计
+		/// </summary>
+		/// <param name="s_begin"></param>
+		/// <param name="s_end"></param>
+		/// <returns></returns>
+		public static int CashierStat(string uc001,string s_begin,string s_end)
+		{
+			//收款员
+			OracleParameter op_uc001 = new OracleParameter("ic_uc001", OracleDbType.Varchar2, 10);
+			op_uc001.Direction = ParameterDirection.Input;
+			op_uc001.Value = uc001;
+
+			//统计起始日期
+			OracleParameter op_begin = new OracleParameter("ic_begin", OracleDbType.Varchar2, 10);
+			op_begin.Direction = ParameterDirection.Input;
+			op_begin.Value = s_begin;
+
+			//统计终止日期
+			OracleParameter op_end = new OracleParameter("ic_end", OracleDbType.Varchar2, 10);
+			op_end.Direction = ParameterDirection.Input;
+			op_end.Value = s_end;
+
+			return SqlAssist.ExecuteProcedure("pkg_report.prc_cashier_stat", new OracleParameter[] { op_uc001,op_begin,op_end });
+		}
 	}
 }

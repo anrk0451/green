@@ -37,15 +37,28 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.BonusSkins.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Charts.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.DataAccess.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Office.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Pdf.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.PivotGrid.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Printing.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v18.2.Export, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Sparkline.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v18.2.UI, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Xpo.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraBars.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGauges.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraGrid.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraPrinting.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v18.2.Extensions, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraTreeList.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="log4net">
       <HintPath>..\..\dll\log4net.dll</HintPath>
@@ -108,6 +121,12 @@
     <Compile Include="BusinessObject\BusinessBrow.Designer.cs">
       <DependentUpon>BusinessBrow.cs</DependentUpon>
     </Compile>
+    <Compile Include="BusinessObject\CashierStat.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BusinessObject\CashierStat.Designer.cs">
+      <DependentUpon>CashierStat.cs</DependentUpon>
+    </Compile>
     <Compile Include="BusinessObject\DataDict.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -119,6 +138,18 @@
     </Compile>
     <Compile Include="BusinessObject\FinanceDaySearch.Designer.cs">
       <DependentUpon>FinanceDaySearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObject\FinanceStat.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BusinessObject\FinanceStat.Designer.cs">
+      <DependentUpon>FinanceStat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObject\FinRemoveReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BusinessObject\FinRemoveReport.Designer.cs">
+      <DependentUpon>FinRemoveReport.cs</DependentUpon>
     </Compile>
     <Compile Include="BusinessObject\InvoiceReport.cs">
       <SubType>UserControl</SubType>
@@ -246,6 +277,12 @@
     </Compile>
     <Compile Include="Form\Frm_finDaySearch.Designer.cs">
       <DependentUpon>Frm_finDaySearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Frm_FinStat_select.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Frm_FinStat_select.Designer.cs">
+      <DependentUpon>Frm_FinStat_select.cs</DependentUpon>
     </Compile>
     <Compile Include="Form\Frm_freeBit.cs">
       <SubType>Form</SubType>
@@ -391,6 +428,24 @@
     <Compile Include="Misc\Tools.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Report\FinStat_report1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\FinStat_report1.Designer.cs">
+      <DependentUpon>FinStat_report1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\FinStat_report2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\FinStat_report2.Designer.cs">
+      <DependentUpon>FinStat_report2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\FinStat_report3.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\FinStat_report3.Designer.cs">
+      <DependentUpon>FinStat_report3.cs</DependentUpon>
+    </Compile>
     <Compile Include="SplashScreen1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -522,6 +577,14 @@
     <Compile Include="xpo\ORMDataModel1Code\V_HAVE_INVOICED.Designer.cs">
       <DependentUpon>V_HAVE_INVOICED.cs</DependentUpon>
     </Compile>
+    <Compile Include="xpo\ORMDataModel1Code\V_INVOICEDETAIL_REPORT.cs" />
+    <Compile Include="xpo\ORMDataModel1Code\V_INVOICEDETAIL_REPORT.Designer.cs">
+      <DependentUpon>V_INVOICEDETAIL_REPORT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="xpo\ORMDataModel1Code\V_INVOICE_REPORT.cs" />
+    <Compile Include="xpo\ORMDataModel1Code\V_INVOICE_REPORT.Designer.cs">
+      <DependentUpon>V_INVOICE_REPORT.cs</DependentUpon>
+    </Compile>
     <Compile Include="xpo\ORMDataModel1Code\V_PR01.cs" />
     <Compile Include="xpo\ORMDataModel1Code\V_PR01.Designer.cs">
       <DependentUpon>V_PR01.cs</DependentUpon>
@@ -594,11 +657,20 @@
     <EmbeddedResource Include="BusinessObject\BusinessBrow.resx">
       <DependentUpon>BusinessBrow.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BusinessObject\CashierStat.resx">
+      <DependentUpon>CashierStat.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BusinessObject\DataDict.resx">
       <DependentUpon>DataDict.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BusinessObject\FinanceDaySearch.resx">
       <DependentUpon>FinanceDaySearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BusinessObject\FinanceStat.resx">
+      <DependentUpon>FinanceStat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BusinessObject\FinRemoveReport.resx">
+      <DependentUpon>FinRemoveReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BusinessObject\InvoiceReport.resx">
       <DependentUpon>InvoiceReport.cs</DependentUpon>
@@ -653,6 +725,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form\Frm_finDaySearch.resx">
       <DependentUpon>Frm_finDaySearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Frm_FinStat_select.resx">
+      <DependentUpon>Frm_FinStat_select.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\Frm_freeBit.resx">
       <DependentUpon>Frm_freeBit.cs</DependentUpon>
@@ -720,6 +795,15 @@
     <EmbeddedResource Include="Frm_main.resx">
       <DependentUpon>Frm_main.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Report\FinStat_report1.resx">
+      <DependentUpon>FinStat_report1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\FinStat_report2.resx">
+      <DependentUpon>FinStat_report2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\FinStat_report3.resx">
+      <DependentUpon>FinStat_report3.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SplashScreen1.resx">
       <DependentUpon>SplashScreen1.cs</DependentUpon>
     </EmbeddedResource>
@@ -776,5 +860,6 @@
     <None Include="Resources\bo_document.svg" />
     <None Include="Resources\nodata.jpg" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

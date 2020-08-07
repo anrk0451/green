@@ -46,6 +46,7 @@ namespace green.BusinessObject
                 string s_ac050 = frm_1.swapdata["ac050"].ToString();
                 string s_rg001 = frm_1.swapdata["rg001"].ToString();
                 string s_bi003 = frm_1.swapdata["bi003"].ToString();
+                string s_ac113 = frm_1.swapdata["ac113"].ToString();
                 string s_criteria = string.Empty;
                 string s_range = string.Empty;
 
@@ -66,6 +67,8 @@ namespace green.BusinessObject
                                         "AC050 like '" + s_ac050 + "' and " +
                                         "AC010 like '" + s_rg001 + "' and " +
                                         "BI003 like '" + s_bi003 + "'";
+
+                    if (s_ac113 != "%") s_criteria += "and AC330 like '" + s_ac113 + "' ";
 
                     if (frm_1.swapdata.ContainsKey("range"))
                     {
@@ -155,7 +158,7 @@ namespace green.BusinessObject
             }
             else if (Tools.IsHZ(s_text))
             {
-                xpCollection_ac01.Criteria = CriteriaOperator.Parse("AC003 like '" + s_text + "%'");
+                xpCollection_ac01.Criteria = CriteriaOperator.Parse("AC003 like '" + s_text + "%' or AC330 like'" + s_text + "%'");
                 xpCollection_ac01.LoadingEnabled = true;
             } 
              
@@ -263,6 +266,7 @@ namespace green.BusinessObject
             if (rowHandle >= 0)
             {
                 ac01 = xpCollection_ac01[gridView1.GetDataSourceRowIndex(rowHandle)] as V_AC01_REPORT;
+                
                 FA01 fa01 = unitOfWork1.GetObjectByKey<FA01>(ac01.AC048, true);
                 if(fa01 != null)
                 {
@@ -409,5 +413,7 @@ namespace green.BusinessObject
             string s_1 = Tools.GetServerDate().ToString("yyyy&MM&dd");
             XtraMessageBox.Show(s_1);
         }
-    }
+
+	 
+	}
 }

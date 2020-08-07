@@ -28,8 +28,8 @@ namespace green.Form
 
         private void sb_ok_Click(object sender, EventArgs e)
         {
-            this.swapdata["dbegin"] = dateEdit1.EditValue.ToString();
-            this.swapdata["dend"] = Convert.ToDateTime(dateEdit2.EditValue).AddDays(1).ToString();
+            this.swapdata["dbegin"] = Convert.ToDateTime(dateEdit1.EditValue).ToString("yyyy-MM-dd");
+            this.swapdata["dend"] = Convert.ToDateTime(dateEdit2.EditValue).AddDays(1).ToString("yyyy-MM-dd");
             
             this.swapdata["fa003"] = string.IsNullOrEmpty(textEdit1.Text) ? "%" : textEdit1.Text;
             switch (comboBoxEdit1.Text)

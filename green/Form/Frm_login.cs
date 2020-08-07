@@ -104,5 +104,10 @@ namespace green.Form
 			}
 			 
 		}
-    }
+
+		private void Frm_login_Load(object sender, EventArgs e)
+		{
+
+		}
+	}
 }

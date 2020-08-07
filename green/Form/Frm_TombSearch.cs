@@ -70,6 +70,7 @@ namespace green.Form
                 b_full = false;
                 this.swapdata["rg001"] = le_region.EditValue.ToString();
             }
+            
             if (string.IsNullOrEmpty(te_bi003.Text))
             {
                 this.swapdata["bi003"] = "%";
@@ -79,11 +80,25 @@ namespace green.Form
                 b_full = false;
                 this.swapdata["bi003"] = te_bi003.Text;
             }
+
+            if (string.IsNullOrEmpty(te_ac113.Text))
+            {
+                this.swapdata["ac113"] = "%";
+            }
+            else
+            {
+                b_full = false;
+                this.swapdata["ac113"] = te_ac113.Text + "%";
+            }
+
             if (!string.IsNullOrEmpty(comboBoxEdit1.Text))
             {
                 b_full = false;
                 this.swapdata["range"] = comboBoxEdit1.Text;
             }
+
+
+
 
 
             if (b_full)

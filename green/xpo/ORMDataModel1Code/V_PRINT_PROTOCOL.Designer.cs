@@ -16,70 +16,70 @@ using System.Reflection;
 namespace green.xpo.orcl
 {
 
-    [NonPersistent]
-    public partial class V_PRINT_PROTOCOL : XPLiteObject
-    {
-        string fAC001;
-        [Size(10)]
-        public string AC001
-        {
-            get { return fAC001; }
-            set { SetPropertyValue<string>(nameof(AC001), ref fAC001, value); }
-        }
-        string fAC003;
-        [Size(50)]
-        public string AC003
-        {
-            get { return fAC003; }
-            set { SetPropertyValue<string>(nameof(AC003), ref fAC003, value); }
-        }
-        string fAC005;
-        public string AC005
-        {
-            get { return fAC005; }
-            set { SetPropertyValue<string>(nameof(AC005), ref fAC005, value); }
-        }
-        string fGUYNAME;
-        [Size(4000)]
-        public string GUYNAME
-        {
-            get { return fGUYNAME; }
-            set { SetPropertyValue<string>(nameof(GUYNAME), ref fGUYNAME, value); }
-        }
-        string fRELATION;
-        [Size(4000)]
-        public string RELATION
-        {
-            get { return fRELATION; }
-            set { SetPropertyValue<string>(nameof(RELATION), ref fRELATION, value); }
-        }
-        decimal fSALEPRICE;
-        public decimal SALEPRICE
-        {
-            get { return fSALEPRICE; }
-            set { SetPropertyValue<decimal>(nameof(SALEPRICE), ref fSALEPRICE, value); }
-        }
-        string fREGION_NAME;
-        [Size(50)]
-        public string REGION_NAME
-        {
-            get { return fREGION_NAME; }
-            set { SetPropertyValue<string>(nameof(REGION_NAME), ref fREGION_NAME, value); }
-        }
-        string fROWER_NAME;
-        [Size(50)]
-        public string ROWER_NAME
-        {
-            get { return fROWER_NAME; }
-            set { SetPropertyValue<string>(nameof(ROWER_NAME), ref fROWER_NAME, value); }
-        }
-        string fBITDESC;
-        [Size(50)]
-        public string BITDESC
-        {
-            get { return fBITDESC; }
-            set { SetPropertyValue<string>(nameof(BITDESC), ref fBITDESC, value); }
-        }
-    }
+	public partial class V_PRINT_PROTOCOL : XPLiteObject
+	{
+		string fAC001;
+		[Key]
+		[Size(10)]
+		public string AC001
+		{
+			get { return fAC001; }
+			set { SetPropertyValue<string>(nameof(AC001), ref fAC001, value); }
+		}
+		string fAC003;
+		[Size(50)]
+		public string AC003
+		{
+			get { return fAC003; }
+			set { SetPropertyValue<string>(nameof(AC003), ref fAC003, value); }
+		}
+		string fAC005;
+		public string AC005
+		{
+			get { return fAC005; }
+			set { SetPropertyValue<string>(nameof(AC005), ref fAC005, value); }
+		}
+		string fGUYNAME;
+		[Size(4000)]
+		public string GUYNAME
+		{
+			get { return fGUYNAME; }
+			set { SetPropertyValue<string>(nameof(GUYNAME), ref fGUYNAME, value); }
+		}
+		string fRELATION;
+		[Size(4000)]
+		public string RELATION
+		{
+			get { return fRELATION; }
+			set { SetPropertyValue<string>(nameof(RELATION), ref fRELATION, value); }
+		}
+		decimal fSALEPRICE;
+		public decimal SALEPRICE
+		{
+			get { return fSALEPRICE; }
+			set { SetPropertyValue<decimal>(nameof(SALEPRICE), ref fSALEPRICE, value); }
+		}
+		string fREGION_NAME;
+		[Size(50)]
+		public string REGION_NAME
+		{
+			get { return fREGION_NAME; }
+			set { SetPropertyValue<string>(nameof(REGION_NAME), ref fREGION_NAME, value); }
+		}
+		string fROWER_NAME;
+		[Size(50)]
+		public string ROWER_NAME
+		{
+			get { return fROWER_NAME; }
+			set { SetPropertyValue<string>(nameof(ROWER_NAME), ref fROWER_NAME, value); }
+		}
+		string fBITDESC;
+		[Size(50)]
+		public string BITDESC
+		{
+			get { return fBITDESC; }
+			set { SetPropertyValue<string>(nameof(BITDESC), ref fBITDESC, value); }
+		}
+	}
 
 }

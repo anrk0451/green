@@ -20,6 +20,10 @@ using green.BaseObject;
 using DevExpress.XtraTab.ViewInfo;
 using green.Form;
 using DevExpress.XtraEditors;
+using System.Configuration;
+using DevExpress.Skins;
+using DevExpress.XtraBars.Helpers;
+using DevExpress.LookAndFeel;
 
 namespace green
 {     
@@ -73,6 +77,15 @@ namespace green
 
             //关闭关联的打印进程
             if (!printprocess.HasExited) printprocess.Kill();
+
+            //保存皮肤
+            //Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            //if (string.IsNullOrEmpty(skinRibbonGalleryBarItem1.Gallery.GetCheckedItems()[0].Caption))
+            //    config.AppSettings.Settings["skinname"].Value = "LiLian";
+            //else
+            //    config.AppSettings.Settings["skinname"].Value = skinRibbonGalleryBarItem1.Gallery.GetCheckedItems()[0].Caption;
+
+            //config.Save(ConfigurationSaveMode.Modified);
         }
 
         /// <summary>
@@ -82,6 +95,7 @@ namespace green
         /// <param name="e"></param>
         private void Frm_main_Load(object sender, EventArgs e)
         {
+ 
             //读取业务对象
             OracleDataAdapter bo01Adapter = SqlAssist.getSingleTableAdapter("select * from bo01");
             bo01Adapter.Fill(dt_bo01);
@@ -107,6 +121,8 @@ namespace green
 
             //连接打印服务
             this.ConnectPrtServ();
+
+            Envior.TAX_APPID = ConfigurationManager.OpenExeConfiguration(Application.ExecutablePath).AppSettings.Settings["APPID"].Value.ToString();
         }
 
         /// <summary>
@@ -409,12 +425,27 @@ namespace green
         {
             openBusinessObject("InvoiceReport");
         }
-    }
 
-    /// <summary>
-    /// 业务对象
-    /// </summary>
-    class Bo01
+		private void barButtonItem5_ItemClick(object sender, ItemClickEventArgs e)
+		{
+            openBusinessObject("FinanceStat");
+        }
+
+		private void barButtonItem16_ItemClick(object sender, ItemClickEventArgs e)
+		{
+            XtraMessageBox.Show(skinRibbonGalleryBarItem1.Gallery.GetCheckedItems()[0].Caption);
+		}
+
+		private void barButtonItem6_ItemClick(object sender, ItemClickEventArgs e)
+		{
+            openBusinessObject("CashierStat");
+        }
+	}
+
+	/// <summary>
+	/// 业务对象
+	/// </summary>
+	class Bo01
     {
         public string bo001 { get; set; }   //业务编号
 

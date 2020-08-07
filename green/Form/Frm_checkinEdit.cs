@@ -173,6 +173,8 @@ namespace green.Form
                 ac01.AC250 = te_ac250.Text;
                 ac01.Save();
                 unitOfWork1.CommitTransaction();
+                BusinessAction.SetExtraInfo(s_ac001);
+
                 Tools.msg(MessageBoxIcon.Information, "提示", "保存成功!");
                 this.DialogResult = DialogResult.OK;
                 this.Close();
